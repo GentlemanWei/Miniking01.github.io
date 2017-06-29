@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html lang="zh-Hans">
 <head>
 
     <!--[if lt IE 9]>
@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="#单一职责原则 ##1.RBAC模型： 基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离 ##2.There should never be more than one reason for class to change. ##3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。">
+<meta name="description" content="单一职责原则 1.RBAC模型：基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离2.There should never be more than one reason for class to change.3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。（1）耦合的强弱取决于">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Thu Jun 29 2017 00:00:00 GMT+0800 (中国标准时间)">
 <meta property="og:url" content="http://yoursite.com/2017/06/29/单一职责原则/index.html">
 <meta property="og:site_name" content="Blog-Github">
-<meta property="og:description" content="#单一职责原则 ##1.RBAC模型： 基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离 ##2.There should never be more than one reason for class to change. ##3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。">
-<meta property="og:updated_time" content="2017-06-29T10:39:16.694Z">
+<meta property="og:description" content="单一职责原则 1.RBAC模型：基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离2.There should never be more than one reason for class to change.3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。（1）耦合的强弱取决于">
+<meta property="og:updated_time" content="2017-06-29T16:07:12.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Thu Jun 29 2017 00:00:00 GMT+0800 (中国标准时间)">
-<meta name="twitter:description" content="#单一职责原则 ##1.RBAC模型： 基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离 ##2.There should never be more than one reason for class to change. ##3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。">
+<meta name="twitter:description" content="单一职责原则 1.RBAC模型：基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离2.There should never be more than one reason for class to change.3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。（1）耦合的强弱取决于">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -136,13 +136,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜單</li>
-                        <li>標籤</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>友情鏈接</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>關於我</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -254,7 +254,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-单一职责原则" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -292,30 +292,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>#单一职责原则</p>
-<p>##1.RBAC模型：</p>
-<p></p><p>基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离</p><p></p>
-<p>##2.There should never be more than one reason for class to change.</p>
-<p>##3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。</p>
-<p>##4.耦合性：是对模块间关联程度的度量</p>
-<p></p><p>（1）耦合的强弱取决于模块之间接口的复杂性、调用模块的方式以及通过界面传送数据的多少。</p><p></p>
-<p></p><p>（2）模块间的耦合度是指模块之间的依赖关系，包括控制关系、调用关系、数据传递关系。</p><p></p>
-<p></p><p>（3）模块间联系越多，其耦合性越强，同时表明其独立性越差。<br>高内聚低耦合</p><p></p>
-<p>##5.模块之间构成耦合性的七种类型（独立性由强到弱）：</p>
-<p></p><p> （1）非直接耦合：没有直接关系，之间联系完全通过主模块的控制和调用来实现</p><p></p>
-<p></p><p>（2）数据耦合：彼此之间是通过数据参数（不是控制参数、公共数据结构或外部变量）来交换输入、输出信息的</p><p></p>
-<p></p><p>（3）印记耦合：一组通过参数传递记录（某一数据结构的子结构，而不是简单的变量）信息的模块间关系</p><p></p>
-<p></p><p>（4）控制耦合：在单一接口上选择多功能模块中的某项功能</p><p></p>
-<p></p><p>（5）外部耦合一组模块都访问同一全局简单变量而不是同一全局数据结构，而且不是通过参数表传递该全局变量的信息</p><p></p>
-<p></p><p>（6）公共耦合：一组模块都访问同一个公共数据环境</p><p></p>
-<p></p><p>（7）内容耦合：一个模块直接访问另外一个模块的内部数据；一个模块不通过正常入口转到另一模块内部；两个模块有一部分程序代码重叠（只可能出现在汇编语言中）；一个模块有多个入口</p><p></p>
-<p>##6.单一原则的好处：</p>
-<p></p><p>（1）类的复杂性降低，实现什么职责都有清晰明确的定义</p><p></p>
-<p></p><p>（2）可读性提高，复杂性降低</p><p></p>
-<p></p><p>（3）可维护性提高，可读性提高</p><p></p>
-<p></p><p>（4）变更引起的风险降低，变更是必不可少的，变更对其他接口几无影响，对系统的拓展性、维护性都有非常大的帮助</p><p></p>
-<p>##7.This is sometimes hard to see</p>
-
+        <p></p><h1>单一职责原则</h1><p></p>
+<h2>1.RBAC模型：</h2><br><p>基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离</p><br><h2>2.There should never be more than one reason for class to change.</h2><br><h2>3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。</h2><br><h24.耦合性：是对模块间关联程度的度量><br><p>（1）耦合的强弱取决于模块之间接口的复杂性、调用模块的方式以及通过界面传送数据的多少。</p><br><p>（2）模块间的耦合度是指模块之间的依赖关系，包括控制关系、调用关系、数据传递关系。</p><br><p>（3）模块间联系越多，其耦合性越强，同时表明其独立性越差。<br>高内聚低耦合</p><br><h2>5.模块之间构成耦合性的七种类型（独立性由强到弱）：</h2><br><p> （1）非直接耦合：没有直接关系，之间联系完全通过主模块的控制和调用来实现</p><br><p>（2）数据耦合：彼此之间是通过数据参数（不是控制参数、公共数据结构或外部变量）来交换输入、输出信息的</p><br><p>（3）印记耦合：一组通过参数传递记录（某一数据结构的子结构，而不是简单的变量）信息的模块间关系</p><br><p>（4）控制耦合：在单一接口上选择多功能模块中的某项功能</p><br><p>（5）外部耦合一组模块都访问同一全局简单变量而不是同一全局数据结构，而且不是通过参数表传递该全局变量的信息</p><br><p>（6）公共耦合：一组模块都访问同一个公共数据环境</p><br><p>（7）内容耦合：一个模块直接访问另外一个模块的内部数据；一个模块不通过正常入口转到另一模块内部；两个模块有一部分程序代码重叠（只可能出现在汇编语言中）；一个模块有多个入口</p><br><h2>6.单一原则的好处：</h2><br><p>（1）类的复杂性降低，实现什么职责都有清晰明确的定义</p><br><p>（2）可读性提高，复杂性降低</p><br><p>（3）可维护性提高，可读性提高</p><br><p>（4）变更引起的风险降低，变更是必不可少的，变更对其他接口几无影响，对系统的拓展性、维护性都有非常大的帮助</p><br><h2>7.This is sometimes hard to see</h2></h24.耦合性：是对模块间关联程度的度量>
       
     </div>
     
@@ -323,17 +301,17 @@
   
     
     <div class="copyright">
-        <p><span>本文標題:</span><a href="/2017/06/29/单一职责原则/">Thu Jun 29 2017 00:00:00 GMT+0800 (中国标准时间)</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主頁">LearnSlag</a></p>
-        <p><span>發布時間:</span>2017-06-29, 17:21:00</p>
-        <p><span>最後更新:</span>2017-06-29, 18:39:16</p>
+        <p><span>本文标题:</span><a href="/2017/06/29/单一职责原则/">Thu Jun 29 2017 00:00:00 GMT+0800 (中国标准时间)</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">LearnSlag</a></p>
+        <p><span>发布时间:</span>2017-06-29, 17:21:00</p>
+        <p><span>最后更新:</span>2017-06-30, 00:07:12</p>
         <p>
-            <span>原始鏈接:</span><a class="post-url" href="/2017/06/29/单一职责原则/" title="Thu Jun 29 2017 00:00:00 GMT+0800 (中国标准时间)">http://yoursite.com/2017/06/29/单一职责原则/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/29/单一职责原则/　　作者: LearnSlag" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/29/单一职责原则/" title="Thu Jun 29 2017 00:00:00 GMT+0800 (中国标准时间)">http://yoursite.com/2017/06/29/单一职责原则/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/29/单一职责原则/　　作者: LearnSlag" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -354,9 +332,9 @@
 </article>
 
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目錄</strong>
+        <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">单一职责原则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">1.RBAC模型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.</span> <span class="toc-text">2.There should never be more than one reason for class to change.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.4.</span> <span class="toc-text">5.模块之间构成耦合性的七种类型（独立性由强到弱）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.5.</span> <span class="toc-text">6.单一原则的好处：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.6.</span> <span class="toc-text">7.This is sometimes hard to see</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -370,10 +348,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -420,7 +398,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主頁"><i class="fa fa-home"></i></a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
 
@@ -441,14 +419,14 @@
                 2016-2017 LearnSlag
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、簡單且強大的網誌框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄網誌主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -457,7 +435,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -490,9 +468,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
