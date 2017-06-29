@@ -15,12 +15,16 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="1.RBAC模型：基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离2.There should never be more than one reason for class to change.3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。（1）耦合的强弱取决于模块之间接口的">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Blog-Github">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/06/29/Single Responsibility Principle/index.html">
 <meta property="og:site_name" content="Blog-Github">
+<meta property="og:description" content="1.RBAC模型：基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离2.There should never be more than one reason for class to change.3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。（1）耦合的强弱取决于模块之间接口的">
+<meta property="og:updated_time" content="2017-06-29T16:54:17.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Blog-Github">
+<meta name="twitter:description" content="1.RBAC模型：基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离2.There should never be more than one reason for class to change.3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。（1）耦合的强弱取决于模块之间接口的">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -50,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2017 | Blog-Github</title>
+<title>Blog-Github</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -60,8 +64,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -238,75 +242,141 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Single Responsibility Principle" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/06/29/Single Responsibility Principle/" class="archive-article-date">
-      <time datetime="2017-06-29T15:20:42.923Z" itemprop="datePublished">06-29</time>
+    <div class="article-meta">
+      <a href="/2017/06/29/Single Responsibility Principle/" class="article-date">
+      <time datetime="2017-06-29T15:20:42.923Z" itemprop="datePublished">2017-06-29</time>
 </a>
 
 
-        </div>
-         
-        <div class="article-info info-on-archive">
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
+        <h2>1.RBAC模型：</h2><br><p>基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离</p><br><h2>2.There should never be more than one reason for class to change.</h2><br><h2>3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。</h2><br><h24.耦合性：是对模块间关联程度的度量><br><p>（1）耦合的强弱取决于模块之间接口的复杂性、调用模块的方式以及通过界面传送数据的多少。</p><br><p>（2）模块间的耦合度是指模块之间的依赖关系，包括控制关系、调用关系、数据传递关系。</p><br><p>（3）模块间联系越多，其耦合性越强，同时表明其独立性越差。<br>高内聚低耦合</p><br><h2>5.模块之间构成耦合性的七种类型（独立性由强到弱）：</h2><br><p> （1）非直接耦合：没有直接关系，之间联系完全通过主模块的控制和调用来实现</p><br><p>（2）数据耦合：彼此之间是通过数据参数（不是控制参数、公共数据结构或外部变量）来交换输入、输出信息的</p><br><p>（3）印记耦合：一组通过参数传递记录（某一数据结构的子结构，而不是简单的变量）信息的模块间关系</p><br><p>（4）控制耦合：在单一接口上选择多功能模块中的某项功能</p><br><p>（5）外部耦合一组模块都访问同一全局简单变量而不是同一全局数据结构，而且不是通过参数表传递该全局变量的信息</p><br><p>（6）公共耦合：一组模块都访问同一个公共数据环境</p><br><p>（7）内容耦合：一个模块直接访问另外一个模块的内部数据；一个模块不通过正常入口转到另一模块内部；两个模块有一部分程序代码重叠（只可能出现在汇编语言中）；一个模块有多个入口</p><br><h2>6.单一原则的好处：</h2><br><p>（1）类的复杂性降低，实现什么职责都有清晰明确的定义</p><br><p>（2）可读性提高，复杂性降低</p><br><p>（3）可维护性提高，可读性提高</p><br><p>（4）变更引起的风险降低，变更是必不可少的，变更对其他接口几无影响，对系统的拓展性、维护性都有非常大的帮助</p><br><h2>7.This is sometimes hard to see</h2></h24.耦合性：是对模块间关联程度的度量>
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/06/29/Single Responsibility Principle/"></a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">LearnSlag</a></p>
+        <p><span>发布时间:</span>2017-06-29, 23:20:42</p>
+        <p><span>最后更新:</span>2017-06-30, 00:54:17</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/29/Single Responsibility Principle/" title="">http://yoursite.com/2017/06/29/Single Responsibility Principle/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/29/Single Responsibility Principle/　　作者: LearnSlag" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/06/29/hello-world/">
+                    Hello World
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/06/29/hello-world/" class="archive-article-date">
-      <time datetime="2017-06-29T15:11:49.538Z" itemprop="datePublished">06-29</time>
-</a>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.RBAC模型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.There should never be more than one reason for class to change.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">5.模块之间构成耦合性的七种类型（独立性由强到弱）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">6.单一原则的好处：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">7.This is sometimes hard to see</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/29/hello-world/">Hello World</a>
-    </h1>
-  
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"　| Blog-Github　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
-        <div class="article-info info-on-archive">
-          
+    
+</div>
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+
+
+
+
+
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/06/29/hello-world/" title="下一篇: Hello World">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/Single Responsibility Principle/">Single Responsibility Principle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
