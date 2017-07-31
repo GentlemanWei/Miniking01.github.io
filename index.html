@@ -95,7 +95,7 @@
 <div class="intrude-less">
     <header id="header" class="inner">
         <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
+            <img src="/img/avatar.gif" class="animated zoomIn">
         </a>
         <hgroup>
           <h1 class="header-author"><a href="/">LearnSlag</a></h1>
@@ -214,7 +214,7 @@
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
+                <img src="/img/avatar.gif" class="animated zoomIn">
             </a>
             <hgroup>
               <h1 class="header-author"><a href="/" title="回到主页">LearnSlag</a></h1>
@@ -302,7 +302,7 @@
 <p></p><p>&nbsp;&nbsp;Use 4 spaces per indentation level.<br>&nbsp;&nbsp;&nbsp;&nbsp;每个缩进级别使用4个空格。</p><p></p>
 <p></p><p>&nbsp;&nbsp;Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent [7] . When using a hanging indent the following should be considered; there should be no arguments on the first line and further indentation should be used to clearly distinguish itself as a continuation line.<br>&nbsp;&nbsp;&nbsp;&nbsp;连续行应使用Python的隐式行连接在括号，括号和括号内或使用悬挂缩进方式垂直对齐包装的元素[7]。 当使用悬挂缩进时，应考虑以下内容： 第一行应该没有论据，应该使用进一步的缩进来明确区分自己作为延续线。</p><p></p>
 <p></p><p>Yes:</p>
-<p>&nbsp;&nbsp;# Aligned with opening delimiter.<br>&nbsp;&nbsp;&nbsp;&nbsp;与开口分隔符对齐。<br>foo = long_function_name(var_one, var_two,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var_three, var_four)<br></p><p></p>
+<p>&nbsp;&nbsp;# Aligned with opening delimiter.<br>&nbsp;&nbsp;&nbsp;&nbsp;与开口分隔符对齐。<br>foo = long_function_name(var_one, var_two,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var_three, var_four)<br></p><p></p>
 <p></p><p># More indentation included to distinguish this from the rest.<br>def long_function_name(<br>        var_one, var_two, var_three,<br>        var_four):<br>    print(var_one)<br></p><p></p>
 <p></p><p># Hanging indents should add a level.<br>foo = long_function_name(<br>    var_one, var_two,<br>    var_three, var_four)<br></p><p></p>
 <p></p><p>No:</p>
@@ -864,14 +864,14 @@ return key_not_found(key)
     
         var oOpenInNew = {
             
-            
+             title: "a.article-title, .article-more-link a", 
             
             
             
             
              archives: ".archive-article-title", 
              miniArchives: "a.post-list-link", 
-            
+             menu: ".header-menu a", 
              friends: "#js-friends a", 
              socail: ".social a" 
         }
