@@ -372,75 +372,11 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/24/hello-world/" class="article-date">
-      <time datetime="2017-08-24T11:01:46.758Z" itemprop="datePublished">2017-08-24</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-PEP8 -- Style Guide for Python Code" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/23/PEP8 -- Style Guide for Python Code/" class="article-date">
-      <time datetime="2017-07-23T13:13:00.000Z" itemprop="datePublished">2017-07-23</time>
+      <a href="/2017/08/24/PEP8 -- Style Guide for Python Code/" class="article-date">
+      <time datetime="2017-08-24T11:05:40.293Z" itemprop="datePublished">2017-08-24</time>
 </a>
 
 
@@ -451,150 +387,197 @@
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/23/PEP8 -- Style Guide for Python Code/">PEP 8 -- Style Guide for Python Code</a>
-    </h1>
-  
-
-      </header>
-      
-    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Author:    Guido van Rossum <guido at="" python.org="">, Barry Warsaw <barry at="" python.org="">, Nick Coghlan <ncoghlan at="" gmail.com=""></ncoghlan></barry></guido></p>
+        <hr>
+<p>date: 2017-07-23 21:13</p>
+<p>status: public</p>
+<p>title: ‘PEP 8 – Style Guide for Python Code’</p>
+<hr>
+<p>Author:    Guido van Rossum <guido at="" python.org="">, Barry Warsaw <barry at="" python.org="">, Nick Coghlan <ncoghlan at="" gmail.com=""></ncoghlan></barry></guido></p>
 <h2>Introduction    介绍</h2>
 
-<p>&nbsp;&nbsp;This document gives coding conventions for the Python code comprising the standard library in the main Python distribution. Please see the companion informational PEP describing style guidelines for the C code in the C implementation of Python [1] .<br>&nbsp;&nbsp;&nbsp;&nbsp;本文档提供了Python代码的编码约定，其中包含主Python分发版中的标准库。 请参阅Python的C实现中的C代码的配套信息PEP描述风格指南[1]。</p>
+<p>&nbsp;&nbsp;This document gives coding conventions for the Python code comprising the standard library in the main Python distribution. Please see the companion informational PEP describing style guidelines for the C code in the C implementation of Python [1] .<br><br>&nbsp;&nbsp;&nbsp;&nbsp;本文档提供了Python代码的编码约定，其中包含主Python分发版中的标准库。 请参阅Python的C实现中的C代码的配套信息PEP描述风格指南[1]。</p>
 
-<p>&nbsp;&nbsp;This document and PEP 257 (Docstring Conventions) were adapted from Guido’s original Python Style Guide essay, with some additions from Barry’s style guide [2] .<br>&nbsp;&nbsp;&nbsp;&nbsp;本文件和PEP 257（Docstring约定）是从Guido的原始Python风格指南文章改编而来的，还有一些Barry的风格指南[2]。</p>
+<p>&nbsp;&nbsp;This document and PEP 257 (Docstring Conventions) were adapted from Guido’s original Python Style Guide essay, with some additions from Barry’s style guide [2] .<br><br>&nbsp;&nbsp;&nbsp;&nbsp;本文件和PEP 257（Docstring约定）是从Guido的原始Python风格指南文章改编而来的，还有一些Barry的风格指南[2]。</p>
 
-<p>&nbsp;&nbsp;This style guide evolves over time as additional conventions are identified and past conventions are rendered obsolete by changes in the language itself.<br>&nbsp;&nbsp;&nbsp;&nbsp;随着时间的推移，这种风格指南随着时间的推移而变化，随着语言本身的变化，过去的惯例也被废弃了。</p>
 
-<p>&nbsp;&nbsp;Many projects have their own coding style guidelines. In the event of any conflicts, such project-specific guides take precedence for that project.<br>&nbsp;&nbsp;&nbsp;&nbsp;许多项目都有自己的编码风格指南。 在发生任何冲突的情况下，此项目的具体指南优先于该项目。</p>
+
+<p>&nbsp;&nbsp;This style guide evolves over time as additional conventions are identified and past conventions are rendered obsolete by changes in the language itself.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;随着时间的推移，这种风格指南随着时间的推移而变化，随着语言本身的变化，过去的惯例也被废弃了。</p>
+
+
+
+<p>&nbsp;&nbsp;Many projects have their own coding style guidelines. In the event of any conflicts, such project-specific guides take precedence for that project.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;许多项目都有自己的编码风格指南。 在发生任何冲突的情况下，此项目的具体指南优先于该项目。</p>
+
 
 
 <h2>A Foolish Consistency is the Hobgoblin of Little Minds  愚蠢的一致性是小心灵的Hobgoblin</h2>
 
-<p>&nbsp;&nbsp;One of Guido’s key insights is that code is read much more often than it is written. The guidelines provided here are intended to improve the readability of code and make it consistent across the wide spectrum of Python code. As PEP 20 says, “Readability counts”.<br>&nbsp;&nbsp;&nbsp;&nbsp;Guido的主要见解之一是代码读取的速度比写入的频率高得多。 这里提供的指导旨在提高代码的可读性，使其在广泛的Python代码中保持一致。 正如PEP 20所说，“可读性计数”。</p>
+<p>&nbsp;&nbsp;One of Guido’s key insights is that code is read much more often than it is written. The guidelines provided here are intended to improve the readability of code and make it consistent across the wide spectrum of Python code. As PEP 20 says, “Readability counts”.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Guido的主要见解之一是代码读取的速度比写入的频率高得多。 这里提供的指导旨在提高代码的可读性，使其在广泛的Python代码中保持一致。 正如PEP 20所说，“可读性计数”。</p>
 
-<p>&nbsp;&nbsp;A style guide is about consistency. Consistency with this style guide is important. Consistency within a project is more important. Consistency within one module or function is the most important.<br>&nbsp;&nbsp;&nbsp;&nbsp;风格指南是关于一致性的。 与此风格指南的一致性很重要。 一个项目的一致性更重要。 一个模块或功能内的一致性是最重要的。</p>
 
-<p>&nbsp;&nbsp;However, know when to be inconsistent – sometimes style guide recommendations just aren’t applicable. When in doubt, use your best judgment. Look at other examples and decide what looks best. And don’t hesitate to ask!<br>&nbsp;&nbsp;&nbsp;&nbsp;但是，知道何时不一致 - 有时风格指南的建议不适用。 如有疑问，请用最好的判断。 看看其他的例子，决定什么看起来最好。 不要犹豫，问！</p>
 
-<p>&nbsp;&nbsp;In particular: do not break backwards compatibility just to comply with this PEP!<br>&nbsp;&nbsp;&nbsp;&nbsp;特别是：不要破坏向后兼容性，只是为了符合这个PEP！</p>
+<p>&nbsp;&nbsp;A style guide is about consistency. Consistency with this style guide is important. Consistency within a project is more important. Consistency within one module or function is the most important.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;风格指南是关于一致性的。 与此风格指南的一致性很重要。 一个项目的一致性更重要。 一个模块或功能内的一致性是最重要的。</p>
 
-<p>&nbsp;&nbsp;Some other good reasons to ignore a particular guideline:<br>&nbsp;&nbsp;&nbsp;&nbsp;忽略特定指导原则的其他一些好理由：</p>
 
-<p>&nbsp;&nbsp;When applying the guideline would make the code less readable, even for someone who is used to reading code that follows this PEP.<br>&nbsp;&nbsp;&nbsp;&nbsp;当应用该指南将使代码不易读取时，即使是用于阅读此PEP之后的代码的人也是如此。</p>
 
-<p>&nbsp;&nbsp;To be consistent with surrounding code that also breaks it (maybe for historic reasons) – although this is also an opportunity to clean up someone else’s mess (in true XP style).<br>&nbsp;&nbsp;&nbsp;&nbsp;为了与周围的代码保持一致，也可以打破它（可能是出于历史原因） - 尽管这也是清理别人的混乱（以真正的XP风格）的机会。</p>
+<p>&nbsp;&nbsp;However, know when to be inconsistent – sometimes style guide recommendations just aren’t applicable. When in doubt, use your best judgment. Look at other examples and decide what looks best. And don’t hesitate to ask!<br><br>&nbsp;&nbsp;&nbsp;&nbsp;但是，知道何时不一致 - 有时风格指南的建议不适用。 如有疑问，请用最好的判断。 看看其他的例子，决定什么看起来最好。 不要犹豫，问！</p>
 
-<p>&nbsp;&nbsp;Because the code in question predates the introduction of the guideline and there is no other reason to be modifying that code.<br>&nbsp;&nbsp;&nbsp;&nbsp;因为有问题的代码早于引入引用，没有其他原因要修改该代码。</p>
 
-<p>&nbsp;&nbsp;When the code needs to remain compatible with older versions of Python that don’t support the feature recommended by the style guide.<br>&nbsp;&nbsp;&nbsp;&nbsp;当代码需要与不支持样式指南推荐功能的旧版本的Python兼容时。</p>
 
+<p>&nbsp;&nbsp;In particular: do not break backwards compatibility just to comply with this PEP!<br><br>&nbsp;&nbsp;&nbsp;&nbsp;特别是：不要破坏向后兼容性，只是为了符合这个PEP！</p>
+
+
+
+<p>&nbsp;&nbsp;Some other good reasons to ignore a particular guideline:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;忽略特定指导原则的其他一些好理由：</p>
+
+
+
+<p>&nbsp;&nbsp;When applying the guideline would make the code less readable, even for someone who is used to reading code that follows this PEP.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;当应用该指南将使代码不易读取时，即使是用于阅读此PEP之后的代码的人也是如此。</p>
+
+<p>&nbsp;&nbsp;To be consistent with surrounding code that also breaks it (maybe for historic reasons) – although this is also an opportunity to clean up someone else’s mess (in true XP style).<br><br>&nbsp;&nbsp;&nbsp;&nbsp;为了与周围的代码保持一致，也可以打破它（可能是出于历史原因） - 尽管这也是清理别人的混乱（以真正的XP风格）的机会。</p>
+
+<p>&nbsp;&nbsp;Because the code in question predates the introduction of the guideline and there is no other reason to be modifying that code.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;因为有问题的代码早于引入引用，没有其他原因要修改该代码。</p>
+
+<p>&nbsp;&nbsp;When the code needs to remain compatible with older versions of Python that don’t support the feature recommended by the style guide.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;当代码需要与不支持样式指南推荐功能的旧版本的Python兼容时。</p>
 
 <h2>Code lay-out    代码布局</h2>
 
-
 <h3>Indentation 缩进</h3>
 
-<p>&nbsp;&nbsp;Use 4 spaces per indentation level.<br>&nbsp;&nbsp;&nbsp;&nbsp;每个缩进级别使用4个空格。</p>
+<p>&nbsp;&nbsp;Use 4 spaces per indentation level.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;每个缩进级别使用4个空格。</p>
 
-<p>&nbsp;&nbsp;Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent [7] . When using a hanging indent the following should be considered; there should be no arguments on the first line and further indentation should be used to clearly distinguish itself as a continuation line.<br>&nbsp;&nbsp;&nbsp;&nbsp;连续行应使用Python的隐式行连接在括号，括号和括号内或使用悬挂缩进方式垂直对齐包装的元素[7]。 当使用悬挂缩进时，应考虑以下内容： 第一行应该没有论据，应该使用进一步的缩进来明确区分自己作为延续线。</p>
+<p>&nbsp;&nbsp;Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent [7] . When using a hanging indent the following should be considered; there should be no arguments on the first line and further indentation should be used to clearly distinguish itself as a continuation line.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;连续行应使用Python的隐式行连接在括号，括号和括号内或使用悬挂缩进方式垂直对齐包装的元素[7]。 当使用悬挂缩进时，应考虑以下内容： 第一行应该没有论据，应该使用进一步的缩进来明确区分自己作为延续线。</p>
 
-<p>Yes:<br>&nbsp;&nbsp;# Aligned with opening delimiter.<br>&nbsp;&nbsp;&nbsp;&nbsp;与开口分隔符对齐。<br><pre><code>foo = long_function_name(var_one, var_two,<br>                         var_three, var_four)<br></code></pre></p>
+<p>Yes:<br><br>&nbsp;&nbsp;# Aligned with opening delimiter.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;与开口分隔符对齐。<br><br><pre><code>foo = long_function_name(var_one, var_two,<br><br>                         var_three, var_four)<br><br></code></pre></p>
 
-<p>&nbsp;&nbsp;# More indentation included to distinguish this from the rest.<br>&nbsp;&nbsp;&nbsp;&nbsp;包括更多的缩进，以区别于此。<br><pre><code>def long_function_name(<br>        var_one, var_two, var_three,<br>        var_four):<br>    print(var_one)<br></code></pre></p>
+<p>&nbsp;&nbsp;# More indentation included to distinguish this from the rest.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;包括更多的缩进，以区别于此。<br><br><pre><code>def long_function_name(<br><br>        var_one, var_two, var_three,<br><br>        var_four):<br><br>    print(var_one)<br><br></code></pre></p>
 
-<p>&nbsp;&nbsp;# Hanging indents should add a level.<br>&nbsp;&nbsp;&nbsp;&nbsp;悬挂缩进应增加一个等级。<br><pre><code>foo = long_function_name(<br>    var_one, var_two,<br>    var_three, var_four)<br></code></pre></p>
+<p>&nbsp;&nbsp;# Hanging indents should add a level.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;悬挂缩进应增加一个等级。<br><br><pre><code>foo = long_function_name(<br><br>    var_one, var_two,<br><br>    var_three, var_four)<br><br></code></pre></p>
 
-<p>No:<br>&nbsp;&nbsp;# Arguments on first line forbidden when not using vertical alignment.<br>&nbsp;&nbsp;&nbsp;&nbsp;不使用垂直对齐时，第一行的参数被禁止。<br><pre><code>foo = long_function_name(var_one, var_two,<br>    var_three, var_four)<br></code></pre></p>
 
-<p>&nbsp;&nbsp;# Further indentation required as indentation is not distinguishable.<br>&nbsp;&nbsp;&nbsp;&nbsp;缩进所需的进一步缩进是不可区分的。<br><pre><code>def long_function_name(<br>    var_one, var_two, var_three,<br>    var_four):<br>    print(var_one)<br></code></pre></p>
 
-<p><br>&nbsp;&nbsp;The 4-space rule is optional for continuation lines.<br>&nbsp;&nbsp;&nbsp;&nbsp;4个空格规则对于连续行是可选的。<br></p>
+<p>No:<br><br>&nbsp;&nbsp;# Arguments on first line forbidden when not using vertical alignment.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;不使用垂直对齐时，第一行的参数被禁止。<br><br><pre><code>foo = long_function_name(var_one, var_two,<br><br>    var_three, var_four)<br><br></code></pre></p>
 
-<p>&nbsp;&nbsp;Optional:<br>&nbsp;&nbsp;&nbsp;&nbsp;可选的：<br>&nbsp;&nbsp;# Hanging indents <em>may</em> be indented to other than 4 spaces.<br>&nbsp;&nbsp;&nbsp;&nbsp;悬挂缩进*可以缩进到4个空格之外。<br><pre><code>foo = long_function_name(<br>  var_one, var_two,<br>  var_three, var_four)<br></code></pre></p>
+<p>&nbsp;&nbsp;# Further indentation required as indentation is not distinguishable.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;缩进所需的进一步缩进是不可区分的。<br><br><pre><code>def long_function_name(<br><br>    var_one, var_two, var_three,<br><br>    var_four):<br><br>    print(var_one)<br><br></code></pre></p>
 
-<p>&nbsp;&nbsp;When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it’s worth noting that the combination of a two character keyword (i.e. if ), plus a single space, plus an opening parenthesis creates a natural 4-space indent for the subsequent lines of the multiline conditional. This can produce a visual conflict with the indented suite of code nested inside the if -statement, which would also naturally be indented to 4 spaces. This PEP takes no explicit position on how (or whether) to further visually distinguish such conditional lines from the nested suite inside the if -statement. Acceptable options in this situation include, but are not limited to:<br>&nbsp;&nbsp;&nbsp;&nbsp;当if语句的条件部分足够长以要求将其写入多行时，值得注意的是，两个字符的关键字（即if），加上一个空格以及一个开始的括号之间的组合会创建一个自然的4 - 多行条件的后续行的空格缩进。 这可以产生与嵌套在if语句中的缩进代码套件的视觉冲突，这也自然会缩进到4个空格。 这个PEP对于如何（或者是否）进一步将这些条件行与if语句中的嵌套套件进行视觉区分没有明确的定位。 在这种情况下可接受的选择包括但不限于：<br></p>
+<p><br><br>&nbsp;&nbsp;The 4-space rule is optional for continuation lines.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;4个空格规则对于连续行是可选的。<br><br></p>
 
-<p>&nbsp;&nbsp;# No extra indentation.<br>&nbsp;&nbsp;&nbsp;&nbsp;没有额外的缩进。<br><pre><code>if (this_is_one_thing and<br>    that_is_another_thing):<br>    do_something()<br></code></pre></p>
+<p>&nbsp;&nbsp;Optional:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;可选的：<br><br>&nbsp;&nbsp;# Hanging indents <em>may</em> be indented to other than 4 spaces.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;悬挂缩进*可以缩进到4个空格之外。<br><br><pre><code>foo = long_function_name(<br><br>  var_one, var_two,<br><br>  var_three, var_four)<br><br></code></pre></p>
 
-<p>&nbsp;&nbsp;# Add a comment, which will provide some distinction in editors<br>&nbsp;&nbsp;&nbsp;&nbsp;添加注释，这将在编辑中提供一些区别<br></p>
+<p>&nbsp;&nbsp;When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it’s worth noting that the combination of a two character keyword (i.e. if ), plus a single space, plus an opening parenthesis creates a natural 4-space indent for the subsequent lines of the multiline conditional. This can produce a visual conflict with the indented suite of code nested inside the if -statement, which would also naturally be indented to 4 spaces. This PEP takes no explicit position on how (or whether) to further visually distinguish such conditional lines from the nested suite inside the if -statement. Acceptable options in this situation include, but are not limited to:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;当if语句的条件部分足够长以要求将其写入多行时，值得注意的是，两个字符的关键字（即if），加上一个空格以及一个开始的括号之间的组合会创建一个自然的4 - 多行条件的后续行的空格缩进。 这可以产生与嵌套在if语句中的缩进代码套件的视觉冲突，这也自然会缩进到4个空格。 这个PEP对于如何（或者是否）进一步将这些条件行与if语句中的嵌套套件进行视觉区分没有明确的定位。 在这种情况下可接受的选择包括但不限于：<br><br></p>
 
-<p>&nbsp;&nbsp;# supporting syntax highlighting.<br>&nbsp;&nbsp;&nbsp;&nbsp;支持语法高亮。<br><pre><code>if (this_is_one_thing and<br>    that_is_another_thing):<br>    # Since both conditions are true, we can frobnicate.<br>    do_something()<br></code></pre></p>
+<p>&nbsp;&nbsp;# No extra indentation.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;没有额外的缩进。<br><br><pre><code>if (this_is_one_thing and<br><br>    that_is_another_thing):<br><br>    do_something()<br><br></code></pre></p>
 
-<p>&nbsp;&nbsp;# Add some extra indentation on the conditional continuation line.<br>&nbsp;&nbsp;&nbsp;&nbsp;在条件连续行上添加一些额外的缩进。<br><pre><code>if (this_is_one_thing<br>        and that_is_another_thing):<br>    do_something()<br></code></pre></p>
+<p>&nbsp;&nbsp;# Add a comment, which will provide some distinction in editors<br><br>&nbsp;&nbsp;&nbsp;&nbsp;添加注释，这将在编辑中提供一些区别<br><br></p>
 
-<p>&nbsp;&nbsp;(Also see the discussion of whether to break before or after binary operators below.)<br>&nbsp;&nbsp;&nbsp;&nbsp;（另请参阅下面的二进制运算符之前或之后的讨论。）</p>
+<p>&nbsp;&nbsp;# supporting syntax highlighting.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;支持语法高亮。<br><br><pre><code>if (this_is_one_thing and<br><br>    that_is_another_thing):<br>    # Since both conditions are true, we can frobnicate.<br><br>    do_something()<br><br></code></pre></p>
 
-<p>&nbsp;&nbsp;The closing brace/bracket/parenthesis on multi-line constructs may either line up under the first non-whitespace character of the last line of list, as in:<br>&nbsp;&nbsp;&nbsp;&nbsp;多行结构上的关闭括号/括号/括号可以在列表的最后一行的第一个非空格字符下排列，如：<br><pre><code>my_list = [<br>    1, 2, 3,<br>    4, 5, 6,<br>    ]<br>result = some_function_that_takes_arguments(<br>    ‘a’, ‘b’, ‘c’,<br>    ‘d’, ‘e’, ‘f’,<br>    )<br></code></pre></p>
+<p>&nbsp;&nbsp;# Add some extra indentation on the conditional continuation line.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;在条件连续行上添加一些额外的缩进。<br><br><pre><code>if (this_is_one_thing<br><br>        and that_is_another_thing):<br><br>    do_something()<br><br></code></pre></p>
 
-<p>&nbsp;&nbsp;or it may be lined up under the first character of the line that starts the multi-line construct, as in:<br>&nbsp;&nbsp;&nbsp;&nbsp;或者可以在启动多行结构的行的第一个字符下排列，如：<br><pre><code>my_list = [<br>    1, 2, 3,<br>    4, 5, 6,<br>]<br>result = some_function_that_takes_arguments(<br>    ‘a’, ‘b’, ‘c’,<br>    ‘d’, ‘e’, ‘f’,<br>)<br></code></pre></p>
+<p><br><br>&nbsp;&nbsp;(Also see the discussion of whether to break before or after binary operators below.)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;（另请参阅下面的二进制运算符之前或之后的讨论。）<br><br></p>
 
+<p>&nbsp;&nbsp;The closing brace/bracket/parenthesis on multi-line constructs may either line up under the first non-whitespace character of the last line of list, as in:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;多行结构上的关闭括号/括号/括号可以在列表的最后一行的第一个非空格字符下排列，如：<br><br><pre><code>my_list = [<br><br>    1, 2, 3,<br><br>    4, 5, 6,<br><br>    ]<br><br>result = some_function_that_takes_arguments(<br><br>    ‘a’, ‘b’, ‘c’,<br><br>    ‘d’, ‘e’, ‘f’,<br><br>    )<br><br></code></pre></p>
+
+<p>&nbsp;&nbsp;or it may be lined up under the first character of the line that starts the multi-line construct, as in:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;或者可以在启动多行结构的行的第一个字符下排列，如：<br><br><pre><code>my_list = [<br><br>    1, 2, 3,<br><br>    4, 5, 6,<br><br>]<br><br>result = some_function_that_takes_arguments(<br><br>    ‘a’, ‘b’, ‘c’,<br><br>    ‘d’, ‘e’, ‘f’,<br><br>)<br><br></code></pre></p>
 
 <h3>Tabs or Spaces?    水平制表或者空格？</h3>
 
-<p>&nbsp;&nbsp;Spaces are the preferred indentation method.<br>&nbsp;&nbsp;&nbsp;&nbsp;空格是首选的缩进方法。</p>
+<p>&nbsp;&nbsp;Spaces are the preferred indentation method.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;空格是首选的缩进方法。</p>
 
-<p>&nbsp;&nbsp;Tabs should be used solely to remain consistent with code that is already indented with tabs.<br>&nbsp;&nbsp;&nbsp;&nbsp;水平制表应该仅用于与水平制表已经缩进的代码保持一致。</p>
 
-<p>&nbsp;&nbsp;Python 3 disallows mixing the use of tabs and spaces for indentation.<br>&nbsp;&nbsp;&nbsp;&nbsp;Python 3不允许混合使用制表符和空格进行缩进。</p>
 
-<p>&nbsp;&nbsp;Python 2 code indented with a mixture of tabs and spaces should be converted to using spaces exclusively.<br>&nbsp;&nbsp;&nbsp;&nbsp;Python 2代码缩进的水平制表和空格的混合应该被转换为仅使用空格。</p>
+<p>&nbsp;&nbsp;Tabs should be used solely to remain consistent with code that is already indented with tabs.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;水平制表应该仅用于与水平制表已经缩进的代码保持一致。</p>
 
-<p>&nbsp;&nbsp;When invoking the Python 2 command line interpreter with the -t option, it issues warnings about code that illegally mixes tabs and spaces. When using -tt these warnings become errors. These options are highly recommended!<br>&nbsp;&nbsp;&nbsp;&nbsp;当使用-t选项调用Python 2命令行解释器时，会发出关于非法混合制表符和空格的代码的警告。 当使用-tt这些警告会变成错误。 强烈推荐这些选项！</p>
+
+
+<p>&nbsp;&nbsp;Python 3 disallows mixing the use of tabs and spaces for indentation.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Python 3不允许混合使用制表符和空格进行缩进。</p>
+
+
+
+<p>&nbsp;&nbsp;Python 2 code indented with a mixture of tabs and spaces should be converted to using spaces exclusively.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Python 2代码缩进的水平制表和空格的混合应该被转换为仅使用空格。</p>
+
+
+
+<p>&nbsp;&nbsp;When invoking the Python 2 command line interpreter with the -t option, it issues warnings about code that illegally mixes tabs and spaces. When using -tt these warnings become errors. These options are highly recommended!<br><br>&nbsp;&nbsp;&nbsp;&nbsp;当使用-t选项调用Python 2命令行解释器时，会发出关于非法混合制表符和空格的代码的警告。 当使用-tt这些警告会变成错误。 强烈推荐这些选项！</p>
+
 
 
 <h3>Maximum Line Length    最大线长度</h3>
 
-<p>&nbsp;&nbsp;Limit all lines to a maximum of 79 characters.<br>&nbsp;&nbsp;&nbsp;&nbsp;将所有行限制为最多79个字符。</p>
 
-<p>&nbsp;&nbsp;For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to 72 characters.<br>&nbsp;&nbsp;&nbsp;&nbsp;对于长度较短的文本块（文档字符串或注释）较少的结构限制，行长度应限制为72个字符。</p>
 
-<p>&nbsp;&nbsp;Limiting the required editor window width makes it possible to have several files open side-by-side, and works well when using code review tools that present the two versions in adjacent columns.<br>&nbsp;&nbsp;&nbsp;&nbsp;限制所需的编辑器窗口宽度使得可以并排打开多个文件，并且在使用在相邻列中呈现两个版本的代码审阅工具时可以正常工作。</p>
+<p>&nbsp;&nbsp;Limit all lines to a maximum of 79 characters.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;将所有行限制为最多79个字符。</p>
 
-<p>&nbsp;&nbsp;The default wrapping in most tools disrupts the visual structure of the code, making it more difficult to understand. The limits are chosen to avoid wrapping in editors with the window width set to 80, even if the tool places a marker glyph in the final column when wrapping lines. Some web based tools may not offer dynamic line wrapping at all.<br>&nbsp;&nbsp;&nbsp;&nbsp;大多数工具中的默认包装都会破坏代码的可视化结构，使其更难于理解。 选择限制以避免将窗口宽度设置为80的编辑器中包围，即使在打包行时，工具在最后一列中放置标记字形。 一些基于Web的工具根本不可能提供动态的线条包装。</p>
 
-<p>&nbsp;&nbsp;Some teams strongly prefer a longer line length. For code maintained exclusively or primarily by a team that can reach agreement on this issue, it is okay to increase the nominal line length from 80 to 100 characters (effectively increasing the maximum length to 99 characters), provided that comments and docstrings are still wrapped at 72 characters.<br>&nbsp;&nbsp;&nbsp;&nbsp;一些团队强烈希望更长的线路长度。 对于专门或主要由能够就此问题达成协议的团队进行维护的代码，可以将标称行长度从80增加到100个字符（有效地将最大长度增加到99个字符），只要注释和文档仍被包装 72个字符。</p>
 
-<p>&nbsp;&nbsp;The Python standard library is conservative and requires limiting lines to 79 characters (and docstrings/comments to 72).<br>&nbsp;&nbsp;&nbsp;&nbsp;Python标准库是保守的，需要将限制行限制为79个字符（和文档字符串/注释为72）。</p>
+<p>&nbsp;&nbsp;For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to 72 characters.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;对于长度较短的文本块（文档字符串或注释）较少的结构限制，行长度应限制为72个字符。</p>
 
-<p>&nbsp;&nbsp;The preferred way of wrapping long lines is by using Python’s implied line continuation inside parentheses, brackets and braces. Long lines can be broken over multiple lines by wrapping expressions in parentheses. These should be used in preference to using a backslash for line continuation.<br>&nbsp;&nbsp;&nbsp;&nbsp;包装长行的首选方法是使用括号，括号和括号中的Python隐含行连续。 长行可以通过将括号中的表达式包围在多行中。 这些应该优先于使用反斜杠进行行延续。</p>
 
-<p>&nbsp;&nbsp;Backslashes may still be appropriate at times. For example, long, multiple with -statements cannot use implicit continuation, so backslashes are acceptable:<br>&nbsp;&nbsp;&nbsp;&nbsp;有时，反斜杠可能仍然适用。 例如，long，multiple with 语句不能使用隐式继承，所以反斜杠是可以接受的：</p>
 
-<p><pre><code>with open(‘/path/to/some/file/you/want/to/read’) as file_1, \<br>     open(‘/path/to/some/file/being/written’, ‘w’) as file_2:<br>    file_2.write(file_1.read())<br></code></pre></p>
+<p>&nbsp;&nbsp;Limiting the required editor window width makes it possible to have several files open side-by-side, and works well when using code review tools that present the two versions in adjacent columns.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;限制所需的编辑器窗口宽度使得可以并排打开多个文件，并且在使用在相邻列中呈现两个版本的代码审阅工具时可以正常工作。</p>
 
-<p>&nbsp;&nbsp;(See the previous discussion on multiline if-statements for further thoughts on the indentation of such multiline with -statements.)<br>&nbsp;&nbsp;&nbsp;&nbsp;（参见前面关于多行if语句的讨论，以进一步思考这种多行与缩写的缩进。）</p>
 
-<p>&nbsp;&nbsp;Another such case is with assert statements.<br>&nbsp;&nbsp;&nbsp;&nbsp;另一种情况是使用断言语句。</p>
 
-<p>&nbsp;&nbsp;Make sure to indent the continued line appropriately.<br>&nbsp;&nbsp;&nbsp;&nbsp;确保适当的缩进连续线。</p>
+<p>&nbsp;&nbsp;The default wrapping in most tools disrupts the visual structure of the code, making it more difficult to understand. The limits are chosen to avoid wrapping in editors with the window width set to 80, even if the tool places a marker glyph in the final column when wrapping lines. Some web based tools may not offer dynamic line wrapping at all.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;大多数工具中的默认包装都会破坏代码的可视化结构，使其更难于理解。 选择限制以避免将窗口宽度设置为80的编辑器中包围，即使在打包行时，工具在最后一列中放置标记字形。 一些基于Web的工具根本不可能提供动态的线条包装。</p>
+
+
+
+<p>&nbsp;&nbsp;Some teams strongly prefer a longer line length. For code maintained exclusively or primarily by a team that can reach agreement on this issue, it is okay to increase the nominal line length from 80 to 100 characters (effectively increasing the maximum length to 99 characters), provided that comments and docstrings are still wrapped at 72 characters.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;一些团队强烈希望更长的线路长度。 对于专门或主要由能够就此问题达成协议的团队进行维护的代码，可以将标称行长度从80增加到100个字符（有效地将最大长度增加到99个字符），只要注释和文档仍被包装 72个字符。</p>
+
+
+
+<p>&nbsp;&nbsp;The Python standard library is conservative and requires limiting lines to 79 characters (and docstrings/comments to 72).<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Python标准库是保守的，需要将限制行限制为79个字符（和文档字符串/注释为72）。</p>
+
+
+
+<p>&nbsp;&nbsp;The preferred way of wrapping long lines is by using Python’s implied line continuation inside parentheses, brackets and braces. Long lines can be broken over multiple lines by wrapping expressions in parentheses. These should be used in preference to using a backslash for line continuation.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;包装长行的首选方法是使用括号，括号和括号中的Python隐含行连续。 长行可以通过将括号中的表达式包围在多行中。 这些应该优先于使用反斜杠进行行延续。</p>
+
+
+
+<p>&nbsp;&nbsp;Backslashes may still be appropriate at times. For example, long, multiple with -statements cannot use implicit continuation, so backslashes are acceptable:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;有时，反斜杠可能仍然适用。 例如，long，multiple with 语句不能使用隐式继承，所以反斜杠是可以接受的：</p>
+
+
+
+<p><pre><code>with open(‘/path/to/some/file/you/want/to/read’) as file_1, \<br><br>     open(‘/path/to/some/file/being/written’, ‘w’) as file_2:<br><br>    file_2.write(file_1.read())<br><br></code></pre></p>
+
+<p>&nbsp;&nbsp;(See the previous discussion on multiline if-statements for further thoughts on the indentation of such multiline with -statements.)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;（参见前面关于多行if语句的讨论，以进一步思考这种多行与缩写的缩进。）</p>
+
+
+
+<p>&nbsp;&nbsp;Another such case is with assert statements.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;另一种情况是使用断言语句。</p>
+
+
+
+<p>&nbsp;&nbsp;Make sure to indent the continued line appropriately.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;确保适当的缩进连续线。</p>
+
 
 
 <h3>Should a line break before or after a binary operator?    一个二进制运算符之前或之后的换行符？</h3>
 
-<p>&nbsp;&nbsp;For decades the recommended style was to break after binary operators. But this can hurt readability in two ways: the operators tend to get scattered across different columns on the screen, and each operator is moved away from its operand and onto the previous line. Here, the eye has to do extra work to tell which items are added and which are subtracted:<br>&nbsp;&nbsp;&nbsp;&nbsp;几十年来，推荐的风格是在二进制运算符之后中断。 但是这可能会以两种方式损害可读性：操作员倾向于分散在屏幕上的不同列上，并且每个操作员被从操作数移开并移到上一行。 在这里，眼睛必须做额外的工作来告诉哪些项目被添加和减去哪些：<br></p>
+<p>&nbsp;&nbsp;For decades the recommended style was to break after binary operators. But this can hurt readability in two ways: the operators tend to get scattered across different columns on the screen, and each operator is moved away from its operand and onto the previous line. Here, the eye has to do extra work to tell which items are added and which are subtracted:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;几十年来，推荐的风格是在二进制运算符之后中断。 但是这可能会以两种方式损害可读性：操作员倾向于分散在屏幕上的不同列上，并且每个操作员被从操作数移开并移到上一行。 在这里，眼睛必须做额外的工作来告诉哪些项目被添加和减去哪些：<br><br></p>
+
+
 
 <p>&nbsp;&nbsp;# No: operators sit far away from their operands<br>&nbsp;&nbsp;&nbsp;&nbsp;否:操作员远离操作数<br></p>
 
 <p><pre><code>income = (gross_wages +<br>          taxable_interest +<br>          (dividends - qualified_dividends) -<br>          ira_deduction -<br>          student_loan_interest)<br></code></pre></p>
 
-<p>&nbsp;&nbsp;To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his Computers and Typesetting series: “Although formulas within a paragraph always break after binary operations and relations, displayed formulas always break before binary operations” [3] .<br>&nbsp;&nbsp;&nbsp;&nbsp;为了解决这个可读性问题，数学家及其出版商遵循相反的惯例。 唐纳德·克努特（Donald Knuth）在他的“电脑与排版”系列中解释了传统的规则：“尽管二进制操作和关系中段落中的公式总是中断，但是在二进制操作之前显示的公式总是打破”[3]。<br></p>
-
-<p>&nbsp;&nbsp;Following the tradition from mathematics usually results in more readable code:<br>&nbsp;&nbsp;&nbsp;&nbsp;遵循数学的传统通常会导致更可读的代码：<br></p>
-
-<p>&nbsp;&nbsp;# Yes: easy to match operators with operands<br>&nbsp;&nbsp;&nbsp;&nbsp;是：容易与运算符匹配操作数<br><pre><code>income = (gross_wages<br>          + taxable_interest<br>          + (dividends - qualified_dividends)<br>          - ira_deduction<br>          - student_loan_interest)<br></code></pre></p>
-
-<p>&nbsp;&nbsp;In Python code, it is permissible to break before or after a binary operator, as long as the convention is consistent locally. For new code Knuth’s style is suggested.<br>&nbsp;&nbsp;&nbsp;&nbsp;在Python代码中，可以在二进制运算符之前或之后中断，只要约定在本地一致即可。 对于新代码，建议使用Knuth的风格。<br></p>
+<p>To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his Computers and Typesetting series: “Although formulas within a paragraph always break after binary operations and relations, displayed formulas always break before binary operations” [3] .<br></p>
 
 
+
+<p>Following the tradition from mathematics usually results in more readable code:</p>
+<h1 id="Yes-easy-to-match-operators-with-operands"><a href="#Yes-easy-to-match-operators-with-operands" class="headerlink" title="Yes: easy to match operators with operands"></a>Yes: easy to match operators with operands</h1><p>income = (gross_wages</p>
+<pre><code>+ taxable_interest
+
++ (dividends - qualified_dividends)
+
+- ira_deduction
+
+- student_loan_interest)
+</code></pre><p>In Python code, it is permissible to break before or after a binary operator, as long as the convention is consistent locally. For new code Knuth’s style is suggested.</p>
 <p>Blank Lines</p>
 <p>Surround top-level function and class definitions with two blank lines.</p>
 <p>Method definitions inside a class are surrounded by a single blank line.</p>
@@ -1027,6 +1010,70 @@ return math.sqrt(x)
 <p>Copyright</p>
 <p>This document has been placed in the public domain.</p>
 <p>Source: <a href="https://github.com/python/peps/blob/master/pep-0008.txt" target="_blank" rel="external">https://github.com/python/peps/blob/master/pep-0008.txt</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/24/hello-world/" class="article-date">
+      <time datetime="2017-08-24T11:01:46.758Z" itemprop="datePublished">2017-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/24/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
     </div>
