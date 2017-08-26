@@ -467,7 +467,9 @@
 
 <p>&nbsp;&nbsp;Immediately inside parentheses, brackets or braces.<br>&nbsp;&nbsp;&nbsp;&nbsp;立即在括号内，括号或括号内。<br></p>
 
-<p>Yes:<br><pre><code>    spam(ham[1], {eggs: 2})</code></pre><br></p><br><p>No:<br><pre><code>    spam( ham[ 1 ], { eggs: 2 } )</code></pre><br></p><br><p>&nbsp;&nbsp;Between a trailing comma and a following close parentheses.<br>&nbsp;&nbsp;&nbsp;&nbsp;在后面的逗号和下面的闭括号之间。<br></p>
+<p>Yes:<br><pre><code>    spam(ham[1], {eggs: 2})</code></pre></p><br><p>No:<br><pre><code>    spam( ham[ 1 ], { eggs: 2 } )</code></pre></p>
+
+<p>&nbsp;&nbsp;Between a trailing comma and a following close parentheses.<br>&nbsp;&nbsp;&nbsp;&nbsp;在后面的逗号和下面的闭括号之间。<br></p>
 
 <p></p><p>Yes: foo = (0,)<br>No:  bar = (0, )<br>Immediately before a comma, semicolon, or colon:</p>
 <p>Yes: if x == 4: print x, y; x, y = y, x<br>No:  if x == 4 : print x , y ; x , y = y , x<br>However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted.</p>
