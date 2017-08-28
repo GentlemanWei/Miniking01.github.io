@@ -245,6 +245,123 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-数据库基础" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/28/数据库基础/" class="article-date">
+      <time datetime="2017-08-28T14:37:45.406Z" itemprop="datePublished">2017-08-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>##一、SQL 简介</p>
+<blockquote>
+<p>   SQL是结构化查询语言的缩写，是使用关系模型的数据库应用语言。</p>
+</blockquote>
+<p>##二、SQL的分类</p>
+<h3 id="1-数据定义语言（DDL）："><a href="#1-数据定义语言（DDL）：" class="headerlink" title="1.数据定义语言（DDL）："></a>1.数据定义语言（DDL）：</h3><blockquote>
+<pre><code>这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。
+</code></pre><h3 id="2-数据操作语言（DML）："><a href="#2-数据操作语言（DML）：" class="headerlink" title="2.数据操作语言（DML）："></a>2.数据操作语言（DML）：</h3><pre><code>用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 insert、delete、udpate 和select 等。
+</code></pre><h3 id="3-数据控制语言（DCL）："><a href="#3-数据控制语言（DCL）：" class="headerlink" title="3.数据控制语言（DCL）："></a>3.数据控制语言（DCL）：</h3><pre><code>用于控制不同数据段直接的许可和访问级别的语句。这些语句定义了数据库、表、字段、用户的访问权限和安全级别。主要的语句关键字包括 grant、revoke 等。
+</code></pre><h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><p>##三、DDL语句</p>
+<h3 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h3><p>Create database [dbname];<br><br>例：</p>
+</blockquote>
+<pre><code>create database test1;
+</code></pre><h3 id="2-浏览数据库"><a href="#2-浏览数据库" class="headerlink" title="2.浏览数据库"></a>2.浏览数据库</h3><pre><code>    S+ vvhow databases;
+基本数据库
+    information_schema：主要存储了系统中的一些数据库对象信息。比如用户表信息、列信息、权限信息、字符集信息、分区信息等。
+    cluster：存储了系统的集群信息。
+    mysql：存储了系统的用户权限信息。
+    test：系统自动创建的测试数据库，任何用户都可以使用。
+3.选择要操作的数据库
+    Use [dbname];
+    例：use test1；
+4.删除数据库
+    Drop database [dbname];
+    例：drop database test1;
+    注意：数据库删除后，下面的所有表数据都会全部删除，所以删除前一定要仔细检查并做好相应备份.
+5.创建表
+    Create table [tablename](
+        column_name_1    column_type_1    constraints
+        column_name_2     column_type_2  ,    constraints
+        ……
+        column_name_n    column_type_n    Constraints
+    );
+    例：
+        create table emp(
+            Ename    varchar(10),
+            Hiredate    date,
+            Sal    decimal(10,2),
+            Deptno    int(2)
+        );
+6.查看表的定义
+    Desc [tablename];
+    例：desc emp;
+    查看创建表的SQL语句
+        Show create table [tablename] \G;
+        例：show create table emp \G;
+7.删除表
+    Drop table [tablename];
+    例：drop table emp;
+8.修改表
+    Alter table [tablename] modify [column] column_definition [FIRST | AFTER column_name];
+    例：alter table emp modify ename varchar(20);
+9.增加表字段
+    Alter table [tablename] add[column] column_definition [FIRST | AFTER column_name];
+    例：alter table emp add column age int(3);
+10.删除表字段
+    Alter table [tablename] drop [column] [column_name];
+    例： alter table emp drop column age;
+11.修改字段名称
+    Alter table [tablename] change [column] old_column_name column_definition [FIRST|AFTER column_name];
+    例：alter table emp change age age1 int(4) ;
+    注意：change 和 modify都可以修改表的定义，不同的是 change 后面需要写两次列名，不方便。
+    但是 change 的优点是可以修改列名称，modify则不能。
+12.修改字段排列顺序
+    前面介绍的的字段增加和修改语法（ADD/CNAHGE/MODIFY）中，都有一个可选项 first|after
+    column_name，这个选项可以用来修改字段在表中的位置，默认 ADD 增加的新字段是加在
+    表的最后位置，而 CHANGE/MODIFY 默认都不会改变字段的位置。
+    例：alter table emp add birth date after ename;
+    注意：CHANGE/FIRST|AFTER COLUMN 这些关键字都属于 MySQL 在标准 SQL 上的扩展，在
+    其他数据库上不一定适用。
+13. 修改表名
+    Alter table [tablename] rename [to] new_tablename;
+    例：alter table emp rename emp1;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-PEP 8 -- Style Guide for Python Code" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
