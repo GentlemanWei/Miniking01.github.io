@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="##一、SQL 简介     SQL是结构化查询语言的缩写，是使用关系模型的数据库应用语言。  ##二、SQL的分类 1.数据定义语言（DDL）： 这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。 2.数据操作语言（DML）：用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 inse">
+<meta name="description" content="一、SQL 简介    SQL是结构化查询语言的缩写，是使用关系模型的数据库应用语言。  二、SQL的分类1.数据定义语言（DDL）：    这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。  2.数据操作语言（DML）：    用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Blog-Github">
 <meta property="og:url" content="http://yoursite.com/2017/08/28/数据库基础/index.html">
 <meta property="og:site_name" content="Blog-Github">
-<meta property="og:description" content="##一、SQL 简介     SQL是结构化查询语言的缩写，是使用关系模型的数据库应用语言。  ##二、SQL的分类 1.数据定义语言（DDL）： 这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。 2.数据操作语言（DML）：用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 inse">
-<meta property="og:updated_time" content="2017-08-28T14:38:27.416Z">
+<meta property="og:description" content="一、SQL 简介    SQL是结构化查询语言的缩写，是使用关系模型的数据库应用语言。  二、SQL的分类1.数据定义语言（DDL）：    这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。  2.数据操作语言（DML）：    用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 in">
+<meta property="og:updated_time" content="2017-08-28T15:02:26.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Blog-Github">
-<meta name="twitter:description" content="##一、SQL 简介     SQL是结构化查询语言的缩写，是使用关系模型的数据库应用语言。  ##二、SQL的分类 1.数据定义语言（DDL）： 这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。 2.数据操作语言（DML）：用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 inse">
+<meta name="twitter:description" content="一、SQL 简介    SQL是结构化查询语言的缩写，是使用关系模型的数据库应用语言。  二、SQL的分类1.数据定义语言（DDL）：    这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。  2.数据操作语言（DML）：    用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 in">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -260,26 +260,31 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##一、SQL 简介</p>
-<blockquote>
+        <h2 id="一、SQL-简介"><a href="#一、SQL-简介" class="headerlink" title="一、SQL 简介"></a>一、SQL 简介</h2><blockquote>
 <p>   SQL是结构化查询语言的缩写，是使用关系模型的数据库应用语言。</p>
 </blockquote>
-<p>##二、SQL的分类</p>
-<h3 id="1-数据定义语言（DDL）："><a href="#1-数据定义语言（DDL）：" class="headerlink" title="1.数据定义语言（DDL）："></a>1.数据定义语言（DDL）：</h3><blockquote>
-<pre><code>这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。
-</code></pre><h3 id="2-数据操作语言（DML）："><a href="#2-数据操作语言（DML）：" class="headerlink" title="2.数据操作语言（DML）："></a>2.数据操作语言（DML）：</h3><pre><code>用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 insert、delete、udpate 和select 等。
-</code></pre><h3 id="3-数据控制语言（DCL）："><a href="#3-数据控制语言（DCL）：" class="headerlink" title="3.数据控制语言（DCL）："></a>3.数据控制语言（DCL）：</h3><pre><code>用于控制不同数据段直接的许可和访问级别的语句。这些语句定义了数据库、表、字段、用户的访问权限和安全级别。主要的语句关键字包括 grant、revoke 等。
-</code></pre><h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><p>##三、DDL语句</p>
-<h3 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h3><p>Create database [dbname];<br><br>例：</p>
+<h2 id="二、SQL的分类"><a href="#二、SQL的分类" class="headerlink" title="二、SQL的分类"></a>二、SQL的分类</h2><h3 id="1-数据定义语言（DDL）："><a href="#1-数据定义语言（DDL）：" class="headerlink" title="1.数据定义语言（DDL）："></a>1.数据定义语言（DDL）：</h3><blockquote>
+<p>   这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。</p>
+</blockquote>
+<h3 id="2-数据操作语言（DML）："><a href="#2-数据操作语言（DML）：" class="headerlink" title="2.数据操作语言（DML）："></a>2.数据操作语言（DML）：</h3><blockquote>
+<p>   用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 insert、delete、udpate 和select 等。</p>
+</blockquote>
+<h3 id="3-数据控制语言（DCL）："><a href="#3-数据控制语言（DCL）：" class="headerlink" title="3.数据控制语言（DCL）："></a>3.数据控制语言（DCL）：</h3><blockquote>
+<p>   用于控制不同数据段直接的许可和访问级别的语句。这些语句定义了数据库、表、字段、用户的访问权限和安全级别。主要的语句关键字包括 grant、revoke 等。</p>
+</blockquote>
+<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><h2 id="三、DDL语句"><a href="#三、DDL语句" class="headerlink" title="三、DDL语句"></a>三、DDL语句</h2><h3 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h3><blockquote>
+<p>   Create database [dbname];<br></p>
+<p>   例：</p>
 </blockquote>
 <pre><code>create database test1;
-</code></pre><h3 id="2-浏览数据库"><a href="#2-浏览数据库" class="headerlink" title="2.浏览数据库"></a>2.浏览数据库</h3><pre><code>    S+ vvhow databases;
-基本数据库
-    information_schema：主要存储了系统中的一些数据库对象信息。比如用户表信息、列信息、权限信息、字符集信息、分区信息等。
-    cluster：存储了系统的集群信息。
-    mysql：存储了系统的用户权限信息。
-    test：系统自动创建的测试数据库，任何用户都可以使用。
-3.选择要操作的数据库
+</code></pre><h3 id="2-浏览数据库"><a href="#2-浏览数据库" class="headerlink" title="2.浏览数据库"></a>2.浏览数据库</h3><pre><code>Show databases;
+</code></pre><h4 id="基本数据库"><a href="#基本数据库" class="headerlink" title="基本数据库"></a>基本数据库</h4><blockquote>
+<p>   information_schema：主要存储了系统中的一些数据库对象信息。比如用户表信息、列信息、权限信息、字符集信息、分区信息等。</p>
+<p>   cluster：存储了系统的集群信息。</p>
+<p>   mysql：存储了系统的用户权限信息。</p>
+<p>   test：系统自动创建的测试数据库，任何用户都可以使用。</p>
+</blockquote>
+<pre><code>3.选择要操作的数据库
     Use [dbname];
     例：use test1；
 4.删除数据库
@@ -344,7 +349,7 @@
         <p><span>本文标题:</span><a href="/2017/08/28/数据库基础/"></a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">LearnSlag</a></p>
         <p><span>发布时间:</span>2017-08-28, 22:37:45</p>
-        <p><span>最后更新:</span>2017-08-28, 22:38:27</p>
+        <p><span>最后更新:</span>2017-08-28, 23:02:26</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/08/28/数据库基础/" title="">http://yoursite.com/2017/08/28/数据库基础/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/08/28/数据库基础/　　作者: LearnSlag" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -374,7 +379,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据定义语言（DDL）："><span class="toc-number">1.</span> <span class="toc-text">1.数据定义语言（DDL）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-数据操作语言（DML）："><span class="toc-number">2.</span> <span class="toc-text">2.数据操作语言（DML）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-数据控制语言（DCL）："><span class="toc-number">3.</span> <span class="toc-text">3.数据控制语言（DCL）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4"><span class="toc-number">4.</span> <span class="toc-text">4.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建数据库"><span class="toc-number">5.</span> <span class="toc-text">1.创建数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-浏览数据库"><span class="toc-number">6.</span> <span class="toc-text">2.浏览数据库</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、SQL-简介"><span class="toc-number">1.</span> <span class="toc-text">一、SQL 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、SQL的分类"><span class="toc-number">2.</span> <span class="toc-text">二、SQL的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据定义语言（DDL）："><span class="toc-number">2.1.</span> <span class="toc-text">1.数据定义语言（DDL）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-数据操作语言（DML）："><span class="toc-number">2.2.</span> <span class="toc-text">2.数据操作语言（DML）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-数据控制语言（DCL）："><span class="toc-number">2.3.</span> <span class="toc-text">3.数据控制语言（DCL）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4"><span class="toc-number">2.4.</span> <span class="toc-text">4.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、DDL语句"><span class="toc-number">3.</span> <span class="toc-text">三、DDL语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建数据库"><span class="toc-number">3.1.</span> <span class="toc-text">1.创建数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-浏览数据库"><span class="toc-number">3.2.</span> <span class="toc-text">2.浏览数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本数据库"><span class="toc-number">3.2.1.</span> <span class="toc-text">基本数据库</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
