@@ -432,79 +432,56 @@
 <p>&nbsp;&nbsp;Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent [7] . When using a hanging indent the following should be considered; there should be no arguments on the first line and further indentation should be used to clearly distinguish itself as a continuation line.<br>&nbsp;&nbsp;&nbsp;&nbsp;连续行应使用Python的隐式行连接在括号，括号和括号内或使用悬挂缩进方式垂直对齐包装的元素[7]。 当使用悬挂缩进时，应考虑以下内容： 第一行应该没有论据，应该使用进一步的缩进来明确区分自己作为延续线。</p>
 <p>Yes:</p>
 <p>&nbsp;&nbsp;# Aligned with opening delimiter.<br>&nbsp;&nbsp;&nbsp;&nbsp;与开口分隔符对齐。</p>
-</blockquote>
 <pre><code>foo = long_function_name(var_one, var_two,
                          var_three, var_four)</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;# More indentation included to distinguish this from the rest.<br>&nbsp;&nbsp;&nbsp;&nbsp;包括更多的缩进，以区别于此。</p>
-</blockquote>
 <pre><code>def long_function_name(
         var_one, var_two, var_three,
         var_four):
     print(var_one)</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;# Hanging indents should add a level.<br>&nbsp;&nbsp;&nbsp;&nbsp;悬挂缩进应增加一个等级。</p>
-</blockquote>
 <pre><code>foo = long_function_name(
     var_one, var_two,
     var_three, var_four)</code></pre>
 
-<blockquote>
 <p>No:<br>&nbsp;&nbsp;# Arguments on first line forbidden when not using vertical alignment.<br>&nbsp;&nbsp;&nbsp;&nbsp;不使用垂直对齐时，第一行的参数被禁止。</p>
-</blockquote>
 <pre><code>foo = long_function_name(var_one, var_two,
     var_three, var_four)</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;# Further indentation required as indentation is not distinguishable.<br>&nbsp;&nbsp;&nbsp;&nbsp;缩进所需的进一步缩进是不可区分的。</p>
-</blockquote>
 <pre><code>def long_function_name(
     var_one, var_two, var_three,
     var_four):
     print(var_one)</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;The 4-space rule is optional for continuation lines.<br>&nbsp;&nbsp;&nbsp;&nbsp;4个空格规则对于连续行是可选的。</p>
 <p>&nbsp;&nbsp;Optional:<br>&nbsp;&nbsp;&nbsp;&nbsp;可选的：<br>&nbsp;&nbsp;# Hanging indents <em>may</em> be indented to other than 4 spaces.<br>&nbsp;&nbsp;&nbsp;&nbsp;悬挂缩进*可以缩进到4个空格之外。</p>
-</blockquote>
 <pre><code>foo = long_function_name(
   var_one, var_two,
   var_three, var_four)</code></pre>
-<p></p>
 
-> &nbsp;&nbsp;When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it's worth noting that the combination of a two character keyword (i.e. if ), plus a single space, plus an opening parenthesis creates a natural 4-space indent for the subsequent lines of the multiline conditional. This can produce a visual conflict with the indented suite of code nested inside the if -statement, which would also naturally be indented to 4 spaces. This PEP takes no explicit position on how (or whether) to further visually distinguish such conditional lines from the nested suite inside the if -statement. Acceptable options in this situation include, but are not limited to:
-&nbsp;&nbsp;&nbsp;&nbsp;当if语句的条件部分足够长以要求将其写入多行时，值得注意的是，两个字符的关键字（即if），加上一个空格以及一个开始的括号之间的组合会创建一个自然的4 - 多行条件的后续行的空格缩进。 这可以产生与嵌套在if语句中的缩进代码套件的视觉冲突，这也自然会缩进到4个空格。 这个PEP对于如何（或者是否）进一步将这些条件行与if语句中的嵌套套件进行视觉区分没有明确的定位。 在这种情况下可接受的选择包括但不限于：
-
-> &nbsp;&nbsp;
-&nbsp;&nbsp;# No extra indentation.
-&nbsp;&nbsp;&nbsp;&nbsp;没有额外的缩进。
-
+<p>&nbsp;&nbsp;When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it’s worth noting that the combination of a two character keyword (i.e. if ), plus a single space, plus an opening parenthesis creates a natural 4-space indent for the subsequent lines of the multiline conditional. This can produce a visual conflict with the indented suite of code nested inside the if -statement, which would also naturally be indented to 4 spaces. This PEP takes no explicit position on how (or whether) to further visually distinguish such conditional lines from the nested suite inside the if -statement. Acceptable options in this situation include, but are not limited to:<br>&nbsp;&nbsp;&nbsp;&nbsp;当if语句的条件部分足够长以要求将其写入多行时，值得注意的是，两个字符的关键字（即if），加上一个空格以及一个开始的括号之间的组合会创建一个自然的4 - 多行条件的后续行的空格缩进。 这可以产生与嵌套在if语句中的缩进代码套件的视觉冲突，这也自然会缩进到4个空格。 这个PEP对于如何（或者是否）进一步将这些条件行与if语句中的嵌套套件进行视觉区分没有明确的定位。 在这种情况下可接受的选择包括但不限于：</p>
+<p>&nbsp;&nbsp;<br>&nbsp;&nbsp;# No extra indentation.<br>&nbsp;&nbsp;&nbsp;&nbsp;没有额外的缩进。</p>
 <pre><code>if (this_is_one_thing and
     that_is_another_thing):
     do_something()</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;# Add a comment, which will provide some distinction in editors<br>&nbsp;&nbsp;&nbsp;&nbsp;添加注释，这将在编辑中提供一些区别</p>
 <p>&nbsp;&nbsp;# supporting syntax highlighting.<br>&nbsp;&nbsp;&nbsp;&nbsp;支持语法高亮。</p>
-</blockquote>
 <pre><code>if (this_is_one_thing and
     that_is_another_thing):
     # Since both conditions are true, we can frobnicate.
     do_something()</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;# Add some extra indentation on the conditional continuation line.<br>&nbsp;&nbsp;&nbsp;&nbsp;在条件连续行上添加一些额外的缩进。</p>
-</blockquote>
 <pre><code>if (this_is_one_thing
         and that_is_another_thing):
     do_something()</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;(Also see the discussion of whether to break before or after binary operators below.)<br>&nbsp;&nbsp;&nbsp;&nbsp;（另请参阅下面的二进制运算符之前或之后的讨论。）</p>
 <p>&nbsp;&nbsp;The closing brace/bracket/parenthesis on multi-line constructs may either line up under the first non-whitespace character of the last line of list, as in:<br>&nbsp;&nbsp;&nbsp;&nbsp;多行结构上的关闭括号/括号/括号可以在列表的最后一行的第一个非空格字符下排列，如：</p>
-</blockquote>
 <pre><code>my_list = [
     1, 2, 3,
     4, 5, 6,
@@ -514,9 +491,7 @@ result = some_function_that_takes_arguments(
     'd', 'e', 'f',
     )</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;or it may be lined up under the first character of the line that starts the multi-line construct, as in:<br>&nbsp;&nbsp;&nbsp;&nbsp;或者可以在启动多行结构的行的第一个字符下排列，如：</p>
-</blockquote>
 <pre><code>my_list = [
     1, 2, 3,
     4, 5, 6,
@@ -527,6 +502,7 @@ result = some_function_that_takes_arguments(
 )</code></pre>
 
 
+</blockquote>
 <h3 id="Tabs-or-Spaces-水平制表或者空格？"><a href="#Tabs-or-Spaces-水平制表或者空格？" class="headerlink" title="Tabs or Spaces?    水平制表或者空格？"></a>Tabs or Spaces?    水平制表或者空格？</h3><blockquote>
 <p>&nbsp;&nbsp;Spaces are the preferred indentation method.<br>&nbsp;&nbsp;&nbsp;&nbsp;空格是首选的缩进方法。</p>
 <p>&nbsp;&nbsp;Tabs should be used solely to remain consistent with code that is already indented with tabs.<br>&nbsp;&nbsp;&nbsp;&nbsp;水平制表应该仅用于与水平制表已经缩进的代码保持一致。</p>
@@ -543,12 +519,10 @@ result = some_function_that_takes_arguments(
 <p>&nbsp;&nbsp;The Python standard library is conservative and requires limiting lines to 79 characters (and docstrings/comments to 72).<br>&nbsp;&nbsp;&nbsp;&nbsp;Python标准库是保守的，需要将限制行限制为79个字符（和文档字符串/注释为72）。</p>
 <p>&nbsp;&nbsp;The preferred way of wrapping long lines is by using Python’s implied line continuation inside parentheses, brackets and braces. Long lines can be broken over multiple lines by wrapping expressions in parentheses. These should be used in preference to using a backslash for line continuation.<br>&nbsp;&nbsp;&nbsp;&nbsp;包装长行的首选方法是使用括号，括号和括号中的Python隐含行连续。 长行可以通过将括号中的表达式包围在多行中。 这些应该优先于使用反斜杠进行行延续。</p>
 <p>&nbsp;&nbsp;Backslashes may still be appropriate at times. For example, long, multiple with -statements cannot use implicit continuation, so backslashes are acceptable:<br>&nbsp;&nbsp;&nbsp;&nbsp;有时，反斜杠可能仍然适用。 例如，long，multiple with 语句不能使用隐式继承，所以反斜杠是可以接受的：</p>
-</blockquote>
 <pre><code>with open('/path/to/some/file/you/want/to/read') as file_1, \
      open('/path/to/some/file/being/written', 'w') as file_2:
     file_2.write(file_1.read())</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;(See the previous discussion on multiline if-statements for further thoughts on the indentation of such multiline with -statements.)<br>&nbsp;&nbsp;&nbsp;&nbsp;（参见前面关于多行if语句的讨论，以进一步思考这种多行与缩写的缩进。）</p>
 <p>&nbsp;&nbsp;Another such case is with assert statements.<br>&nbsp;&nbsp;&nbsp;&nbsp;另一种情况是使用断言语句。</p>
 <p>&nbsp;&nbsp;Make sure to indent the continued line appropriately.<br>&nbsp;&nbsp;&nbsp;&nbsp;确保适当的缩进连续线。</p>
@@ -556,25 +530,21 @@ result = some_function_that_takes_arguments(
 <h3 id="Should-a-line-break-before-or-after-a-binary-operator-一个二进制运算符之前或之后的换行符？"><a href="#Should-a-line-break-before-or-after-a-binary-operator-一个二进制运算符之前或之后的换行符？" class="headerlink" title="Should a line break before or after a binary operator?    一个二进制运算符之前或之后的换行符？"></a>Should a line break before or after a binary operator?    一个二进制运算符之前或之后的换行符？</h3><blockquote>
 <p>&nbsp;&nbsp;For decades the recommended style was to break after binary operators. But this can hurt readability in two ways: the operators tend to get scattered across different columns on the screen, and each operator is moved away from its operand and onto the previous line. Here, the eye has to do extra work to tell which items are added and which are subtracted:<br>&nbsp;&nbsp;&nbsp;&nbsp;几十年来，推荐的风格是在二进制运算符之后中断。 但是这可能会以两种方式损害可读性：操作员倾向于分散在屏幕上的不同列上，并且每个操作员被从操作数移开并移到上一行。 在这里，眼睛必须做额外的工作来告诉哪些项目被添加和减去哪些：</p>
 <p>&nbsp;&nbsp;# No: operators sit far away from their operands<br>&nbsp;&nbsp;&nbsp;&nbsp;否:操作员远离操作数</p>
-</blockquote>
 <pre><code>income = (gross_wages +
           taxable_interest +
           (dividends - qualified_dividends) -
           ira_deduction -
           student_loan_interest)</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his Computers and Typesetting series: “Although formulas within a paragraph always break after binary operations and relations, displayed formulas always break before binary operations” [3] .<br>&nbsp;&nbsp;&nbsp;&nbsp;为了解决这个可读性问题，数学家及其出版商遵循相反的惯例。 唐纳德·克努特（Donald Knuth）在他的“电脑与排版”系列中解释了传统的规则：“尽管二进制操作和关系中段落中的公式总是中断，但是在二进制操作之前显示的公式总是打破”[3]。</p>
 <p>&nbsp;&nbsp;Following the tradition from mathematics usually results in more readable code:<br>&nbsp;&nbsp;&nbsp;&nbsp;遵循数学的传统通常会导致更可读的代码：</p>
 <p>&nbsp;&nbsp;# Yes: easy to match operators with operands<br>&nbsp;&nbsp;&nbsp;&nbsp;是的：容易与运算符匹配操作数</p>
-</blockquote>
 <pre><code>income = (gross_wages
           + taxable_interest
           + (dividends - qualified_dividends)
           - ira_deduction
           - student_loan_interest)</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;In Python code, it is permissible to break before or after a binary operator, as long as the convention is consistent locally. For new code Knuth’s style is suggested.<br>&nbsp;&nbsp;&nbsp;&nbsp;在Python代码中，可以在二进制运算符之前或之后中断，只要约定在本地一致即可。 对于新代码，建议使用Knuth的风格。</p>
 </blockquote>
 <h3 id="Blank-Lines-空白行"><a href="#Blank-Lines-空白行" class="headerlink" title="Blank Lines    空白行"></a>Blank Lines    空白行</h3><blockquote>
@@ -594,20 +564,14 @@ result = some_function_that_takes_arguments(
 <h3 id="Imports-引用"><a href="#Imports-引用" class="headerlink" title="Imports 引用"></a>Imports 引用</h3><blockquote>
 <p>&nbsp;&nbsp;Imports should usually be on separate lines, e.g.:<br>&nbsp;&nbsp;&nbsp;&nbsp;引用通常应该分开，例如：</p>
 <p>Yes:</p>
-</blockquote>
 <pre><code>    import os<br>    import sys</code></pre>
 
-<blockquote>
 <p>No:</p>
-</blockquote>
 <pre><code>    import sys, os</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;It’s okay to say this though:<br>&nbsp;&nbsp;&nbsp;&nbsp;可以这样说：</p>
-</blockquote>
 <pre><code>from subprocess import Popen, PIPE</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;Imports are always put at the top of the file, just after any module comments and docstrings, and before module globals and constants.<br>&nbsp;&nbsp;&nbsp;&nbsp;引用始终放在文件的顶部，就在任何模块注释和文档格式之后，以及模块全局变量和常量之前。</p>
 <p>&nbsp;&nbsp;Imports should be grouped in the following order:<br>&nbsp;&nbsp;&nbsp;&nbsp;引用应按以下顺序分组：</p>
 <p>&nbsp;&nbsp;standard library imports<br>&nbsp;&nbsp;&nbsp;&nbsp;标准库引用</p>
@@ -615,33 +579,25 @@ result = some_function_that_takes_arguments(
 <p>&nbsp;&nbsp;local application/library specific imports<br>&nbsp;&nbsp;&nbsp;&nbsp;本地应用程序/库特定引用</p>
 <p>&nbsp;&nbsp;You should put a blank line between each group of imports.<br>&nbsp;&nbsp;&nbsp;&nbsp;您应该在每组引用之间留一个空白行。</p>
 <p>&nbsp;&nbsp;Absolute imports are recommended, as they are usually more readable and tend to be better behaved (or at least give better error messages) if the import system is incorrectly configured (such as when a directory inside a package ends up on sys.path ):<br>&nbsp;&nbsp;&nbsp;&nbsp;推荐使用绝对导入，因为如果导入系统配置不正确（例如，当一个包中的目录在sys.path中最终出现时），它们通常可读性更好，行为更好（或至少提供更好的错误消息））：</p>
-</blockquote>
 <pre><code>import mypkg.sibling
 from mypkg import sibling
 from mypkg.sibling import example</code></pre>
 
 
-<blockquote>
 <p>&nbsp;&nbsp;However, explicit relative imports are an acceptable alternative to absolute imports, especially when dealing with complex package layouts where using absolute imports would be unnecessarily verbose:<br>&nbsp;&nbsp;&nbsp;&nbsp;然而，明确的相对进口是绝对进口的可接受的替代方案，特别是在处理使用绝对进口的复杂包装布局将是不必要的冗长时：</p>
-</blockquote>
 <pre><code>from . import sibling
 from .sibling import example</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;Standard library code should avoid complex package layouts and always use absolute imports.<br>&nbsp;&nbsp;&nbsp;&nbsp;标准库代码应避免复杂的包布局，并始终使用绝对引用。</p>
 <p>&nbsp;&nbsp;Implicit relative imports should never be used and have been removed in Python 3.<br>&nbsp;&nbsp;&nbsp;&nbsp;绝对相对引用不应该被使用，并且在Python 3中被删除。</p>
 <p>&nbsp;&nbsp;When importing a class from a class-containing module, it’s usually okay to spell this:<br>&nbsp;&nbsp;&nbsp;&nbsp;从类包含模块导入类时，通常可以拼写：</p>
-</blockquote>
 <pre><code>from myclass import MyClass
 from foo.bar.yourclass import YourClass</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;If this spelling causes local name clashes, then spell them<br>&nbsp;&nbsp;&nbsp;&nbsp;如果这个拼写造成本地名称冲突，请拼写它们</p>
-</blockquote>
 <pre><code>import myclass
 import foo.bar.yourclass</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;and use “myclass.MyClass” and “foo.bar.yourclass.YourClass”.<br>&nbsp;&nbsp;&nbsp;&nbsp;并使用“myclass.MyClass”和“foo.bar.yourclass.YourClass”。</p>
 <p>&nbsp;&nbsp;Wildcard imports ( from <module> import <em> ) should be avoided, as they make it unclear which names are present in the namespace, confusing both readers and many automated tools. There is one defensible use case for a wildcard import, which is to republish an internal interface as part of a public API (for example, overwriting a pure Python implementation of an interface with the definitions from an optional accelerator module and exactly which definitions will be overwritten isn’t known in advance).<br>&nbsp;&nbsp;&nbsp;&nbsp;应该避免使用通配符（来自<module> import </module></em>），因为它们使名称空间中存在哪些名称不清楚，从而使读者和许多自动化工具混淆在一起。 通配符导入有一个防御用例，即将内部接口作为公共API的一部分重新发布（例如，使用可选的加速器模块定义接口的纯Python实现，以及正确的定义 覆盖未提前知道）。</module></p>
 <p>&nbsp;&nbsp;When republishing names this way, the guidelines below regarding public and internal interfaces still apply.<br>&nbsp;&nbsp;&nbsp;&nbsp;当以这种方式重新发布名称时，以下关于公共和内部接口的指南仍然适用。</p>
@@ -649,7 +605,6 @@ import foo.bar.yourclass</code></pre>
 <h3 id="Module-level-dunder-names-模块级dunder名称"><a href="#Module-level-dunder-names-模块级dunder名称" class="headerlink" title="Module level dunder names 模块级dunder名称"></a>Module level dunder names 模块级dunder名称</h3><blockquote>
 <p>&nbsp;&nbsp;Module level “dunders” (i.e. names with two leading and two trailing underscores) such as <strong>all</strong> , <strong>author</strong> , <strong>version</strong> , etc. should be placed after the module docstring but before any import statements except from <strong>future</strong> imports. Python mandates that future-imports must appear in the module before any other code except docstrings.<br>&nbsp;&nbsp;&nbsp;&nbsp;模块级别“dunders”（即具有两个前导和后下划线的名称）（如<strong>all</strong>，<strong>author</strong>，<strong>version</strong>等）应放置在模块docstring之后，但除了<strong>future</strong>导入之外的任何导入语句之外。 Python要求未来的导入必须出现在除docstrings之外的任何其他代码之前的模块中。</p>
 <p>&nbsp;&nbsp;For example:<br>&nbsp;&nbsp;&nbsp;&nbsp;例如：</p>
-</blockquote>
 <pre><code>"""This is the example module.
 This module does stuff.
 """
@@ -661,6 +616,7 @@ import os
 import sys</code></pre>
 
 
+</blockquote>
 <h2 id="String-Quotes-字符串引用"><a href="#String-Quotes-字符串引用" class="headerlink" title="String Quotes 字符串引用"></a>String Quotes 字符串引用</h2><blockquote>
 <p>&nbsp;&nbsp;In Python, single-quoted strings and double-quoted strings are the same. This PEP does not make a recommendation for this. Pick a rule and stick to it. When a string contains single or double quote characters, however, use the other one to avoid backslashes in the string. It improves readability.<br>&nbsp;&nbsp;&nbsp;&nbsp;在Python中，单引号字符串和双引号字符串是相同的。 这个PEP没有为此提出建议。 选择规则并坚持下去。 但是，当字符串包含单引号或双引号字符时，请使用另一个字符串避免字符串中的反斜杠。 它提高了可读性。</p>
 <p>&nbsp;&nbsp;For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257.<br>&nbsp;&nbsp;&nbsp;&nbsp;对于三重引号字符串，始终使用双引号字符与PEP 257中的docstring约定一致。</p>
@@ -669,31 +625,22 @@ import sys</code></pre>
 <p>&nbsp;&nbsp;Avoid extraneous whitespace in the following situations:<br>&nbsp;&nbsp;&nbsp;&nbsp;在以下情况下避免无关的空白：</p>
 <p>&nbsp;&nbsp;Immediately inside parentheses, brackets or braces.<br>&nbsp;&nbsp;&nbsp;&nbsp;立即在括号内，括号或括号内。</p>
 <p>Yes:</p>
-</blockquote>
 <pre><code>    spam(ham[1], {eggs: 2})</code></pre>
->No:
-
+No:
 <pre><code>    spam( ham[ 1 ], { eggs: 2 } )</code></pre>
 
-<blockquote>
 <p>&nbsp;&nbsp;Between a trailing comma and a following close parentheses.<br>&nbsp;&nbsp;&nbsp;&nbsp;在后面的逗号和下面的闭括号之间。</p>
 <p>Yes:</p>
-</blockquote>
 <pre><code>    foo = (0,)</code></pre>
->No:
-
+No:
 <pre><code>    bar = (0, )</code></pre>
 
-<blockquote>
 <p>Immediately before a comma, semicolon, or colon:</p>
 <p>Yes:</p>
-</blockquote>
 <pre><code>if x == 4: print x, y; x, y = y, x</code></pre>
->No:
-
+No:
 <pre><code>if x == 4 : print x , y ; x , y = y , x</code></pre>
 
-<blockquote>
 <p>However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted.</p>
 <p>Yes:</p>
 <pre><code>ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
@@ -717,10 +664,10 @@ No:
 <p>Immediately before the open parenthesis that starts an indexing or slicing:</p>
 <p>Yes:</p>
 <pre><code>dct['key'] = lst[index]</code></pre>
-<p>No:
+No:
 <pre><code>dct ['key'] = lst [index]</code></pre>
 
-</p><p>More than one space around an assignment (or other) operator to align it with another.</p>
+<p>More than one space around an assignment (or other) operator to align it with another.</p>
 <p>Yes:</p>
 <pre><code>x = 1
 y = 2
