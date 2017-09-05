@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Author:    Guido van Rossum , Barry Warsaw , Nick Coghlan   ##Introduction    介绍  &amp;nbsp;&amp;nbsp;This document gives coding conventions for the Python code comprising the standard library in the main Py">
+<meta name="description" content="Author:    Guido van Rossum , Barry Warsaw , Nick Coghlan   Introduction    介绍 &amp;nbsp;&amp;nbsp;This document gives coding conventions for the Python code comprising the standard library in the main Pytho">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PEP 8 -- Style Guide for Python Code">
 <meta property="og:url" content="http://yoursite.com/2017/08/26/PEP 8 -- Style Guide for Python Code/index.html">
 <meta property="og:site_name" content="Blog-Github">
-<meta property="og:description" content="Author:    Guido van Rossum , Barry Warsaw , Nick Coghlan   ##Introduction    介绍  &amp;nbsp;&amp;nbsp;This document gives coding conventions for the Python code comprising the standard library in the main Py">
-<meta property="og:updated_time" content="2017-09-05T13:10:47.336Z">
+<meta property="og:description" content="Author:    Guido van Rossum , Barry Warsaw , Nick Coghlan   Introduction    介绍 &amp;nbsp;&amp;nbsp;This document gives coding conventions for the Python code comprising the standard library in the main Pytho">
+<meta property="og:updated_time" content="2017-09-05T13:29:52.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PEP 8 -- Style Guide for Python Code">
-<meta name="twitter:description" content="Author:    Guido van Rossum , Barry Warsaw , Nick Coghlan   ##Introduction    介绍  &amp;nbsp;&amp;nbsp;This document gives coding conventions for the Python code comprising the standard library in the main Py">
+<meta name="twitter:description" content="Author:    Guido van Rossum , Barry Warsaw , Nick Coghlan   Introduction    介绍 &amp;nbsp;&amp;nbsp;This document gives coding conventions for the Python code comprising the standard library in the main Pytho">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -281,15 +281,13 @@
         <blockquote>
 <p>Author:    Guido van Rossum <guido at="" python.org="">, Barry Warsaw <barry at="" python.org="">, Nick Coghlan <ncoghlan at="" gmail.com=""></ncoghlan></barry></guido></p>
 </blockquote>
-<p>##Introduction    介绍</p>
-<blockquote>
+<h2 id="Introduction-介绍"><a href="#Introduction-介绍" class="headerlink" title="Introduction    介绍"></a>Introduction    介绍</h2><blockquote>
 <p>&nbsp;&nbsp;This document gives coding conventions for the Python code comprising the standard library in the main Python distribution. Please see the companion informational PEP describing style guidelines for the C code in the C implementation of Python [1] .<br>&nbsp;&nbsp;&nbsp;&nbsp;本文档提供了Python代码的编码约定，其中包含主Python分发版中的标准库。 请参阅Python的C实现中的C代码的配套信息PEP描述风格指南[1]。</p>
 <p>&nbsp;&nbsp;This document and PEP 257 (Docstring Conventions) were adapted from Guido’s original Python Style Guide essay, with some additions from Barry’s style guide [2] .<br>&nbsp;&nbsp;&nbsp;&nbsp;本文件和PEP 257（Docstring约定）是从Guido的原始Python风格指南文章改编而来的，还有一些Barry的风格指南[2]。</p>
 <p>&nbsp;&nbsp;This style guide evolves over time as additional conventions are identified and past conventions are rendered obsolete by changes in the language itself.<br>&nbsp;&nbsp;&nbsp;&nbsp;随着时间的推移，这种风格指南随着时间的推移而变化，随着语言本身的变化，过去的惯例也被废弃了。</p>
 <p>&nbsp;&nbsp;Many projects have their own coding style guidelines. In the event of any conflicts, such project-specific guides take precedence for that project.<br>&nbsp;&nbsp;&nbsp;&nbsp;许多项目都有自己的编码风格指南。 在发生任何冲突的情况下，此项目的具体指南优先于该项目。</p>
 </blockquote>
-<p>##A Foolish Consistency is the Hobgoblin of Little Minds  愚蠢的一致性是小心灵的Hobgoblin</p>
-<blockquote>
+<h2 id="A-Foolish-Consistency-is-the-Hobgoblin-of-Little-Minds-愚蠢的一致性是小心灵的Hobgoblin"><a href="#A-Foolish-Consistency-is-the-Hobgoblin-of-Little-Minds-愚蠢的一致性是小心灵的Hobgoblin" class="headerlink" title="A Foolish Consistency is the Hobgoblin of Little Minds  愚蠢的一致性是小心灵的Hobgoblin"></a>A Foolish Consistency is the Hobgoblin of Little Minds  愚蠢的一致性是小心灵的Hobgoblin</h2><blockquote>
 <p>&nbsp;&nbsp;One of Guido’s key insights is that code is read much more often than it is written. The guidelines provided here are intended to improve the readability of code and make it consistent across the wide spectrum of Python code. As PEP 20 says, “Readability counts”.<br>&nbsp;&nbsp;&nbsp;&nbsp;Guido的主要见解之一是代码读取的速度比写入的频率高得多。 这里提供的指导旨在提高代码的可读性，使其在广泛的Python代码中保持一致。 正如PEP 20所说，“可读性计数”。</p>
 <p>&nbsp;&nbsp;A style guide is about consistency. Consistency with this style guide is important. Consistency within a project is more important. Consistency within one module or function is the most important.<br>&nbsp;&nbsp;&nbsp;&nbsp;风格指南是关于一致性的。 与此风格指南的一致性很重要。 一个项目的一致性更重要。 一个模块或功能内的一致性是最重要的。</p>
 <p>&nbsp;&nbsp;However, know when to be inconsistent – sometimes style guide recommendations just aren’t applicable. When in doubt, use your best judgment. Look at other examples and decide what looks best. And don’t hesitate to ask!<br>&nbsp;&nbsp;&nbsp;&nbsp;但是，知道何时不一致 - 有时风格指南的建议不适用。 如有疑问，请用最好的判断。 看看其他的例子，决定什么看起来最好。 不要犹豫，问！</p>
@@ -300,9 +298,7 @@
 <p>&nbsp;&nbsp;Because the code in question predates the introduction of the guideline and there is no other reason to be modifying that code.<br>&nbsp;&nbsp;&nbsp;&nbsp;因为有问题的代码早于引入引用，没有其他原因要修改该代码。</p>
 <p>&nbsp;&nbsp;When the code needs to remain compatible with older versions of Python that don’t support the feature recommended by the style guide.<br>&nbsp;&nbsp;&nbsp;&nbsp;当代码需要与不支持样式指南推荐功能的旧版本的Python兼容时。</p>
 </blockquote>
-<p>##Code lay-out    代码布局</p>
-<p>###Indentation 缩进</p>
-<blockquote>
+<h2 id="Code-lay-out-代码布局"><a href="#Code-lay-out-代码布局" class="headerlink" title="Code lay-out    代码布局"></a>Code lay-out    代码布局</h2><h3 id="Indentation-缩进"><a href="#Indentation-缩进" class="headerlink" title="Indentation 缩进"></a>Indentation 缩进</h3><blockquote>
 <p>&nbsp;&nbsp;Use 4 spaces per indentation level.<br>&nbsp;&nbsp;&nbsp;&nbsp;每个缩进级别使用4个空格。</p>
 <p>&nbsp;&nbsp;Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent [7] . When using a hanging indent the following should be considered; there should be no arguments on the first line and further indentation should be used to clearly distinguish itself as a continuation line.<br>&nbsp;&nbsp;&nbsp;&nbsp;连续行应使用Python的隐式行连接在括号，括号和括号内或使用悬挂缩进方式垂直对齐包装的元素[7]。 当使用悬挂缩进时，应考虑以下内容： 第一行应该没有论据，应该使用进一步的缩进来明确区分自己作为延续线。</p>
 <p>Yes:</p>
@@ -383,16 +379,14 @@ result = some_function_that_takes_arguments(
 
 
 </blockquote>
-<p>###Tabs or Spaces?    水平制表或者空格？</p>
-<blockquote>
+<h3 id="Tabs-or-Spaces-水平制表或者空格？"><a href="#Tabs-or-Spaces-水平制表或者空格？" class="headerlink" title="Tabs or Spaces?    水平制表或者空格？"></a>Tabs or Spaces?    水平制表或者空格？</h3><blockquote>
 <p>&nbsp;&nbsp;Spaces are the preferred indentation method.<br>&nbsp;&nbsp;&nbsp;&nbsp;空格是首选的缩进方法。</p>
 <p>&nbsp;&nbsp;Tabs should be used solely to remain consistent with code that is already indented with tabs.<br>&nbsp;&nbsp;&nbsp;&nbsp;水平制表应该仅用于与水平制表已经缩进的代码保持一致。</p>
 <p>&nbsp;&nbsp;Python 3 disallows mixing the use of tabs and spaces for indentation.<br>&nbsp;&nbsp;&nbsp;&nbsp;Python 3不允许混合使用制表符和空格进行缩进。</p>
 <p>&nbsp;&nbsp;Python 2 code indented with a mixture of tabs and spaces should be converted to using spaces exclusively.<br>&nbsp;&nbsp;&nbsp;&nbsp;Python 2代码缩进的水平制表和空格的混合应该被转换为仅使用空格。</p>
 <p>&nbsp;&nbsp;When invoking the Python 2 command line interpreter with the -t option, it issues warnings about code that illegally mixes tabs and spaces. When using -tt these warnings become errors. These options are highly recommended!<br>&nbsp;&nbsp;&nbsp;&nbsp;当使用-t选项调用Python 2命令行解释器时，会发出关于非法混合制表符和空格的代码的警告。 当使用-tt这些警告会变成错误。 强烈推荐这些选项！</p>
 </blockquote>
-<p>###Maximum Line Length    最大线长度</p>
-<blockquote>
+<h3 id="Maximum-Line-Length-最大线长度"><a href="#Maximum-Line-Length-最大线长度" class="headerlink" title="Maximum Line Length    最大线长度"></a>Maximum Line Length    最大线长度</h3><blockquote>
 <p>&nbsp;&nbsp;Limit all lines to a maximum of 79 characters.<br>&nbsp;&nbsp;&nbsp;&nbsp;将所有行限制为最多79个字符。</p>
 <p>&nbsp;&nbsp;For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to 72 characters.<br>&nbsp;&nbsp;&nbsp;&nbsp;对于长度较短的文本块（文档字符串或注释）较少的结构限制，行长度应限制为72个字符。</p>
 <p>&nbsp;&nbsp;Limiting the required editor window width makes it possible to have several files open side-by-side, and works well when using code review tools that present the two versions in adjacent columns.<br>&nbsp;&nbsp;&nbsp;&nbsp;限制所需的编辑器窗口宽度使得可以并排打开多个文件，并且在使用在相邻列中呈现两个版本的代码审阅工具时可以正常工作。</p>
@@ -409,8 +403,7 @@ result = some_function_that_takes_arguments(
 <p>&nbsp;&nbsp;Another such case is with assert statements.<br>&nbsp;&nbsp;&nbsp;&nbsp;另一种情况是使用断言语句。</p>
 <p>&nbsp;&nbsp;Make sure to indent the continued line appropriately.<br>&nbsp;&nbsp;&nbsp;&nbsp;确保适当的缩进连续线。</p>
 </blockquote>
-<p>###Should a line break before or after a binary operator?    一个二进制运算符之前或之后的换行符？</p>
-<blockquote>
+<h3 id="Should-a-line-break-before-or-after-a-binary-operator-一个二进制运算符之前或之后的换行符？"><a href="#Should-a-line-break-before-or-after-a-binary-operator-一个二进制运算符之前或之后的换行符？" class="headerlink" title="Should a line break before or after a binary operator?    一个二进制运算符之前或之后的换行符？"></a>Should a line break before or after a binary operator?    一个二进制运算符之前或之后的换行符？</h3><blockquote>
 <p>&nbsp;&nbsp;For decades the recommended style was to break after binary operators. But this can hurt readability in two ways: the operators tend to get scattered across different columns on the screen, and each operator is moved away from its operand and onto the previous line. Here, the eye has to do extra work to tell which items are added and which are subtracted:<br>&nbsp;&nbsp;&nbsp;&nbsp;几十年来，推荐的风格是在二进制运算符之后中断。 但是这可能会以两种方式损害可读性：操作员倾向于分散在屏幕上的不同列上，并且每个操作员被从操作数移开并移到上一行。 在这里，眼睛必须做额外的工作来告诉哪些项目被添加和减去哪些：</p>
 <p>&nbsp;&nbsp;# No: operators sit far away from their operands<br>&nbsp;&nbsp;&nbsp;&nbsp;否:操作员远离操作数</p>
 <p>&nbsp;&nbsp;<pre><code>income = (gross_wages +<br>          taxable_interest +<br>          (dividends - qualified_dividends) -<br>          ira_deduction -<br>          student_loan_interest)</code></pre></p>
@@ -427,24 +420,21 @@ result = some_function_that_takes_arguments(
 <blockquote>
 <p>&nbsp;&nbsp;In Python code, it is permissible to break before or after a binary operator, as long as the convention is consistent locally. For new code Knuth’s style is suggested.<br>&nbsp;&nbsp;&nbsp;&nbsp;在Python代码中，可以在二进制运算符之前或之后中断，只要约定在本地一致即可。 对于新代码，建议使用Knuth的风格。</p>
 </blockquote>
-<p>###Blank Lines    空白行</p>
-<blockquote>
+<h3 id="Blank-Lines-空白行"><a href="#Blank-Lines-空白行" class="headerlink" title="Blank Lines    空白行"></a>Blank Lines    空白行</h3><blockquote>
 <p>&nbsp;&nbsp;Surround top-level function and class definitions with two blank lines.<br>&nbsp;&nbsp;&nbsp;&nbsp;环绕顶层功能和类定义，带有两条空白行。</p>
 <p>&nbsp;&nbsp;Method definitions inside a class are surrounded by a single blank line.<br>&nbsp;&nbsp;&nbsp;&nbsp;类中的方法定义被单个空行包围。</p>
 <p>&nbsp;&nbsp;&gt;Extra blank lines may be used (sparingly) to separate groups of related functions. Blank lines may be omitted between a bunch of related one-liners (e.g. a set of dummy implementations).<br>&nbsp;&nbsp;&nbsp;&nbsp;&gt;可以使用额外的空白行（谨慎地）来分离相关功能组。 在一堆相关的一个衬垫（例如一组虚拟实现）之间可以省略空行。</p>
 <p>&nbsp;&nbsp;&gt;Use blank lines in functions, sparingly, to indicate logical sections.<br>&nbsp;&nbsp;&nbsp;&nbsp;&gt;在功能中使用空白行，谨慎地表示逻辑部分。</p>
 <p>&nbsp;&nbsp;Python accepts the control-L (i.e. ^L) form feed character as whitespace; Many tools treat these characters as page separators, so you may use them to separate pages of related sections of your file. Note, some editors and web-based code viewers may not recognize control-L as a form feed and will show another glyph in its place.<br>&nbsp;&nbsp;&nbsp;&nbsp;Python接受控制-L（即^ L）形式的馈送字符作为空格; 许多工具将这些字符视为页面分隔符，因此您可以使用它们来分隔文件的相关部分的页面。 请注意，一些编辑器和基于Web的代码查看器可能无法将control-L识别为表单Feed，并会在其位置显示另一个字形。</p>
 </blockquote>
-<p>###Source File Encoding  源文件编码</p>
-<blockquote>
+<h3 id="Source-File-Encoding-源文件编码"><a href="#Source-File-Encoding-源文件编码" class="headerlink" title="Source File Encoding  源文件编码"></a>Source File Encoding  源文件编码</h3><blockquote>
 <p>&nbsp;&nbsp;Code in the core Python distribution should always use UTF-8 (or ASCII in Python 2).<br>&nbsp;&nbsp;&nbsp;&nbsp;核心Python发行版中的代码应始终使用UTF-8（或Python 2中的ASCII）。</p>
 <p>&nbsp;&nbsp;Files using ASCII (in Python 2) or UTF-8 (in Python 3) should not have an encoding declaration.<br>&nbsp;&nbsp;&nbsp;&nbsp;使用ASCII（Python 2）或UTF-8（在Python 3中）的文件不应该具有编码声明。</p>
 <p>&nbsp;&nbsp;In the standard library, non-default encodings should be used only for test purposes or when a comment or docstring needs to mention an author name that contains non-ASCII characters; otherwise, using \x , \u , \U , or \N escapes is the preferred way to include non-ASCII data in string literals.<br>&nbsp;&nbsp;&nbsp;&nbsp;在标准库中，非默认编码应仅用于测试目的，或者当注释或文档列表需要提及包含非ASCII字符的作者名称时; 否则，使用\ x，\ u，\ U或\ N转义是将非ASCII数据包含在字符串文字中的首选方法。</p>
 <p>&nbsp;&nbsp;For Python 3.0 and beyond, the following policy is prescribed for the standard library (see PEP 3131 ): All identifiers in the Python standard library MUST use ASCII-only identifiers, and SHOULD use English words wherever feasible (in many cases, abbreviations and technical terms are used which aren’t English). In addition, string literals and comments must also be in ASCII. The only exceptions are (a) test cases testing the non-ASCII features, and (b) names of authors. Authors whose names are not based on the latin alphabet MUST provide a latin transliteration of their names.<br>&nbsp;&nbsp;&nbsp;&nbsp;对于Python 3.0及更高版本，标准库规定了以下策略（参见PEP 3131）：Python标准库中的所有标识符必须使用只有ASCII的标识符，并且应该在可行的情况下使用英文单词（在许多情况下，缩写和技术 使用不是英文的术语）。 此外，字符串文字和注释也必须是ASCII。 唯一的例外是（a）测试非ASCII特征的测试用例，以及（b）作者姓名。 名字不是拉丁字母的作者必须提供其名字的拉丁音译。</p>
 <p>&nbsp;&nbsp;Open source projects with a global audience are encouraged to adopt a similar policy.<br>&nbsp;&nbsp;&nbsp;&nbsp;鼓励有全球观众的开源项目采取类似的政策。</p>
 </blockquote>
-<p>###Imports 引用</p>
-<blockquote>
+<h3 id="Imports-引用"><a href="#Imports-引用" class="headerlink" title="Imports 引用"></a>Imports 引用</h3><blockquote>
 <p>&nbsp;&nbsp;Imports should usually be on separate lines, e.g.:<br>&nbsp;&nbsp;&nbsp;&nbsp;引用通常应该分开，例如：</p>
 <p>Yes:</p>
 <pre><code>    import os<br>    import sys</code></pre>
@@ -492,8 +482,7 @@ import foo.bar.yourclass</code></pre>
 <p>&nbsp;&nbsp;Wildcard imports ( from <module> import <em> ) should be avoided, as they make it unclear which names are present in the namespace, confusing both readers and many automated tools. There is one defensible use case for a wildcard import, which is to republish an internal interface as part of a public API (for example, overwriting a pure Python implementation of an interface with the definitions from an optional accelerator module and exactly which definitions will be overwritten isn’t known in advance).<br>&nbsp;&nbsp;&nbsp;&nbsp;应该避免使用通配符（来自<module> import </module></em>），因为它们使名称空间中存在哪些名称不清楚，从而使读者和许多自动化工具混淆在一起。 通配符导入有一个防御用例，即将内部接口作为公共API的一部分重新发布（例如，使用可选的加速器模块定义接口的纯Python实现，以及正确的定义 覆盖未提前知道）。</module></p>
 <p>&nbsp;&nbsp;When republishing names this way, the guidelines below regarding public and internal interfaces still apply.<br>&nbsp;&nbsp;&nbsp;&nbsp;当以这种方式重新发布名称时，以下关于公共和内部接口的指南仍然适用。</p>
 </blockquote>
-<p>###Module level dunder names 模块级dunder名称</p>
-<blockquote>
+<h3 id="Module-level-dunder-names-模块级dunder名称"><a href="#Module-level-dunder-names-模块级dunder名称" class="headerlink" title="Module level dunder names 模块级dunder名称"></a>Module level dunder names 模块级dunder名称</h3><blockquote>
 <p>&nbsp;&nbsp;Module level “dunders” (i.e. names with two leading and two trailing underscores) such as <strong>all</strong> , <strong>author</strong> , <strong>version</strong> , etc. should be placed after the module docstring but before any import statements except from <strong>future</strong> imports. Python mandates that future-imports must appear in the module before any other code except docstrings.<br>&nbsp;&nbsp;&nbsp;&nbsp;模块级别“dunders”（即具有两个前导和后下划线的名称）（如<strong>all</strong>，<strong>author</strong>，<strong>version</strong>等）应放置在模块docstring之后，但除了<strong>future</strong>导入之外的任何导入语句之外。 Python要求未来的导入必须出现在除docstrings之外的任何其他代码之前的模块中。</p>
 <p>&nbsp;&nbsp;For example:<br>&nbsp;&nbsp;&nbsp;&nbsp;例如：</p>
 </blockquote>
@@ -508,14 +497,11 @@ import os
 import sys</code></pre>
 
 
-<p>##String Quotes 字符串引用</p>
-<blockquote>
+<h2 id="String-Quotes-字符串引用"><a href="#String-Quotes-字符串引用" class="headerlink" title="String Quotes 字符串引用"></a>String Quotes 字符串引用</h2><blockquote>
 <p>&nbsp;&nbsp;In Python, single-quoted strings and double-quoted strings are the same. This PEP does not make a recommendation for this. Pick a rule and stick to it. When a string contains single or double quote characters, however, use the other one to avoid backslashes in the string. It improves readability.<br>&nbsp;&nbsp;&nbsp;&nbsp;在Python中，单引号字符串和双引号字符串是相同的。 这个PEP没有为此提出建议。 选择规则并坚持下去。 但是，当字符串包含单引号或双引号字符时，请使用另一个字符串避免字符串中的反斜杠。 它提高了可读性。</p>
 <p>&nbsp;&nbsp;For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257.<br>&nbsp;&nbsp;&nbsp;&nbsp;对于三重引号字符串，始终使用双引号字符与PEP 257中的docstring约定一致。</p>
 </blockquote>
-<p>##Whitespace in Expressions and Statements  表达和声明中的空白</p>
-<p>###Pet Peeves  怪毛病</p>
-<blockquote>
+<h2 id="Whitespace-in-Expressions-and-Statements-表达和声明中的空白"><a href="#Whitespace-in-Expressions-and-Statements-表达和声明中的空白" class="headerlink" title="Whitespace in Expressions and Statements  表达和声明中的空白"></a>Whitespace in Expressions and Statements  表达和声明中的空白</h2><h3 id="Pet-Peeves-怪毛病"><a href="#Pet-Peeves-怪毛病" class="headerlink" title="Pet Peeves  怪毛病"></a>Pet Peeves  怪毛病</h3><blockquote>
 <p>&nbsp;&nbsp;Avoid extraneous whitespace in the following situations:<br>&nbsp;&nbsp;&nbsp;&nbsp;在以下情况下避免无关的空白：</p>
 <p>&nbsp;&nbsp;Immediately inside parentheses, brackets or braces.<br>&nbsp;&nbsp;&nbsp;&nbsp;立即在括号内，括号或括号内。</p>
 <p>Yes:</p>
@@ -575,8 +561,7 @@ long_variable = 3</code></pre>
 
 
 </blockquote>
-<p>###Other Recommendations</p>
-<blockquote>
+<h3 id="Other-Recommendations"><a href="#Other-Recommendations" class="headerlink" title="Other Recommendations"></a>Other Recommendations</h3><blockquote>
 <p>Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like CPython itself) have pre-commit hooks that reject it.</p>
 <p>Always surround these binary operators with a single space on either side: assignment ( = ), augmented assignment ( += , -= etc.), comparisons ( == , &lt; , &gt; , != , &lt;&gt; , &lt;= , &gt;= , in , not in , is , is not ), Booleans ( and , or , not ).</p>
 <p>If operators with different priorities are used, consider adding whitespace around the operators with the lowest priority(ies). Use your own judgment; however, never use more than one space, and always have the same amount of whitespace on both sides of a binary operator.</p>
@@ -795,7 +780,7 @@ return key_not_found(key)
         <p><span>本文标题:</span><a href="/2017/08/26/PEP 8 -- Style Guide for Python Code/">PEP 8 -- Style Guide for Python Code</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">LearnSlag</a></p>
         <p><span>发布时间:</span>2017-08-26, 15:50:41</p>
-        <p><span>最后更新:</span>2017-09-05, 21:10:47</p>
+        <p><span>最后更新:</span>2017-09-05, 21:29:52</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/08/26/PEP 8 -- Style Guide for Python Code/" title="PEP 8 -- Style Guide for Python Code">http://yoursite.com/2017/08/26/PEP 8 -- Style Guide for Python Code/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/08/26/PEP 8 -- Style Guide for Python Code/　　作者: LearnSlag" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -831,7 +816,7 @@ return key_not_found(key)
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.3.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.4.</span> <span class="toc-text"></h4Class NamesClass names should normally use the CapWords convention.
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-介绍"><span class="toc-number">1.</span> <span class="toc-text">Introduction    介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Foolish-Consistency-is-the-Hobgoblin-of-Little-Minds-愚蠢的一致性是小心灵的Hobgoblin"><span class="toc-number">2.</span> <span class="toc-text">A Foolish Consistency is the Hobgoblin of Little Minds  愚蠢的一致性是小心灵的Hobgoblin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-lay-out-代码布局"><span class="toc-number">3.</span> <span class="toc-text">Code lay-out    代码布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Indentation-缩进"><span class="toc-number">3.1.</span> <span class="toc-text">Indentation 缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tabs-or-Spaces-水平制表或者空格？"><span class="toc-number">3.2.</span> <span class="toc-text">Tabs or Spaces?    水平制表或者空格？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maximum-Line-Length-最大线长度"><span class="toc-number">3.3.</span> <span class="toc-text">Maximum Line Length    最大线长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Should-a-line-break-before-or-after-a-binary-operator-一个二进制运算符之前或之后的换行符？"><span class="toc-number">3.4.</span> <span class="toc-text">Should a line break before or after a binary operator?    一个二进制运算符之前或之后的换行符？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Blank-Lines-空白行"><span class="toc-number">3.5.</span> <span class="toc-text">Blank Lines    空白行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Source-File-Encoding-源文件编码"><span class="toc-number">3.6.</span> <span class="toc-text">Source File Encoding  源文件编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Imports-引用"><span class="toc-number">3.7.</span> <span class="toc-text">Imports 引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Module-level-dunder-names-模块级dunder名称"><span class="toc-number">3.8.</span> <span class="toc-text">Module level dunder names 模块级dunder名称</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-Quotes-字符串引用"><span class="toc-number">4.</span> <span class="toc-text">String Quotes 字符串引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Whitespace-in-Expressions-and-Statements-表达和声明中的空白"><span class="toc-number">5.</span> <span class="toc-text">Whitespace in Expressions and Statements  表达和声明中的空白</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pet-Peeves-怪毛病"><span class="toc-number">5.1.</span> <span class="toc-text">Pet Peeves  怪毛病</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Other-Recommendations"><span class="toc-number">5.2.</span> <span class="toc-text">Other Recommendations</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">7.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">7.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">7.3.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">8.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">8.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.4.</span> <span class="toc-text"></h4Class NamesClass names should normally use the CapWords convention.
 The naming convention for functions may be used instead in cases where the interface is documented and used primarily as a callable.
 Note that there is a separate convention for builtin names: most builtin names are single words (or two words run together), with the CapWords convention used only for exception names and builtin constants.
 Type variable namesNames of type variables introduced in PEP 484 should normally use CapWords preferring short names: T , AnyStr , Num . It is recommended to add suffixes _co or _contra to the variables used to declare covariant or contravariant behavior correspondingly. Examples:
@@ -949,7 +934,7 @@ Footnotes
 References[1]    PEP 7 , Style Guide for C Code, van Rossum[2]    Barry’s GNU Mailman style guide http://barry.warsaw.us/software/STYLEGUIDE.txt[3]    Donald Knuth’s The TeXBook , pages 195 and 196.[4]    http://www.wikipedia.com/wiki/CamelCase[5]    Typeshed repo https://github.com/python/typeshed[6]    Suggested syntax for Python 2.7 and straddling code https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code
 CopyrightThis document has been placed in the public domain.
 Source: https://github.com/python/peps/blob/master/pep-0008.txt
-</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.5.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.6.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.7.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.8.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.9.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.10.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.11.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.12.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.4.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#type-ignore"><span class="toc-number"></span> <span class="toc-text">type: ignore</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li></ol>
+</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.5.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.6.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.7.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.8.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.9.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.10.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.11.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">8.3.12.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">8.4.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">9.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#type-ignore"><span class="toc-number"></span> <span class="toc-text">type: ignore</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li></ol>
         
     </div>
     <style>
