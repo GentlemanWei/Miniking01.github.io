@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/26/PEP 8 -- Style Guide for Python Code/index.html">
 <meta property="og:site_name" content="Blog-Github">
 <meta property="og:description" content="Author:    Guido van Rossum , Barry Warsaw , Nick Coghlan   ##Introduction    介绍  &amp;nbsp;&amp;nbsp;This document gives coding conventions for the Python code comprising the standard library in the main Py">
-<meta property="og:updated_time" content="2017-08-28T09:24:26.978Z">
+<meta property="og:updated_time" content="2017-09-05T13:10:47.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PEP 8 -- Style Guide for Python Code">
 <meta name="twitter:description" content="Author:    Guido van Rossum , Barry Warsaw , Nick Coghlan   ##Introduction    介绍  &amp;nbsp;&amp;nbsp;This document gives coding conventions for the Python code comprising the standard library in the main Py">
@@ -493,52 +493,112 @@ import foo.bar.yourclass</code></pre>
 <p>&nbsp;&nbsp;When republishing names this way, the guidelines below regarding public and internal interfaces still apply.<br>&nbsp;&nbsp;&nbsp;&nbsp;当以这种方式重新发布名称时，以下关于公共和内部接口的指南仍然适用。</p>
 </blockquote>
 <p>###Module level dunder names 模块级dunder名称</p>
-<p>&nbsp;&nbsp;Module level “dunders” (i.e. names with two leading and two trailing underscores) such as <strong>all</strong> , <strong>author</strong> , <strong>version</strong> , etc. should be placed after the module docstring but before any import statements except from <strong>future</strong> imports. Python mandates that future-imports must appear in the module before any other code except docstrings.<br>&nbsp;&nbsp;&nbsp;&nbsp;模块级别“dunders”（即具有两个前导和后下划线的名称）（如<strong>all</strong>，<strong>author</strong>，<strong>version</strong>等）应放置在模块docstring之后，但除了<strong>future</strong>导入之外的任何导入语句之外。 Python要求未来的导入必须出现在除docstrings之外的任何其他代码之前的模块中。<br></p>
-
-<p>&nbsp;&nbsp;For example:<br>&nbsp;&nbsp;&nbsp;&nbsp;例如：<br></p>
-
-<p><pre><code>“””This is the example module.<br>This module does stuff.<br>“””<br>from <strong>future</strong> import barry_as_FLUFL<br><strong>all</strong> = [‘a’, ‘b’, ‘c’]<br><strong>version</strong> = ‘0.1’<br><strong>author</strong> = ‘Cardinal Biggles’<br>import os<br>import sys</code></pre><br></p>
-
-
-<h2>String Quotes 字符串引用</h2>
-
-<p>&nbsp;&nbsp;In Python, single-quoted strings and double-quoted strings are the same. This PEP does not make a recommendation for this. Pick a rule and stick to it. When a string contains single or double quote characters, however, use the other one to avoid backslashes in the string. It improves readability.<br>&nbsp;&nbsp;&nbsp;&nbsp;在Python中，单引号字符串和双引号字符串是相同的。 这个PEP没有为此提出建议。 选择规则并坚持下去。 但是，当字符串包含单引号或双引号字符时，请使用另一个字符串避免字符串中的反斜杠。 它提高了可读性。<br></p>
-
-<p>&nbsp;&nbsp;For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257.<br>&nbsp;&nbsp;&nbsp;&nbsp;对于三重引号字符串，始终使用双引号字符与PEP 257中的docstring约定一致。<br></p>
-
-
-<h2>Whitespace in Expressions and Statements  表达和声明中的空白</h2>
+<blockquote>
+<p>&nbsp;&nbsp;Module level “dunders” (i.e. names with two leading and two trailing underscores) such as <strong>all</strong> , <strong>author</strong> , <strong>version</strong> , etc. should be placed after the module docstring but before any import statements except from <strong>future</strong> imports. Python mandates that future-imports must appear in the module before any other code except docstrings.<br>&nbsp;&nbsp;&nbsp;&nbsp;模块级别“dunders”（即具有两个前导和后下划线的名称）（如<strong>all</strong>，<strong>author</strong>，<strong>version</strong>等）应放置在模块docstring之后，但除了<strong>future</strong>导入之外的任何导入语句之外。 Python要求未来的导入必须出现在除docstrings之外的任何其他代码之前的模块中。</p>
+<p>&nbsp;&nbsp;For example:<br>&nbsp;&nbsp;&nbsp;&nbsp;例如：</p>
+</blockquote>
+<pre><code>"""This is the example module.
+This module does stuff.
+"""
+from __future__ import barry_as_FLUFL
+__all__ = ['a', 'b', 'c']
+__version__ = '0.1'
+__author__ = 'Cardinal Biggles'
+import os
+import sys</code></pre>
 
 
-<h3>Pet Peeves  怪毛病</h3>
-
-<p>&nbsp;&nbsp;Avoid extraneous whitespace in the following situations:<br>&nbsp;&nbsp;&nbsp;&nbsp;在以下情况下避免无关的空白：<br></p>
-
-<p>&nbsp;&nbsp;Immediately inside parentheses, brackets or braces.<br>&nbsp;&nbsp;&nbsp;&nbsp;立即在括号内，括号或括号内。<br></p>
-
-<p>Yes:<br><pre><code>    spam(ham[1], {eggs: 2})</code></pre></p><br><p>No:<br><pre><code>    spam( ham[ 1 ], { eggs: 2 } )</code></pre></p>
-
-<p>&nbsp;&nbsp;Between a trailing comma and a following close parentheses.<br>&nbsp;&nbsp;&nbsp;&nbsp;在后面的逗号和下面的闭括号之间。<br></p>
-
-<p></p><p>Yes: foo = (0,)<br>No:  bar = (0, )<br>Immediately before a comma, semicolon, or colon:</p>
-<p>Yes: if x == 4: print x, y; x, y = y, x<br>No:  if x == 4 : print x , y ; x , y = y , x<br>However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted.</p>
+<p>##String Quotes 字符串引用</p>
+<blockquote>
+<p>&nbsp;&nbsp;In Python, single-quoted strings and double-quoted strings are the same. This PEP does not make a recommendation for this. Pick a rule and stick to it. When a string contains single or double quote characters, however, use the other one to avoid backslashes in the string. It improves readability.<br>&nbsp;&nbsp;&nbsp;&nbsp;在Python中，单引号字符串和双引号字符串是相同的。 这个PEP没有为此提出建议。 选择规则并坚持下去。 但是，当字符串包含单引号或双引号字符时，请使用另一个字符串避免字符串中的反斜杠。 它提高了可读性。</p>
+<p>&nbsp;&nbsp;For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257.<br>&nbsp;&nbsp;&nbsp;&nbsp;对于三重引号字符串，始终使用双引号字符与PEP 257中的docstring约定一致。</p>
+</blockquote>
+<p>##Whitespace in Expressions and Statements  表达和声明中的空白</p>
+<p>###Pet Peeves  怪毛病</p>
+<blockquote>
+<p>&nbsp;&nbsp;Avoid extraneous whitespace in the following situations:<br>&nbsp;&nbsp;&nbsp;&nbsp;在以下情况下避免无关的空白：</p>
+<p>&nbsp;&nbsp;Immediately inside parentheses, brackets or braces.<br>&nbsp;&nbsp;&nbsp;&nbsp;立即在括号内，括号或括号内。</p>
 <p>Yes:</p>
-<p>ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]<br>ham[lower:upper], ham[lower:upper:], ham[lower::step]<br>ham[lower+offset : upper+offset]<br>ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]<br>ham[lower + offset : upper + offset]<br>No:</p>
-<p>ham[lower + offset:upper + offset]<br>ham[1: 9], ham[1 :9], ham[1:9 :3]<br>ham[lower : : upper]<br>ham[ : upper]<br>Immediately before the open parenthesis that starts the argument list of a function call:</p>
-<p>Yes: spam(1)<br>No:  spam (1)<br>Immediately before the open parenthesis that starts an indexing or slicing:</p>
-<p>Yes: dct[‘key’] = lst[index]<br>No:  dct [‘key’] = lst [index]<br>More than one space around an assignment (or other) operator to align it with another.</p>
+<pre><code>    spam(ham[1], {eggs: 2})</code></pre>
+No:
+<pre><code>    spam( ham[ 1 ], { eggs: 2 } )</code></pre>
+
+<p>&nbsp;&nbsp;Between a trailing comma and a following close parentheses.<br>&nbsp;&nbsp;&nbsp;&nbsp;在后面的逗号和下面的闭括号之间。</p>
 <p>Yes:</p>
-<p>x = 1<br>y = 2<br>long_variable = 3<br>No:</p>
-<p>x             = 1<br>y             = 2<br>long_variable = 3</p>
-<p></p><h3></h3>Other Recommendations<br>Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like CPython itself) have pre-commit hooks that reject it.<p></p>
+<pre><code>    foo = (0,)</code></pre>
+No:
+<pre><code>    bar = (0, )</code></pre>
+
+<p>Immediately before a comma, semicolon, or colon:</p>
+<p>Yes:</p>
+<pre><code></code></pre>if x == 4: print x, y; x, y = y, x
+No:
+<pre><code></code></pre>if x == 4 : print x , y ; x , y = y , x
+
+However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted.
+
+Yes:
+<pre><code>ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
+ham[lower:upper], ham[lower:upper:], ham[lower::step]
+ham[lower+offset : upper+offset]
+ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
+ham[lower + offset : upper + offset]</code></pre>
+
+<p>No:</p>
+<pre><code>ham[lower + offset:upper + offset]
+ham[1: 9], ham[1 :9], ham[1:9 :3]
+ham[lower : : upper]
+ham[ : upper]</code></pre>
+
+<p>Immediately before the open parenthesis that starts the argument list of a function call:</p>
+<p>Yes:</p>
+<pre><code>spam(1)</code></pre>
+No:
+<pre><code>spam (1)</code></pre>
+
+<p>Immediately before the open parenthesis that starts an indexing or slicing:</p>
+<p>Yes:</p>
+<pre><code>dct['key'] = lst[index]</code></pre>
+<p>No:
+<pre><code>dct ['key'] = lst [index]</code></pre>
+
+</p><p>More than one space around an assignment (or other) operator to align it with another.</p>
+<p>Yes:</p>
+<pre><code>x = 1
+y = 2
+long_variable = 3</code></pre>
+No:
+<pre><code>x             = 1
+y             = 2
+long_variable = 3</code></pre>
+
+
+
+</blockquote>
+<p>###Other Recommendations</p>
+<blockquote>
+<p>Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like CPython itself) have pre-commit hooks that reject it.</p>
 <p>Always surround these binary operators with a single space on either side: assignment ( = ), augmented assignment ( += , -= etc.), comparisons ( == , &lt; , &gt; , != , &lt;&gt; , &lt;= , &gt;= , in , not in , is , is not ), Booleans ( and , or , not ).</p>
 <p>If operators with different priorities are used, consider adding whitespace around the operators with the lowest priority(ies). Use your own judgment; however, never use more than one space, and always have the same amount of whitespace on both sides of a binary operator.</p>
 <p>Yes:</p>
-<p>i = i + 1<br>submitted += 1<br>x = x<em>2 - 1<br>hypot2 = x</em>x + y<em>y<br>c = (a+b) </em> (a-b)<br>No:</p>
-<p>i=i+1<br>submitted +=1<br>x = x <em> 2 - 1<br>hypot2 = x </em> x + y <em> y<br>c = (a + b) </em> (a - b)<br>Don’t use spaces around the = sign when used to indicate a keyword argument or a default parameter value.</p>
+<pre><code>i = i + 1
+submitted += 1
+x = x*2 - 1
+hypot2 = x*x + y*y
+c = (a+b) * (a-b)</code></pre>
+No:
+<pre><code>i=i+1
+submitted +=1
+x = x * 2 - 1
+hypot2 = x * x + y * y
+c = (a + b) * (a - b)</code></pre>
+
+<p>Don’t use spaces around the = sign when used to indicate a keyword argument or a default parameter value.</p>
 <p>Yes:</p>
-<p>def complex(real, imag=0.0):<br>    return magic(r=real, i=imag)<br>No:</p>
-<p>def complex(real, imag = 0.0):<br>    return magic(r = real, i = imag)<br>Function annotations should use the normal rules for colons and always have spaces around the -&gt; arrow if present. (See Function Annotations below for more about function annotations.)</p>
+<p><pre><code></code></pre><br>def complex(real, imag=0.0):<br>    return magic(r=real, i=imag)</p><br>No:<p></p>
+<p><pre><code></code></pre><br>def complex(real, imag = 0.0):<br>    return magic(r = real, i = imag)</p><p></p>
+<p>Function annotations should use the normal rules for colons and always have spaces around the -&gt; arrow if present. (See Function Annotations below for more about function annotations.)</p>
+</blockquote>
 <p>Yes:</p>
 <p>def munge(input: AnyStr): …<br>def munge() -&gt; AnyStr: …<br>No:</p>
 <p>def munge(input:AnyStr): …<br>def munge()-&gt;PosInt: …<br>When combining an argument annotation with a default value, use spaces around the = sign (but only for those arguments that have both an annotation and a default).</p>
@@ -735,7 +795,7 @@ return key_not_found(key)
         <p><span>本文标题:</span><a href="/2017/08/26/PEP 8 -- Style Guide for Python Code/">PEP 8 -- Style Guide for Python Code</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">LearnSlag</a></p>
         <p><span>发布时间:</span>2017-08-26, 15:50:41</p>
-        <p><span>最后更新:</span>2017-08-28, 17:24:26</p>
+        <p><span>最后更新:</span>2017-09-05, 21:10:47</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/08/26/PEP 8 -- Style Guide for Python Code/" title="PEP 8 -- Style Guide for Python Code">http://yoursite.com/2017/08/26/PEP 8 -- Style Guide for Python Code/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/08/26/PEP 8 -- Style Guide for Python Code/　　作者: LearnSlag" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -771,7 +831,7 @@ return key_not_found(key)
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">String Quotes 字符串引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">Whitespace in Expressions and Statements  表达和声明中的空白</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">Pet Peeves  怪毛病</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.3.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.4.</span> <span class="toc-text"></h4Class NamesClass names should normally use the CapWords convention.
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.3.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.4.</span> <span class="toc-text"></h4Class NamesClass names should normally use the CapWords convention.
 The naming convention for functions may be used instead in cases where the interface is documented and used primarily as a callable.
 Note that there is a separate convention for builtin names: most builtin names are single words (or two words run together), with the CapWords convention used only for exception names and builtin constants.
 Type variable namesNames of type variables introduced in PEP 484 should normally use CapWords preferring short names: T , AnyStr , Num . It is recommended to add suffixes _co or _contra to the variables used to declare covariant or contravariant behavior correspondingly. Examples:
@@ -889,7 +949,7 @@ Footnotes
 References[1]    PEP 7 , Style Guide for C Code, van Rossum[2]    Barry’s GNU Mailman style guide http://barry.warsaw.us/software/STYLEGUIDE.txt[3]    Donald Knuth’s The TeXBook , pages 195 and 196.[4]    http://www.wikipedia.com/wiki/CamelCase[5]    Typeshed repo https://github.com/python/typeshed[6]    Suggested syntax for Python 2.7 and straddling code https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code
 CopyrightThis document has been placed in the public domain.
 Source: https://github.com/python/peps/blob/master/pep-0008.txt
-</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.5.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.6.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.7.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.8.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.9.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.10.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.11.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.12.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.4.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#type-ignore"><span class="toc-number"></span> <span class="toc-text">type: ignore</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li></ol>
+</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.5.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.6.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.7.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.8.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.9.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.10.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.11.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.12.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.4.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#type-ignore"><span class="toc-number"></span> <span class="toc-text">type: ignore</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li></ol>
         
     </div>
     <style>
