@@ -245,11 +245,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-PEP 8 -- Style Guide for Python Code (二)" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-PEP 8 -- Style Guide for Python Code (三)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/10/08/PEP 8 -- Style Guide for Python Code (二)/" class="article-date">
-      <time datetime="2017-10-08T09:36:16.748Z" itemprop="datePublished">2017-10-08</time>
+      <a href="/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/" class="article-date">
+      <time datetime="2017-10-29T00:52:56.919Z" itemprop="datePublished">2017-10-29</time>
 </a>
 
 
@@ -260,122 +260,10 @@
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/08/PEP 8 -- Style Guide for Python Code (二)/">PEP 8 -- Style Guide for Python Code (二)</a>
-    </h1>
-  
-
-      </header>
-      
-    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="String-Quotes-字符串引用"><a href="#String-Quotes-字符串引用" class="headerlink" title="String Quotes 字符串引用"></a>String Quotes 字符串引用</h2><blockquote>
-<p>&nbsp;&nbsp;In Python, single-quoted strings and double-quoted strings are the same. This PEP does not make a recommendation for this. Pick a rule and stick to it. When a string contains single or double quote characters, however, use the other one to avoid backslashes in the string. It improves readability.<br>&nbsp;&nbsp;&nbsp;&nbsp;在Python中，单引号字符串和双引号字符串是相同的。 这个PEP没有为此提出建议。 选择规则并坚持下去。 但是，当字符串包含单引号或双引号字符时，请使用另一个字符串避免字符串中的反斜杠。 它提高了可读性。</p>
-<p>&nbsp;&nbsp;For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257.<br>&nbsp;&nbsp;&nbsp;&nbsp;对于三重引号字符串，始终使用双引号字符与PEP 257中的docstring约定一致。</p>
-</blockquote>
-<h2 id="Whitespace-in-Expressions-and-Statements-表达和声明中的空白"><a href="#Whitespace-in-Expressions-and-Statements-表达和声明中的空白" class="headerlink" title="Whitespace in Expressions and Statements  表达和声明中的空白"></a>Whitespace in Expressions and Statements  表达和声明中的空白</h2><h3 id="Pet-Peeves-怪毛病"><a href="#Pet-Peeves-怪毛病" class="headerlink" title="Pet Peeves  怪毛病"></a>Pet Peeves  怪毛病</h3><blockquote>
-<p>&nbsp;&nbsp;Avoid extraneous whitespace in the following situations:<br>&nbsp;&nbsp;&nbsp;&nbsp;在以下情况下避免无关的空白：</p>
-<p>&nbsp;&nbsp;Immediately inside parentheses, brackets or braces.<br>&nbsp;&nbsp;&nbsp;&nbsp;立即在括号内，括号或括号内。</p>
-<p>Yes:</p>
-<pre><code>    spam(ham[1], {eggs: 2})</code></pre>
-No:
-<pre><code>    spam( ham[ 1 ], { eggs: 2 } )</code></pre>
-
-<p>&nbsp;&nbsp;Between a trailing comma and a following close parentheses.<br>&nbsp;&nbsp;&nbsp;&nbsp;在后面的逗号和下面的闭括号之间。</p>
-<p>Yes:</p>
-<pre><code>    foo = (0,)</code></pre>
-No:
-<pre><code>    bar = (0, )</code></pre>
-
-<p>Immediately before a comma, semicolon, or colon:</p>
-<p>Yes:</p>
-<pre><code>if x == 4: print x, y; x, y = y, x</code></pre>
-No:
-<pre><code>if x == 4 : print x , y ; x , y = y , x</code></pre>
-
-<p>However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted.</p>
-<p>Yes:</p>
-<pre><code>ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
-ham[lower:upper], ham[lower:upper:], ham[lower::step]
-ham[lower+offset : upper+offset]
-ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
-ham[lower + offset : upper + offset]</code></pre>
-
-<p>No:</p>
-<pre><code>ham[lower + offset:upper + offset]
-ham[1: 9], ham[1 :9], ham[1:9 :3]
-ham[lower : : upper]
-ham[ : upper]</code></pre>
-
-<p>Immediately before the open parenthesis that starts the argument list of a function call:</p>
-<p>Yes:</p>
-<pre><code>spam(1)</code></pre>
-No:
-<pre><code>spam (1)</code></pre>
-
-<p>Immediately before the open parenthesis that starts an indexing or slicing:</p>
-<p>Yes:</p>
-<pre><code>dct['key'] = lst[index]</code></pre>
-No:
-<pre><code>dct ['key'] = lst [index]</code></pre>
-
-<p>More than one space around an assignment (or other) operator to align it with another.</p>
-<p>Yes:</p>
-<pre><code>x = 1
-y = 2
-long_variable = 3</code></pre>
-No:
-<pre><code>x             = 1
-y             = 2
-long_variable = 3</code></pre>
-
-
-
-</blockquote>
-<h3 id="Other-Recommendations"><a href="#Other-Recommendations" class="headerlink" title="Other Recommendations"></a>Other Recommendations</h3><blockquote>
-<p>Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like CPython itself) have pre-commit hooks that reject it.</p>
-<p>Always surround these binary operators with a single space on either side: assignment ( = ), augmented assignment ( += , -= etc.), comparisons ( == , &lt; , &gt; , != , &lt;&gt; , &lt;= , &gt;= , in , not in , is , is not ), Booleans ( and , or , not ).</p>
-<p>If operators with different priorities are used, consider adding whitespace around the operators with the lowest priority(ies). Use your own judgment; however, never use more than one space, and always have the same amount of whitespace on both sides of a binary operator.</p>
-<p>Yes:</p>
-<pre><code>i = i + 1
-submitted += 1
-x = x*2 - 1
-hypot2 = x*x + y*y
-c = (a+b) * (a-b)</code></pre>
-No:
-<pre><code>i=i+1
-submitted +=1
-x = x * 2 - 1
-hypot2 = x * x + y * y
-c = (a + b) * (a - b)</code></pre>
-
-<p>Don’t use spaces around the = sign when used to indicate a keyword argument or a default parameter value.</p>
-<p>Yes:</p>
-<p><pre><code></code></pre><br>def complex(real, imag=0.0):<br>    return magic(r=real, i=imag)</p><br>No:<p></p>
-<p><pre><code></code></pre><br>def complex(real, imag = 0.0):<br>    return magic(r = real, i = imag)</p><p></p>
-<p>Function annotations should use the normal rules for colons and always have spaces around the -&gt; arrow if present. (See Function Annotations below for more about function annotations.)</p>
-</blockquote>
-<p>Yes:</p>
-<p>def munge(input: AnyStr): …<br>def munge() -&gt; AnyStr: …<br>No:</p>
-<p>def munge(input:AnyStr): …<br>def munge()-&gt;PosInt: …<br>When combining an argument annotation with a default value, use spaces around the = sign (but only for those arguments that have both an annotation and a default).</p>
-<p>Yes:</p>
-<p>def munge(sep: AnyStr = None): …<br>def munge(input: AnyStr, sep: AnyStr = None, limit=1000): …<br>No:</p>
-<p>def munge(input: AnyStr=None): …<br>def munge(input: AnyStr, limit = 1000): …<br>Compound statements (multiple statements on the same line) are generally discouraged.</p>
-<p>Yes:</p>
-<p>if foo == ‘blah’:<br>    do_blah_thing()<br>do_one()<br>do_two()<br>do_three()<br>Rather not:</p>
-<p>if foo == ‘blah’: do_blah_thing()<br>do_one(); do_two(); do_three()<br>While sometimes it’s okay to put an if/for/while with a small body on the same line, never do this for multi-clause statements. Also avoid folding such long lines!</p>
-<p>Rather not:</p>
-<p>if foo == ‘blah’: do_blah_thing()<br>for x in lst: total += x<br>while t &lt; 10: t = delay()Maximum Line LengthMaximum Line Length<br>Definitely not:</p>
-<p>if foo == ‘blah’: do_blah_thing()<br>else: do_non_blah_thing()</p>
-<p>try: something()<br>finally: cleanup()</p>
-<p>do_one(); do_two(); do_three(long, argument,<br>                             list, like, this)</p>
-<p>if foo == ‘blah’: one(); two(); three()</p>
-<p></p><h2></h2>When to use trailing commas<br>Trailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the print statement). For clarity, it is recommended to surround the latter in (technically redundant) parentheses.<p></p>
+        <p></p><h2></h2>When to use trailing commas<br>Trailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the print statement). For clarity, it is recommended to surround the latter in (technically redundant) parentheses.<p></p>
 <p>Yes:</p>
 <p>FILES = (‘setup.cfg’,)<br>OK, but confusing:</p>
 <p>FILES = ‘setup.cfg’,<br>When trailing commas are redundant, they are often helpful when a version control system is used, when a list of values, arguments or imported items is expected to be extended over time. The pattern is to put each value (etc.) on a line by itself, always adding a trailing comma, and add the close parenthesis/bracket/brace on the next line. However it does not make sense to have a trailing comma on the same line as the closing delimiter (except in the above case of singleton tuples).</p>
@@ -542,9 +430,218 @@ return key_not_found(key)
 <p>For code that needs to be backwards compatible, type annotations can be added in the form of comments. See the relevant section of PEP 484 [6] .</p>
 <p>Footnotes</p>
 <p>[7]    Hanging indentation is a type-setting style where all the lines in a paragraph are indented except the first line. In the context of Python, the term is used to describe a style where the opening parenthesis of a parenthesized statement is the last non-whitespace character of the line, with subsequent lines being indented until the closing parenthesis.</p>
-<p></p><h2></h2>References<br>[1]    PEP 7 , Style Guide for C Code, van Rossum<br>[2]    Barry’s GNU Mailman style guide <a href="http://barry.warsaw.us/software/STYLEGUIDE.txt" target="_blank" rel="external">http://barry.warsaw.us/software/STYLEGUIDE.txt</a><br>[3]    Donald Knuth’s The TeXBook , pages 195 and 196.<br>[4]    <a href="http://www.wikipedia.com/wiki/CamelCase" target="_blank" rel="external">http://www.wikipedia.com/wiki/CamelCase</a><br>[5]    Typeshed repo <a href="https://github.com/python/typeshed" target="_blank" rel="external">https://github.com/python/typeshed</a><br>[6]    Suggested syntax for Python 2.7 and straddling code <a href="https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code" target="_blank" rel="external">https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code</a><p></p>
-<p></p><h2></h2>Copyright<br>This document has been placed in the public domain.<p></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote>
+<p>[1]    PEP 7 , Style Guide for C Code, van Rossum</p>
+<p>[2]    Barry’s GNU Mailman style guide <a href="http://barry.warsaw.us/software/STYLEGUIDE.txt" target="_blank" rel="external">http://barry.warsaw.us/software/STYLEGUIDE.txt</a></p>
+<p>[3]    Donald Knuth’s The TeXBook , pages 195 and 196.</p>
+<p>[4]    <a href="http://www.wikipedia.com/wiki/CamelCase" target="_blank" rel="external">http://www.wikipedia.com/wiki/CamelCase</a></p>
+<p>[5]    Typeshed repo <a href="https://github.com/python/typeshed" target="_blank" rel="external">https://github.com/python/typeshed</a></p>
+<p>[6]    Suggested syntax for Python 2.7 and straddling code</p>
+<p><a href="https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code" target="_blank" rel="external">https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code</a></p>
+<h2 id="Copyright"><a href="#Copyright" class="headerlink" title="Copyright"></a>Copyright</h2><p>This document has been placed in the public domain.</p>
+<p>Source: <a href="https://github.com/python/peps/blob/master/pep-0008.txt" target="_blank" rel="external">https://github.com/python/peps/blob/master/pep-0008.txt</a></p>
+</blockquote>
 </h4>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PEP 8 -- Style Guide for Python Code (二)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/08/PEP 8 -- Style Guide for Python Code (二)/" class="article-date">
+      <time datetime="2017-10-08T09:36:16.748Z" itemprop="datePublished">2017-10-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/08/PEP 8 -- Style Guide for Python Code (二)/">PEP 8 -- Style Guide for Python Code (二)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="String-Quotes-字符串引用"><a href="#String-Quotes-字符串引用" class="headerlink" title="String Quotes 字符串引用"></a>String Quotes 字符串引用</h2><blockquote>
+<p>&nbsp;&nbsp;In Python, single-quoted strings and double-quoted strings are the same. This PEP does not make a recommendation for this. Pick a rule and stick to it. When a string contains single or double quote characters, however, use the other one to avoid backslashes in the string. It improves readability.<br>&nbsp;&nbsp;&nbsp;&nbsp;在Python中，单引号字符串和双引号字符串是相同的。 这个PEP没有为此提出建议。 选择规则并坚持下去。 但是，当字符串包含单引号或双引号字符时，请使用另一个字符串避免字符串中的反斜杠。 它提高了可读性。</p>
+<p>&nbsp;&nbsp;For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257.<br>&nbsp;&nbsp;&nbsp;&nbsp;对于三重引号字符串，始终使用双引号字符与PEP 257中的docstring约定一致。</p>
+</blockquote>
+<h2 id="Whitespace-in-Expressions-and-Statements-表达和声明中的空白"><a href="#Whitespace-in-Expressions-and-Statements-表达和声明中的空白" class="headerlink" title="Whitespace in Expressions and Statements  表达和声明中的空白"></a>Whitespace in Expressions and Statements  表达和声明中的空白</h2><h3 id="Pet-Peeves-怪毛病"><a href="#Pet-Peeves-怪毛病" class="headerlink" title="Pet Peeves  怪毛病"></a>Pet Peeves  怪毛病</h3><blockquote>
+<p>&nbsp;&nbsp;Avoid extraneous whitespace in the following situations:<br>&nbsp;&nbsp;&nbsp;&nbsp;在以下情况下避免无关的空白：</p>
+<p>&nbsp;&nbsp;Immediately inside parentheses, brackets or braces.<br>&nbsp;&nbsp;&nbsp;&nbsp;立即在括号内，括号或括号内。</p>
+<p>Yes:</p>
+<pre><code>    spam(ham[1], {eggs: 2})</code></pre>
+No:
+<pre><code>    spam( ham[ 1 ], { eggs: 2 } )</code></pre>
+
+<p>&nbsp;&nbsp;Between a trailing comma and a following close parentheses.<br>&nbsp;&nbsp;&nbsp;&nbsp;在后面的逗号和下面的闭括号之间。</p>
+<p>Yes:</p>
+<pre><code>    foo = (0,)</code></pre>
+No:
+<pre><code>    bar = (0, )</code></pre>
+
+<p>&nbsp;&nbsp;Immediately before a comma, semicolon, or colon:<br>&nbsp;&nbsp;&nbsp;&nbsp;紧接在逗号，分号或冒号之前：</p>
+<p>Yes:</p>
+<pre><code>if x == 4: print x, y; x, y = y, x</code></pre>
+No:
+<pre><code>if x == 4 : print x , y ; x , y = y , x</code></pre>
+
+<p>&nbsp;&nbsp;However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted.<br>&nbsp;&nbsp;&nbsp;&nbsp;然而，在一个切片中，冒号的行为就像一个二进制运算符，并且在任一侧应该具有相等的数量（将其视为具有最低优先级的运算符）。 在扩展切片中，两个冒号必须具有相同的间距应用量。 异常：当省略slice参数时，省略空格。</p>
+<p>Yes:</p>
+<pre><code>ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
+ham[lower:upper], ham[lower:upper:], ham[lower::step]
+ham[lower+offset : upper+offset]
+ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
+ham[lower + offset : upper + offset]</code></pre>
+
+<p>No:</p>
+<pre><code>ham[lower + offset:upper + offset]
+ham[1: 9], ham[1 :9], ham[1:9 :3]
+ham[lower : : upper]
+ham[ : upper]</code></pre>
+
+<p>&nbsp;&nbsp;Immediately before the open parenthesis that starts the argument list of a function call:<br>&nbsp;&nbsp;&nbsp;&nbsp;紧接在开始括号之前启动函数调用的参数列表：</p>
+<p>Yes:</p>
+<pre><code>spam(1)</code></pre>
+No:
+<pre><code>spam (1)</code></pre>
+
+<p>&nbsp;&nbsp;Immediately before the open parenthesis that starts an indexing or slicing:<br>&nbsp;&nbsp;&nbsp;&nbsp;在开始索引或切片的开括号之前：</p>
+<p>Yes:</p>
+<pre><code>dct['key'] = lst[index]</code></pre>
+No:
+<pre><code>dct ['key'] = lst [index]</code></pre>
+
+<p>&nbsp;&nbsp;More than one space around an assignment (or other) operator to align it with another.<br>&nbsp;&nbsp;&nbsp;&nbsp;指定（或其他）运算符周围的多个空格将其与另一个对齐。</p>
+<p>Yes:</p>
+<pre><code>x = 1
+y = 2
+long_variable = 3</code></pre>
+No:
+<pre><code>x             = 1
+y             = 2
+long_variable = 3</code></pre>
+
+
+
+</blockquote>
+<h3 id="Other-Recommendations-其他建议"><a href="#Other-Recommendations-其他建议" class="headerlink" title="Other Recommendations   其他建议"></a>Other Recommendations   其他建议</h3><blockquote>
+<p>&nbsp;&nbsp;Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like CPython itself) have pre-commit hooks that reject it.<br>&nbsp;&nbsp;&nbsp;&nbsp;避免任何地方的尾随空格。 因为它通常是不可见的，它可能会令人困惑：例如 后跟空格和换行符的反斜杠不会作为行连续标记。 一些编辑者不保存它，许多项目（如CPython本身）都有预先提交的钩子来拒绝它。</p>
+<p>&nbsp;&nbsp;Always surround these binary operators with a single space on either side: assignment ( = ), augmented assignment ( += , -= etc.), comparisons ( ==, &lt; , &gt; , != , &lt; &gt; , &lt;= , &gt;= , in , not in , is , is not ), Booleans ( and , or , not ).<br>&nbsp;&nbsp;&nbsp;&nbsp;总是围绕这些二进制运算符，其中任何一方都有一个空格：赋值（=），扩充赋值（+ =， - 等等），比较（==，&lt;，&gt;，！=，&lt;&gt;，&lt;=，&gt; = ，在，不在，是，不是），布尔（和，或，不）。</p>
+<p>&nbsp;&nbsp;If operators with different priorities are used, consider adding whitespace around the operators with the lowest priority(ies). Use your own judgment; however, never use more than one space, and always have the same amount of whitespace on both sides of a binary operator.<br>&nbsp;&nbsp;&nbsp;&nbsp;如果使用具有不同优先级的运营商，则考虑在具有最低优先级的运营商周围添加空白。 用自己的判断力 然而，永远不要使用多个空格，并且在二进制运算符的两边总是具有相同数量的空格。</p>
+<p>Yes:</p>
+<pre><code>i = i + 1
+submitted += 1
+x = x*2 - 1
+hypot2 = x*x + y*y
+c = (a+b) * (a-b)</code></pre>
+No:
+<pre><code>i=i+1
+submitted +=1
+x = x * 2 - 1
+hypot2 = x * x + y * y
+c = (a + b) * (a - b)</code></pre>
+
+<p>&nbsp;&nbsp;Don’t use spaces around the = sign when used to indicate a keyword argument or a default parameter value.<br>&nbsp;&nbsp;&nbsp;&nbsp;当用于指示关键字参数或默认参数值时，不要在=符号周围使用空格。</p>
+<p>Yes:</p>
+<pre><code></code></pre>
+def complex(real, imag=0.0):
+    return magic(r=real, i=imag)<p></p>
+No:
+<pre><code></code></pre>
+def complex(real, imag = 0.0):
+    return magic(r = real, i = imag)<p></p>
+
+&nbsp;&nbsp;Function annotations should use the normal rules for colons and always have spaces around the -> arrow if present. (See Function Annotations below for more about function annotations.)
+&nbsp;&nbsp;&nbsp;&nbsp;函数注释应该使用冒号的正常规则，并且如果存在，则在 - >箭头周围总是具有空格。 （有关功能注释的更多信息，请参阅下面的功能注释。）
+
+Yes:
+<pre><code>def munge(input: AnyStr): ...
+def munge() -> AnyStr: ...</code></pre>
+
+<p>No:</p>
+<pre><code>def munge(input:AnyStr): ...
+def munge()->PosInt: ...</code></pre>
+
+<p>&nbsp;&nbsp;When combining an argument annotation with a default value, use spaces around the = sign (but only for those arguments that have both an annotation and a default).<br>&nbsp;&nbsp;&nbsp;&nbsp;当将参数注释与默认值组合时，请在=符号周围使用空格（但仅适用于同时具有注释和默认值的参数）。</p>
+<p>Yes:</p>
+<pre><code>def munge(sep: AnyStr = None): ...
+def munge(input: AnyStr, sep: AnyStr = None, limit=1000): ...</code></pre>
+
+<p>No:</p>
+<pre><code>def munge(input: AnyStr=None): ...
+def munge(input: AnyStr, limit = 1000): ...</code></pre>
+
+<p>&nbsp;&nbsp;Compound statements (multiple statements on the same line) are generally discouraged.<br>&nbsp;&nbsp;&nbsp;&nbsp;通常不鼓励复合语句（同一行上的多个语句）。</p>
+<p>Yes:</p>
+<pre><code>if foo == 'blah':
+    do_blah_thing()
+do_one()
+do_two()
+do_three()</code></pre>
+
+<p>Rather not:</p>
+<pre><code>if foo == 'blah': do_blah_thing()
+do_one(); do_two(); do_three()</code></pre>
+
+<p>&nbsp;&nbsp;While sometimes it’s okay to put an if/for/while with a small body on the same line, never do this for multi-clause statements. Also avoid folding such long lines!<br>&nbsp;&nbsp;&nbsp;&nbsp;虽然有时候可以在同一行上放置一个if / for / while和一个小的body，但是对于多子句语句，不要这样做。 也避免折叠这么长的线！</p>
+<p>Rather not:</p>
+<pre><code>if foo == 'blah': do_blah_thing()
+for x in lst: total += x
+while t < 10: t = delay()Maximum Line LengthMaximum Line Length</code></pre>
+
+<p>Definitely not:</p>
+<p><pre><code>if foo == ‘blah’: do_blah_thing()<br>else: do_non_blah_thing()</code></pre></p>
+</blockquote>
+<p>try: something()<br>finally: cleanup()</p>
+<p>do_one(); do_two(); do_three(long, argument,<br>                             list, like, this)</p>
+<p>if foo == ‘blah’: one(); two(); three()</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote>
+<p>[1]    PEP 7 , Style Guide for C Code, van Rossum</p>
+<p>[2]    Barry’s GNU Mailman style guide <a href="http://barry.warsaw.us/software/STYLEGUIDE.txt" target="_blank" rel="external">http://barry.warsaw.us/software/STYLEGUIDE.txt</a></p>
+<p>[3]    Donald Knuth’s The TeXBook , pages 195 and 196.</p>
+<p>[4]    <a href="http://www.wikipedia.com/wiki/CamelCase" target="_blank" rel="external">http://www.wikipedia.com/wiki/CamelCase</a></p>
+<p>[5]    Typeshed repo <a href="https://github.com/python/typeshed" target="_blank" rel="external">https://github.com/python/typeshed</a></p>
+<p>[6]    Suggested syntax for Python 2.7 and straddling code</p>
+<p><a href="https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code" target="_blank" rel="external">https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code</a></p>
+<h2 id="Copyright"><a href="#Copyright" class="headerlink" title="Copyright"></a>Copyright</h2><p>This document has been placed in the public domain.</p>
+<p>Source: <a href="https://github.com/python/peps/blob/master/pep-0008.txt" target="_blank" rel="external">https://github.com/python/peps/blob/master/pep-0008.txt</a></p>
+</blockquote>
+
       
     </div>
     
@@ -941,9 +1038,17 @@ import os
 import sys</code></pre>
 
 </blockquote>
-<p></p><h2></h2>References<br>[1]    PEP 7 , Style Guide for C Code, van Rossum<br>[2]    Barry’s GNU Mailman style guide <a href="http://barry.warsaw.us/software/STYLEGUIDE.txt" target="_blank" rel="external">http://barry.warsaw.us/software/STYLEGUIDE.txt</a><br>[3]    Donald Knuth’s The TeXBook , pages 195 and 196.<br>[4]    <a href="http://www.wikipedia.com/wiki/CamelCase" target="_blank" rel="external">http://www.wikipedia.com/wiki/CamelCase</a><br>[5]    Typeshed repo <a href="https://github.com/python/typeshed" target="_blank" rel="external">https://github.com/python/typeshed</a><br>[6]    Suggested syntax for Python 2.7 and straddling code <a href="https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code" target="_blank" rel="external">https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code</a><p></p>
-<p></p><h2></h2>Copyright<br>This document has been placed in the public domain.<p></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote>
+<p>[1]    PEP 7 , Style Guide for C Code, van Rossum</p>
+<p>[2]    Barry’s GNU Mailman style guide <a href="http://barry.warsaw.us/software/STYLEGUIDE.txt" target="_blank" rel="external">http://barry.warsaw.us/software/STYLEGUIDE.txt</a></p>
+<p>[3]    Donald Knuth’s The TeXBook , pages 195 and 196.</p>
+<p>[4]    <a href="http://www.wikipedia.com/wiki/CamelCase" target="_blank" rel="external">http://www.wikipedia.com/wiki/CamelCase</a></p>
+<p>[5]    Typeshed repo <a href="https://github.com/python/typeshed" target="_blank" rel="external">https://github.com/python/typeshed</a></p>
+<p>[6]    Suggested syntax for Python 2.7 and straddling code</p>
+<p><a href="https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code" target="_blank" rel="external">https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code</a></p>
+<h2 id="Copyright"><a href="#Copyright" class="headerlink" title="Copyright"></a>Copyright</h2><p>This document has been placed in the public domain.</p>
 <p>Source: <a href="https://github.com/python/peps/blob/master/pep-0008.txt" target="_blank" rel="external">https://github.com/python/peps/blob/master/pep-0008.txt</a></p>
+</blockquote>
 
       
     </div>
