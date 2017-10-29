@@ -260,10 +260,24 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/">PEP 8 -- Style Guide for Python Code (一)</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p></p><h2></h2>When to use trailing commas<br>Trailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the print statement). For clarity, it is recommended to surround the latter in (technically redundant) parentheses.<p></p>
+        <blockquote>
+<p>Author:    Guido van Rossum <guido at="" python.org="">, Barry Warsaw <barry at="" python.org="">, Nick Coghlan <ncoghlan at="" gmail.com=""></ncoghlan></barry></guido></p>
+</blockquote>
+<p></p><h2></h2>When to use trailing commas<br>Trailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the print statement). For clarity, it is recommended to surround the latter in (technically redundant) parentheses.<p></p>
 <p>Yes:</p>
 <p>FILES = (‘setup.cfg’,)<br>OK, but confusing:</p>
 <p>FILES = ‘setup.cfg’,<br>When trailing commas are redundant, they are often helpful when a version control system is used, when a list of values, arguments or imported items is expected to be extended over time. The pattern is to put each value (etc.) on a line by itself, always adding a trailing comma, and add the close parenthesis/bracket/brace on the next line. However it does not make sense to have a trailing comma on the same line as the closing delimiter (except in the above case of singleton tuples).</p>
@@ -496,7 +510,10 @@ return key_not_found(key)
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="String-Quotes-字符串引用"><a href="#String-Quotes-字符串引用" class="headerlink" title="String Quotes 字符串引用"></a>String Quotes 字符串引用</h2><blockquote>
+        <blockquote>
+<p>Author:    Guido van Rossum <guido at="" python.org="">, Barry Warsaw <barry at="" python.org="">, Nick Coghlan <ncoghlan at="" gmail.com=""></ncoghlan></barry></guido></p>
+</blockquote>
+<h2 id="String-Quotes-字符串引用"><a href="#String-Quotes-字符串引用" class="headerlink" title="String Quotes 字符串引用"></a>String Quotes 字符串引用</h2><blockquote>
 <p>&nbsp;&nbsp;In Python, single-quoted strings and double-quoted strings are the same. This PEP does not make a recommendation for this. Pick a rule and stick to it. When a string contains single or double quote characters, however, use the other one to avoid backslashes in the string. It improves readability.<br>&nbsp;&nbsp;&nbsp;&nbsp;在Python中，单引号字符串和双引号字符串是相同的。 这个PEP没有为此提出建议。 选择规则并坚持下去。 但是，当字符串包含单引号或双引号字符时，请使用另一个字符串避免字符串中的反斜杠。 它提高了可读性。</p>
 <p>&nbsp;&nbsp;For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257.<br>&nbsp;&nbsp;&nbsp;&nbsp;对于三重引号字符串，始终使用双引号字符与PEP 257中的docstring约定一致。</p>
 </blockquote>

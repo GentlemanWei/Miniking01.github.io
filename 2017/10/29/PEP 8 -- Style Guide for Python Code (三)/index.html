@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="When to use trailing commasTrailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the print statement). For clarity">
+<meta name="description" content="Author:    Guido van Rossum , Barry Warsaw , Nick Coghlan   When to use trailing commasTrailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Pytho">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blog-Github">
+<meta property="og:title" content="PEP 8 -- Style Guide for Python Code (一)">
 <meta property="og:url" content="http://yoursite.com/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/index.html">
 <meta property="og:site_name" content="Blog-Github">
-<meta property="og:description" content="When to use trailing commasTrailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the print statement). For clarity">
-<meta property="og:updated_time" content="2017-10-29T00:57:33.686Z">
+<meta property="og:description" content="Author:    Guido van Rossum , Barry Warsaw , Nick Coghlan   When to use trailing commasTrailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Pytho">
+<meta property="og:updated_time" content="2017-10-29T01:01:15.196Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog-Github">
-<meta name="twitter:description" content="When to use trailing commasTrailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the print statement). For clarity">
+<meta name="twitter:title" content="PEP 8 -- Style Guide for Python Code (一)">
+<meta name="twitter:description" content="Author:    Guido van Rossum , Barry Warsaw , Nick Coghlan   When to use trailing commasTrailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Pytho">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Blog-Github</title>
+<title>PEP 8 -- Style Guide for Python Code (一) | Blog-Github</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -257,10 +257,31 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PEP 8 -- Style Guide for Python Code (一)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p></p><h2></h2>When to use trailing commas<br>Trailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the print statement). For clarity, it is recommended to surround the latter in (technically redundant) parentheses.<p></p>
+        <blockquote>
+<p>Author:    Guido van Rossum <guido at="" python.org="">, Barry Warsaw <barry at="" python.org="">, Nick Coghlan <ncoghlan at="" gmail.com=""></ncoghlan></barry></guido></p>
+</blockquote>
+<p></p><h2></h2>When to use trailing commas<br>Trailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the print statement). For clarity, it is recommended to surround the latter in (technically redundant) parentheses.<p></p>
 <p>Yes:</p>
 <p>FILES = (‘setup.cfg’,)<br>OK, but confusing:</p>
 <p>FILES = ‘setup.cfg’,<br>When trailing commas are redundant, they are often helpful when a version control system is used, when a list of values, arguments or imported items is expected to be extended over time. The pattern is to put each value (etc.) on a line by itself, always adding a trailing comma, and add the close parenthesis/bracket/brace on the next line. However it does not make sense to have a trailing comma on the same line as the closing delimiter (except in the above case of singleton tuples).</p>
@@ -446,12 +467,12 @@ return key_not_found(key)
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/"></a></p>
+        <p><span>本文标题:</span><a href="/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/">PEP 8 -- Style Guide for Python Code (一)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">LearnSlag</a></p>
         <p><span>发布时间:</span>2017-10-29, 08:52:56</p>
-        <p><span>最后更新:</span>2017-10-29, 08:57:33</p>
+        <p><span>最后更新:</span>2017-10-29, 09:01:15</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/" title="">http://yoursite.com/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/</a>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/" title="PEP 8 -- Style Guide for Python Code (一)">http://yoursite.com/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/　　作者: LearnSlag" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -641,7 +662,7 @@ Source: https://github.com/python/peps/blob/master/pep-0008.txt
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"　| Blog-Github　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"PEP 8 -- Style Guide for Python Code (一)　| Blog-Github　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -673,7 +694,7 @@ Source: https://github.com/python/peps/blob/master/pep-0008.txt
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/">PEP 8 -- Style Guide for Python Code (三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/08/PEP 8 -- Style Guide for Python Code (二)/">PEP 8 -- Style Guide for Python Code (二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/28/数据库基础/">数据库基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/26/PEP 8 -- Style Guide for Python Code (一)/">PEP 8 -- Style Guide for Python Code (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/Single responsibility principle/">Single responsibility principle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/Python编码规范/">PEP8 Python 编码规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/">PEP 8 -- Style Guide for Python Code (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/08/PEP 8 -- Style Guide for Python Code (二)/">PEP 8 -- Style Guide for Python Code (二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/28/数据库基础/">数据库基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/26/PEP 8 -- Style Guide for Python Code (一)/">PEP 8 -- Style Guide for Python Code (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/Single responsibility principle/">Single responsibility principle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/Python编码规范/">PEP8 Python 编码规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/hello-world/">Hello World</a></li></ul>
 
 
 
