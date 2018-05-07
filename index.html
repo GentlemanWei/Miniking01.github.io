@@ -245,11 +245,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-PEP 8 -- Style Guide for Python Code (三)" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Preprocessor" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/" class="article-date">
-      <time datetime="2017-10-29T00:52:56.919Z" itemprop="datePublished">2017-10-29</time>
+      <a href="/2017/11/07/Preprocessor/" class="article-date">
+      <time datetime="2017-11-07T08:52:57.901Z" itemprop="datePublished">2017-11-07</time>
 </a>
 
 
@@ -264,7 +264,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/29/PEP 8 -- Style Guide for Python Code (三)/">PEP 8 -- Style Guide for Python Code (三)</a>
+      <a class="article-title" href="/2017/11/07/Preprocessor/">预处理器</a>
     </h1>
   
 
@@ -275,103 +275,332 @@
       
           
         <blockquote>
-<p>Author:    Guido van Rossum <guido at="" python.org="">, Barry Warsaw <barry at="" python.org="">, Nick Coghlan <ncoghlan at="" gmail.com=""></ncoghlan></barry></guido></p>
+<p>了解预处理器首先要知道编译器对C++源文件的处理。</p>
 </blockquote>
-<p></p><h2></h2>When to use trailing commas<br>Trailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the print statement). For clarity, it is recommended to surround the latter in (technically redundant) parentheses.<p></p>
-<p>Yes:</p>
-<p>FILES = (‘setup.cfg’,)<br>OK, but confusing:</p>
-<p>FILES = ‘setup.cfg’,<br>When trailing commas are redundant, they are often helpful when a version control system is used, when a list of values, arguments or imported items is expected to be extended over time. The pattern is to put each value (etc.) on a line by itself, always adding a trailing comma, and add the close parenthesis/bracket/brace on the next line. However it does not make sense to have a trailing comma on the same line as the closing delimiter (except in the above case of singleton tuples).</p>
-<p>Yes:</p>
-<p>FILES = [<br>    ‘setup.cfg’,<br>    ‘tox.ini’,<br>    ]<br>initialize(FILES,<br>           error=True,<br>           )<br>No:</p>
-<p>FILES = [‘setup.cfg’, ‘tox.ini’,]<br>initialize(FILES, error=True,)</p>
-<p></p><h2></h2>Comments<br>Comments that contradict the code are worse than no comments. Always make a priority of keeping the comments up-to-date when the code changes!<p></p>
-<p>Comments should be complete sentences. If a comment is a phrase or sentence, its first word should be capitalized, unless it is an identifier that begins with a lower case letter (never alter the case of identifiers!).</p>
-<p>If a comment is short, the period at the end can be omitted. Block comments generally consist of one or more paragraphs built out of complete sentences, and each sentence should end in a period.</p>
-<p>You should use two spaces after a sentence-ending period.</p>
-<p>When writing English, follow Strunk and White.</p>
-<p>Python coders from non-English speaking countries: please write your comments in English, unless you are 120% sure that the code will never be read by people who don’t speak your language.</p>
-<p></p><h3></h3>Block Comments<br>Block comments generally apply to some (or all) code that follows them, and are indented to the same level as that code. Each line of a block comment starts with a # and a single space (unless it is indented text inside the comment).<p></p>
-<p>Paragraphs inside a block comment are separated by a line containing a single # .</p>
-<p></p><h3></h3>Inline Comments<br>Use inline comments sparingly.<p></p>
-<p>An inline comment is a comment on the same line as a statement. Inline comments should be separated by at least two spaces from the statement. They should start with a # and a single space.</p>
-<p>Inline comments are unnecessary and in fact distracting if they state the obvious. Don’t do this:</p>
-<p>x = x + 1                 # Increment x<br>But sometimes, this is useful:</p>
-<p>x = x + 1                 # Compensate for border</p>
-<p></p><h3></h3>Documentation Strings<br>Conventions for writing good documentation strings (a.k.a. “docstrings”) are immortalized in PEP 257 .<p></p>
-<p>Write docstrings for all public modules, functions, classes, and methods. Docstrings are not necessary for non-public methods, but you should have a comment that describes what the method does. This comment should appear after the def line.</p>
-<p>PEP 257 describes good docstring conventions. Note that most importantly, the “”” that ends a multiline docstring should be on a line by itself, e.g.:</p>
-<p>“””Return a foobang</p>
-<p>Optional plotz says to frobnicate the bizbaz first.<br>“””<br>For one liner docstrings, please keep the closing “”” on the same line.</p>
-<p></p><h2></h2>Naming Conventions<br>The naming conventions of Python’s library are a bit of a mess, so we’ll never get this completely consistent – nevertheless, here are the currently recommended naming standards. New modules and packages (including third party frameworks) should be written to these standards, but where an existing library has a different style, internal consistency is preferred.<p></p>
-<p></p><h3></h3>Overriding Principle<br>Names that are visible to the user as public parts of the API should follow conventions that reflect usage rather than implementation.<p></p>
-<p></p><h3></h3>Descriptive: Naming Styles<br>There are a lot of different naming styles. It helps to be able to recognize what naming style is being used, independently from what they are used for.<p></p>
-<p>The following naming styles are commonly distinguished:</p>
-<p>b (single lowercase letter)</p>
-<p>B (single uppercase letter)</p>
-<p>lowercase</p>
-<p>lower_case_with_underscores</p>
-<p>UPPERCASE</p>
-<p>UPPER_CASE_WITH_UNDERSCORES</p>
-<p>CapitalizedWords (or CapWords, or CamelCase – so named because of the bumpy look of its letters [4] ). This is also sometimes known as StudlyCaps.</p>
-<p>Note: When using abbreviations in CapWords, capitalize all the letters of the abbreviation. Thus HTTPServerError is better than HttpServerError.</p>
-<p>mixedCase (differs from CapitalizedWords by initial lowercase character!)</p>
-<p>Capitalized_Words_With_Underscores (ugly!)</p>
-<p>There’s also the style of using a short unique prefix to group related names together. This is not used much in Python, but it is mentioned for completeness. For example, the os.stat() function returns a tuple whose items traditionally have names like st_mode , st_size , st_mtime and so on. (This is done to emphasize the correspondence with the fields of the POSIX system call struct, which helps programmers familiar with that.)</p>
-<p>The X11 library uses a leading X for all its public functions. In Python, this style is generally deemed unnecessary because attribute and method names are prefixed with an object, and function names are prefixed with a module name.</p>
-<p>In addition, the following special forms using leading or trailing underscores are recognized (these can generally be combined with any case convention):</p>
-<p>_single_leading_underscore : weak “internal use” indicator. E.g. from M import * does not import objects whose name starts with an underscore.</p>
-<p>single_trailing<em>underscore</em> : used by convention to avoid conflicts with Python keyword, e.g.</p>
-<p>Tkinter.Toplevel(master, class_=’ClassName’)<br><strong>double_leading_underscore : when naming a class attribute, invokes name mangling (inside class FooBar, </strong>boo becomes _FooBar__boo ; see below).</p>
-<p><strong>double_leading_and_trailing_underscore</strong> : “magic” objects or attributes that live in user-controlled namespaces. E.g. <strong>init</strong> , <strong>import</strong> or <strong>file</strong> . Never invent such names; only use them as documented.</p>
-<p></p><h3></h3>Prescriptive: Naming Conventions<p></p>
-<p></p><h4></h4>Names to Avoid<br>Never use the characters ‘l’ (lowercase letter el), ‘O’ (uppercase letter oh), or ‘I’ (uppercase letter eye) as single character variable names.<p></p>
-<p>In some fonts, these characters are indistinguishable from the numerals one and zero. When tempted to use ‘l’, use ‘L’ instead.</p>
-<p></p><h4></h4>ASCII Compatibility<br>Identifiers used in the standard library must be ASCII compatible as described in the policy section of PEP 3131 .<p></p>
-<p></p><h4></h4>Package and Module Names<br>Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability. Python packages should also have short, all-lowercase names, although the use of underscores is discouraged.<p></p>
-<p>When an extension module written in C or C++ has an accompanying Python module that provides a higher level (e.g. more object oriented) interface, the C/C++ module has a leading underscore (e.g. _socket ).</p>
-<p></p><h4>&lt;/h4Class Names<br>Class names should normally use the CapWords convention.<p></p>
-<p>The naming convention for functions may be used instead in cases where the interface is documented and used primarily as a callable.</p>
-<p>Note that there is a separate convention for builtin names: most builtin names are single words (or two words run together), with the CapWords convention used only for exception names and builtin constants.</p>
-<p></p><h4></h4>Type variable names<br>Names of type variables introduced in PEP 484 should normally use CapWords preferring short names: T , AnyStr , Num . It is recommended to add suffixes _co or _contra to the variables used to declare covariant or contravariant behavior correspondingly. Examples:<p></p>
-<p>from typing import TypeVar</p>
-<p>VT_co = TypeVar(‘VT_co’, covariant=True)<br>KT_contra = TypeVar(‘KT_contra’, contravariant=True)</p>
-<p></p><h4></h4>Exception Names<br>Because exceptions should be classes, the class naming convention applies here. However, you should use the suffix “Error” on your exception names (if the exception actually is an error).<p></p>
-<p></p><h4></h4>Global Variable Names<br>(Let’s hope that these variables are meant for use inside one module only.) The conventions are about the same as those for functions.<p></p>
-<p>Modules that are designed for use via from M import * should use the <strong>all</strong> mechanism to prevent exporting globals, or use the older convention of prefixing such globals with an underscore (which you might want to do to indicate these globals are “module non-public”).</p>
-<p></p><h4></h4>Function Names<br>Function names should be lowercase, with words separated by underscores as necessary to improve readability.<p></p>
-<p>mixedCase is allowed only in contexts where that’s already the prevailing style (e.g. threading.py), to retain backwards compatibility.</p>
-<p></p><h4></h4>Function and method arguments<br>Always use self for the first argument to instance methods.<p></p>
-<p>Always use cls for the first argument to class methods.</p>
-<p>If a function argument’s name clashes with a reserved keyword, it is generally better to append a single trailing underscore rather than use an abbreviation or spelling corruption. Thus class_ is better than clss . (Perhaps better is to avoid such clashes by using a synonym.)</p>
-<p></p><h4></h4>Method Names and Instance Variables<br>Use the function naming rules: lowercase with words separated by underscores as necessary to improve readability.<p></p>
-<p>Use one leading underscore only for non-public methods and instance variables.</p>
-<p>To avoid name clashes with subclasses, use two leading underscores to invoke Python’s name mangling rules.</p>
-<p>Python mangles these names with the class name: if class Foo has an attribute named <strong>a , it cannot be accessed by Foo.</strong>a . (An insistent user could still gain access by calling Foo._Foo__a .) Generally, double leading underscores should be used only to avoid name conflicts with attributes in classes designed to be subclassed.</p>
-<p>Note: there is some controversy about the use of __names (see below).</p>
-<p></p><h4></h4>Constants<br>Constants are usually defined on a module level and written in all capital letters with underscores separating words. Examples include MAX_OVERFLOW and TOTAL .<p></p>
-<p></p><h4></h4>Designing for inheritance<br>Always decide whether a class’s methods and instance variables (collectively: “attributes”) should be public or non-public. If in doubt, choose non-public; it’s easier to make it public later than to make a public attribute non-public.<p></p>
-<p>Public attributes are those that you expect unrelated clients of your class to use, with your commitment to avoid backward incompatible changes. Non-public attributes are those that are not intended to be used by third parties; you make no guarantees that non-public attributes won’t change or even be removed.</p>
-<p>We don’t use the term “private” here, since no attribute is really private in Python (without a generally unnecessary amount of work).</p>
-<p>Another category of attributes are those that are part of the “subclass API” (often called “protected” in other languages). Some classes are designed to be inherited from, either to extend or modify aspects of the class’s behavior. When designing such a class, take care to make explicit decisions about which attributes are public, which are part of the subclass API, and which are truly only to be used by your base class.</p>
-<p>With this in mind, here are the Pythonic guidelines:</p>
-<p>Public attributes should have no leading underscores.</p>
-<p>If your public attribute name collides with a reserved keyword, append a single trailing underscore to your attribute name. This is preferable to an abbreviation or corrupted spelling. (However, notwithstanding this rule, ‘cls’ is the preferred spelling for any variable or argument which is known to be a class, especially the first argument to a class method.)</p>
-<p>Note 1: See the argument name recommendation above for class methods.</p>
-<p>For simple public data attributes, it is best to expose just the attribute name, without complicated accessor/mutator methods. Keep in mind that Python provides an easy path to future enhancement, should you find that a simple data attribute needs to grow functional behavior. In that case, use properties to hide functional implementation behind simple data attribute access syntax.</p>
-<p>Note 1: Properties only work on new-style classes.</p>
-<p>Note 2: Try to keep the functional behavior side-effect free, although side-effects such as caching are generally fine.</p>
-<p>Note 3: Avoid using properties for computationally expensive operations; the attribute notation makes the caller believe that access is (relatively) cheap.</p>
-<p>If your class is intended to be subclassed, and you have attributes that you do not want subclasses to use, consider naming them with double leading underscores and no trailing underscores. This invokes Python’s name mangling algorithm, where the name of the class is mangled into the attribute name. This helps avoid attribute name collisions should subclasses inadvertently contain attributes with the same name.</p>
-<p>Note 1: Note that only the simple class name is used in the mangled name, so if a subclass chooses both the same class name and attribute name, you can still get name collisions.</p>
-<p>Note 2: Name mangling can make certain uses, such as debugging and <strong>getattr</strong>() , less convenient. However the name mangling algorithm is well documented and easy to perform manually.</p>
-<p>Note 3: Not everyone likes name mangling. Try to balance the need to avoid accidental name clashes with potential use by advanced callers.</p>
-<p></p><h3></h3>Public and internal interfaces<br>Any backwards compatibility guarantees apply only to public interfaces. Accordingly, it is important that users be able to clearly distinguish between public and internal interfaces.<p></p>
-<p>Documented interfaces are considered public, unless the documentation explicitly declares them to be provisional or internal interfaces exempt from the usual backwards compatibility guarantees. All undocumented interfaces should be assumed to be internal.</p>
-<p>To better support introspection, modules should explicitly declare the names in their public API using the <strong>all</strong> attribute. Setting <strong>all</strong> to an empty list indicates that the module has no public API.</p>
-<p>Even with <strong>all</strong> set appropriately, internal interfaces (packages, modules, classes, functions, attributes or other names) should still be prefixed with a single leading underscore.</p>
-<p>An interface is also considered internal if any containing namespace (package, module or class) is considered internal.</p>
-<p>Imported names should always be considered an implementation detail. Other modules must not rely on indirect access to such imported names unless they are an explicitly documented part of the containing module’s API, such as os.path or a package’s <strong>init</strong> module that exposes functionality from submodules.</p>
-<p></p><h2></h2>Programming Recommendations<br>Code should be written in a way that does not disadvantage other implementations of Python (PyPy, Jython, IronPython, Cython, Psyco, and such).<p></p>
+<h2 id="翻译阶段"><a href="#翻译阶段" class="headerlink" title="翻译阶段"></a>翻译阶段</h2><h3 id="第一阶段-字符的映射"><a href="#第一阶段-字符的映射" class="headerlink" title="第一阶段  字符的映射"></a>第一阶段  字符的映射</h3><blockquote>
+<p>源文件中的每一个字节被（以一种由实现定义的方式）映射到基本源字符集中的字符。</p>
+<p>源文件中不能被映射到基本字符集的字符，被替换为通用字符名（转义字符），或某种进行等价处理的由实现定义的形式。</p>
+<p>三联符被替换为其对应的单字符表示。</p>
+<h3 id="第二阶段-逻辑行的确定"><a href="#第二阶段-逻辑行的确定" class="headerlink" title="第二阶段  逻辑行的确定"></a>第二阶段  逻辑行的确定</h3><p>当一个反斜杠出现在一行的末尾（紧挨着换行符之前），反斜杠与换行符连接删除，使两个物理行合并为一个逻辑行。</p>
+<p>C++11 起，在一个非空源文件的结束时，不以一个换行符结束则添加一个末尾的换行符。</p>
+<h3 id="第三阶段-代码分解"><a href="#第三阶段-代码分解" class="headerlink" title="第三阶段  代码分解"></a>第三阶段  代码分解</h3><p>源文件中的源代码被分解成注释、空白符（空格、水平制表符、垂直制表符、换行符及换页符）序列及预处理记号。</p>
+<p>注释被空白符替代。</p>
+<p>换行符被保留，而非换行符的空白符序列是否缩减成单格空格符是实现定义的。</p>
+<h3 id="第四阶段-预处理"><a href="#第四阶段-预处理" class="headerlink" title="第四阶段  预处理"></a>第四阶段  预处理</h3><p>执行预处理器。</p>
+<p>每个#include语句执行引入头文件，递归进行一至四阶段。</p>
+<p>所有预处理指令移除。</p>
+<h3 id="第五阶段-字符集转换"><a href="#第五阶段-字符集转换" class="headerlink" title="第五阶段  字符集转换"></a>第五阶段  字符集转换</h3><p>字符常量和字符串字面量中的所有字符和转义序列从源字符转换到执行字符集。</p>
+<h3 id="第六阶段-字符串合并"><a href="#第六阶段-字符串合并" class="headerlink" title="第六阶段  字符串合并"></a>第六阶段  字符串合并</h3><p>相邻的字符串常量被合并。</p>
+<h3 id="第七阶段-编译阶段"><a href="#第七阶段-编译阶段" class="headerlink" title="第七阶段  编译阶段"></a>第七阶段  编译阶段</h3><p>把预处理完的文件进行一系列的词法分析，语法分析，语义分析及优化后生成相应的汇编代码。</p>
+<h4 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h4><p>对由字符组成的单词进行处理，从左至右逐个字符地对源程序进行扫描，产生一个个的单词符号，把作为字符串的源程序改造成为单词符号串的中间程序。</p>
+<h4 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h4><p>把单词符号串分解成各类语法单位（语法范畴），如“短语”、“句子”、“程序段”和“程序”等。通过语法分析，确定整个输入串是否构成语法上正确的“程序”。</p>
+<h4 id="词义分析"><a href="#词义分析" class="headerlink" title="词义分析"></a>词义分析</h4><p>对语法分析所识别出的各类语法范畴，分析其含义，并进行初步翻译（产生中间代码）。</p>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>对中间代码进行加工变换，以期在最后阶段能产生出更为高效（省时间和空间）的目标代码。</p>
+<h4 id="生成目标代码"><a href="#生成目标代码" class="headerlink" title="生成目标代码"></a>生成目标代码</h4><p>把中间代码（或经优化处理之后）变换成特定机器上的低级语言代码。</p>
+<h3 id="第八阶段"><a href="#第八阶段" class="headerlink" title="第八阶段"></a>第八阶段</h3></blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Database foundation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/07/Database foundation/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.608Z" itemprop="datePublished">2017-11-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/Database foundation/">数据库基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="一、SQL-简介"><a href="#一、SQL-简介" class="headerlink" title="一、SQL 简介"></a>一、SQL 简介</h2><blockquote>
+<p>SQL是结构化查询语言的缩写，是使用关系模型的数据库应用语言。</p>
+</blockquote>
+<h2 id="二、SQL的分类"><a href="#二、SQL的分类" class="headerlink" title="二、SQL的分类"></a>二、SQL的分类</h2><h3 id="1-数据定义语言（DDL）："><a href="#1-数据定义语言（DDL）：" class="headerlink" title="1.数据定义语言（DDL）："></a>1.数据定义语言（DDL）：</h3><blockquote>
+<p>这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。</p>
+</blockquote>
+<h3 id="2-数据操作语言（DML）："><a href="#2-数据操作语言（DML）：" class="headerlink" title="2.数据操作语言（DML）："></a>2.数据操作语言（DML）：</h3><blockquote>
+<p>用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 insert、delete、udpate 和select 等。</p>
+</blockquote>
+<h3 id="3-数据控制语言（DCL）："><a href="#3-数据控制语言（DCL）：" class="headerlink" title="3.数据控制语言（DCL）："></a>3.数据控制语言（DCL）：</h3><blockquote>
+<p>用于控制不同数据段直接的许可和访问级别的语句。这些语句定义了数据库、表、字段、用户的访问权限和安全级别。主要的语句关键字包括 grant、revoke 等。</p>
+</blockquote>
+<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><h2 id="三、DDL语句"><a href="#三、DDL语句" class="headerlink" title="三、DDL语句"></a>三、DDL语句</h2><h3 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h3><blockquote>
+<p>Create database [dbname];<br><br>例：</p>
+<pre><code>create database test1;</code></pre>
+
+
+</blockquote>
+<h3 id="2-浏览数据库"><a href="#2-浏览数据库" class="headerlink" title="2.浏览数据库"></a>2.浏览数据库</h3><pre><code>Show databases;</code></pre>
+
+<h4 id="基本数据库"><a href="#基本数据库" class="headerlink" title="基本数据库"></a>基本数据库</h4><blockquote>
+<p>information_schema：主要存储了系统中的一些数据库对象信息。比如用户表信息、列信息、权限信息、字符集信息、分区信息等。<br><br>cluster：存储了系统的集群信息。<br><br>mysql：存储了系统的用户权限信息。<br><br>test：系统自动创建的测试数据库，任何用户都可以使用。<br></p>
+</blockquote>
+<h3 id="3-选择要操作的数据库"><a href="#3-选择要操作的数据库" class="headerlink" title="3.选择要操作的数据库"></a>3.选择要操作的数据库</h3><blockquote>
+<p>Use [dbname];<br><br>例：</p>
+<pre><code>use test1；</code></pre>
+
+</blockquote>
+<h3 id="4-删除数据库"><a href="#4-删除数据库" class="headerlink" title="4.删除数据库"></a>4.删除数据库</h3><blockquote>
+<p>Drop database [dbname];<br><br>例：</p>
+<p><pre><code>drop database test1;</code></pre><br>注意：数据库删除后，下面的所有表数据都会全部删除，所以删除前一定要仔细检查并做好相应备份.</p>
+</blockquote>
+<h3 id="5-创建表"><a href="#5-创建表" class="headerlink" title="5.创建表"></a>5.创建表</h3><blockquote>
+<p>Create table <a href="br /&gt;
+       column_name_1    column_type_1    constraints&lt;br /&gt;
+       column_name_2     column_type_2  ,    constraints&lt;br /&gt;
+       ……&lt;br /&gt;
+       column_name_n    column_type_n    Constraints&lt;br /">tablename</a>;<br><br>    例：</p>
+<p><pre><code>create table emp(<br>      Ename    varchar(10),<br>        Hiredate    date,<br>        Sal    decimal(10,2),<br>        Deptno    int(2)<br>);</code></pre></p>
+<h3 id="6-查看表的定义"><a href="#6-查看表的定义" class="headerlink" title="6.查看表的定义"></a>6.查看表的定义</h3><p>Desc [tablename];<br><br>例：</p>
+<p><pre><code>desc emp;</code></pre><br>查看创建表的SQL语句<br><br>Show create table [tablename] \G;<br><br>例：</p>
+<p><pre><code>show create table emp \G;</code></pre></p>
+<h3 id="7-删除表"><a href="#7-删除表" class="headerlink" title="7.删除表"></a>7.删除表</h3><p>Drop table [tablename];<br><br>例：</p>
+<p><pre><code>drop table emp;</code></pre></p>
+<h3 id="8-修改表"><a href="#8-修改表" class="headerlink" title="8.修改表"></a>8.修改表</h3><p>Alter table [tablename] modify [column] column_definition [FIRST | AFTER column_name];<br><br>例：</p>
+<p><pre><code>alter table emp modify ename varchar(20);</code></pre></p>
+<h3 id="9-增加表字段"><a href="#9-增加表字段" class="headerlink" title="9.增加表字段"></a>9.增加表字段</h3><p>Alter table [tablename] add[column] column_definition [FIRST | AFTER column_name];<br><br>例：</p>
+<p><pre><code>alter table emp add column age int(3);</code></pre></p>
+<h3 id="10-删除表字段"><a href="#10-删除表字段" class="headerlink" title="10.删除表字段"></a>10.删除表字段</h3><p>Alter table [tablename] drop [column] [column_name];<br><br>例：</p>
+<p><pre><code>alter table emp drop column age;</code></pre></p>
+<h3 id="11-修改字段名称"><a href="#11-修改字段名称" class="headerlink" title="11.修改字段名称"></a>11.修改字段名称</h3><p>Alter table [tablename] change [column] old_column_name column_definition [FIRST|AFTER column_name];<br><br>例：</p>
+<p><pre><code>alter table emp change age age1 int(4) ;</code></pre><br>注意：change 和 modify都可以修改表的定义，不同的是 change 后面需要写两次列名，不方便。<br><br>但是 change 的优点是可以修改列名称，modify则不能。</p>
+</blockquote>
+<h3 id="12-修改字段排列顺序"><a href="#12-修改字段排列顺序" class="headerlink" title="12.修改字段排列顺序"></a>12.修改字段排列顺序</h3><blockquote>
+<p>前面介绍的的字段增加和修改语法（ADD/CNAHGE/MODIFY）中，都有一个可选项 first|after column_name，这个选项可以用来修改字段在表中的位置，默认 ADD 增加的新字段是加在表的最后位置，而 CHANGE/MODIFY 默认都不会改变字段的位置。<br><br>例：</p>
+<pre><code>alter table emp add birth date after ename;</code></pre>
+注意：CHANGE/FIRST|AFTER COLUMN 这些关键字都属于 MySQL 在标准 SQL 上的扩展，在其他数据库上不一定适用。
+### 13. 修改表名
+Alter table [tablename] rename [to] new_tablename;<br>
+例：
+<pre><code>alter table emp rename emp1;</code></pre>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Single responsibility principle" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/07/Single responsibility principle/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.596Z" itemprop="datePublished">2017-11-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/Single responsibility principle/">Single responsibility principle</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="1-RBAC模型："><a href="#1-RBAC模型：" class="headerlink" title="1.RBAC模型："></a>1.RBAC模型：</h2><p>基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离</p>
+<h2 id="2-There-should-never-be-more-than-one-reason-for-class-to-change"><a href="#2-There-should-never-be-more-than-one-reason-for-class-to-change" class="headerlink" title="2.There should never be more than one reason for class to change."></a>2.There should never be more than one reason for class to change.</h2><h2 id="3-单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。"><a href="#3-单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。" class="headerlink" title="3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。"></a>3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。</h2><h2 id="4-耦合性：是对模块间关联程度的度量"><a href="#4-耦合性：是对模块间关联程度的度量" class="headerlink" title="4.耦合性：是对模块间关联程度的度量"></a>4.耦合性：是对模块间关联程度的度量</h2><p>（1）耦合的强弱取决于模块之间接口的复杂性、调用模块的方式以及通过界面传送数据的多少。<br>（2）模块间的耦合度是指模块之间的依赖关系，包括控制关系、调用关系、数据传递关系。<br>（3）模块间联系越多，其耦合性越强，同时表明其独立性越差。</p>
+<h3 id="高内聚低耦合"><a href="#高内聚低耦合" class="headerlink" title="高内聚低耦合"></a>高内聚低耦合</h3><h2 id="5-模块之间构成耦合性的七种类型（独立性由强到弱）："><a href="#5-模块之间构成耦合性的七种类型（独立性由强到弱）：" class="headerlink" title="5.模块之间构成耦合性的七种类型（独立性由强到弱）："></a>5.模块之间构成耦合性的七种类型（独立性由强到弱）：</h2><p>（1）非直接耦合：没有直接关系，之间联系完全通过主模块的控制和调用来实现<br>（2）数据耦合：彼此之间是通过数据参数（不是控制参数、公共数据结构或外部变量）来交换输入、输出信息的<br>（3）印记耦合：一组通过参数传递记录（某一数据结构的子结构，而不是简单的变量）信息的模块间关系<br>（4）控制耦合：在单一接口上选择多功能模块中的某项功能<br>（5）外部耦合一组模块都访问同一全局简单变量而不是同一全局数据结构，而且不是通过参数表传递该全局变量的信息<br>（6）公共耦合：一组模块都访问同一个公共数据环境<br>（7）内容耦合：一个模块直接访问另外一个模块的内部数据；一个模块不通过正常入口转到另一模块内部；两个模块有一部分程序代码重叠（只可能出现在汇编语言中）；一个模块有多个入口</p>
+<h2 id="6-单一原则的好处："><a href="#6-单一原则的好处：" class="headerlink" title="6.单一原则的好处："></a>6.单一原则的好处：</h2><p>（1）类的复杂性降低，实现什么职责都有清晰明确的定义<br>（2）可读性提高，复杂性降低<br>（3）可维护性提高，可读性提高<br>（4）变更引起的风险降低，变更是必不可少的，变更对其他接口几无影响，对系统的拓展性、维护性都有非常大的帮助</p>
+<h2 id="7-This-is-sometimes-hard-to-see"><a href="#7-This-is-sometimes-hard-to-see" class="headerlink" title="7.This is sometimes hard to see"></a>7.This is sometimes hard to see</h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Python encoding specification" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/07/Python encoding specification/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.585Z" itemprop="datePublished">2017-11-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/Python encoding specification/">PEP8 Python 编码规范</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p></p><h2>一、代码编排</h2><p></p>
+<p>1.缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tab，更不能混合使用Tab和空格。<br></p><br><p>2.每行最大长度79，换行可以使用反斜杠，最好使用圆括号。换行点要在操作符的后边敲回车。</p><br><p>3.类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。</p>
+
+<p></p><h2>二、文档编排</h2><p></p>
+<p>1.模块内容的顺序：模块说明和docstring—import—globals&amp;constants—其他定义。其中import部分，又按标准、三方和自己编写顺序依次排放，之间空一行。</p><br><p>2.不要在一句import中多个库，比如import os, sys不推荐。</p><br><p>3.如果采用from XX import XX引用库，可以省略’module.’，都是可能出现命名冲突，这时就要采用import XX。</p>
+
+<p></p><h2>三、空格的使用</h2><br>        总体原则，避免不必要的空格。<p></p>
+<p>1.各种右括号前不要加空格。</p><br><p>2.逗号、冒号、分号前不要加空格。</p><br><p>3.函数的左括号前不要加空格。如Func(1)。</p><br><p>4.序列的左括号前不要加空格。如list[2]。</p><br><p>5.操作符左右各加一个空格，不要为了对齐增加空格。</p><br><p>6.函数默认参数使用的赋值符左右省略空格。</p><br><p>7.不要将多句语句写在同一行，尽管使用’;’允许。</p><br><p>8.if/for/while语句中，即使执行语句只有一句，也必须另起一行。</p>
+
+<p></p><h2>四、注释</h2><br>        总体原则，错误的注释不如没有注释。所以当一段代码发生变化时，第一件事就是要修改注释！<br>       注释必须使用英文，最好是完整的句子，首字母大写，句后要有结束符，结束符后跟两个空格，开始下一句。如果是短语，可以省略结束符。<p></p>
+<p>1.块注释，在一段代码前增加的注释。在‘#’后加一空格。段落之间以只有‘#’的行间隔。比如：<br># Description : Module config.<br>#<br># Input : None<br>#<br># Output : None<br></p><br><p>2.行注释，在一句代码后加注释。比如：<br>x = x + 1            # Increment x<br>但是这种方式尽量少使用。</p><br><p>3.避免无谓的注释。</p>
+
+<p></p><h2>五、文档描述</h2><p></p>
+<p>1.为所有的共有模块、函数、类、方法写docstrings；非共有的没有必要，但是可以写注释（在def的下一行）。</p><br><p>2.如果docstring要换行，参考如下例子,详见PEP 257<br>“””Return a foobang<br><br>Optional plotz says to frobnicate the bizbaz first.<br><br>“””<br></p><br><h2>六、命名规范</h2><br>        总体原则，新编代码必须按下面命名风格进行，现有库的编码尽量保持风格。<br><p>1.尽量单独使用小写字母‘l’，大写字母‘O’等容易混淆的字母。</p><br><p>2.模块命名尽量短小，使用全部小写的方式，可以使用下划线。</p><br><p>3.包命名尽量短小，使用全部小写的方式，不可以使用下划线。</p><br><p>4.类的命名使用CapWords的方式，模块内部使用的类采用_CapWords的方式。</p><br><p>5.异常命名使用CapWords+Error后缀的方式。</p><br><p>6.全局变量尽量只在模块内有效，类似C语言中的static。实现方法有两种，一是<strong>all</strong>机制;二是前缀一个下划线。</p><br><p>7.函数命名使用全部小写的方式，可以使用下划线。</p><br><p>8.常量命名使用全部大写的方式，可以使用下划线。</p><br><p>9.类的属性（方法和变量）命名使用全部小写的方式，可以使用下划线。</p><br><p>10.类的属性有3种作用域public、non-public和subclass API，可以理解成C++中的public、private、protected，non-public属性前，前缀一条下划线。</p><br><p>11.类的属性若与关键字名字冲突，后缀一下划线，尽量不要使用缩略等其他方式。</p><br><p>12.为避免与子类属性命名冲突，在类的一些属性前，前缀两条下划线。比如：类Foo中声明<strong>a,访问时，只能通过Foo._Foo</strong>a，避免歧义。如果子类也叫Foo，那就无能为力了。</p><br><p>13.类的方法第一个参数必须是self，而静态方法第一个参数必须是cls。</p>
+
+<p></p><h2>七、编码建议</h2><p></p>
+<p>1.编码中考虑到其他python实现的效率等问题，比如运算符‘+’在CPython（Python）中效率很高，都是Jython中却非常低，所以应该采用.join()的方式。</p><br><p>2.尽可能使用‘is’‘is not’取代‘==’，比如if x is not None 要优于if x。</p><br><p>3.使用基于类的异常，每个模块或包都有自己的异常类，此异常类继承自Exception。</p><br><p>4.异常中不要使用裸露的except，except后跟具体的exceptions。</p><br><p>5.异常中try的代码尽可能少。比如：<br>try:<br>value = collection[key]<br>except KeyError:<br>return key_not_found(key)<br>else:<br>return handle_value(value)<br>要优于<br>try:<br># Too broad!<br>return handle_value(collection[key])<br>except KeyError:<br># Will also catch KeyError raised by handle_value()<br>return key_not_found(key)<br></p><br><p>6.使用startswith() and endswith()代替切片进行序列前缀或后缀的检查。比如：<br>Yes:  if foo.startswith(‘bar’):优于<br>No:  if foo[:3] == ‘bar’:<br></p><br><p>7.使用isinstance()比较对象的类型。比如<br>Yes:  if isinstance(obj, int): 优于<br>No:  if type(obj) is type(1):<br></p><br><p>8.判断序列空或不空，有如下规则<br>Yes:  if not seq:<br>if seq:<br>优于<br>No:  if len(seq)<br>if not len(seq)<br></p><br><p>9.字符串不要以空格收尾。</p><br><p>10.二进制数据判断使用 if boolvalue的方式。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PEP 8 -- Style Guide for Python Code (4)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/07/PEP 8 -- Style Guide for Python Code (4)/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.570Z" itemprop="datePublished">2017-11-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/PEP 8 -- Style Guide for Python Code (4)/">PEP 8 -- Style Guide for Python Code (四)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p></p><h2></h2>Programming Recommendations<br>Code should be written in a way that does not disadvantage other implementations of Python (PyPy, Jython, IronPython, Cython, Psyco, and such).<p></p>
 <p>For example, do not rely on CPython’s efficient implementation of in-place string concatenation for statements in the form a += b or a = a + b . This optimization is fragile even in CPython (it only works for some types) and isn’t present at all in implementations that don’t use refcounting. In performance sensitive parts of the library, the ‘’.join() form should be used instead. This will ensure that concatenation occurs in linear time across various implementations.</p>
 <p>Comparisons to singletons like None should always be done with is or is not , never the equality operators.</p>
 <p>Also, beware of writing if x when you really mean if x is not None – e.g. when testing whether a variable or argument that defaults to None was set to some other value. The other value might have a type (such as a container) that could be false in a boolean context!</p>
@@ -444,18 +673,7 @@ return key_not_found(key)
 <p>For code that needs to be backwards compatible, type annotations can be added in the form of comments. See the relevant section of PEP 484 [6] .</p>
 <p>Footnotes</p>
 <p>[7]    Hanging indentation is a type-setting style where all the lines in a paragraph are indented except the first line. In the context of Python, the term is used to describe a style where the opening parenthesis of a parenthesized statement is the last non-whitespace character of the line, with subsequent lines being indented until the closing parenthesis.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote>
-<p>[1]    PEP 7 , Style Guide for C Code, van Rossum</p>
-<p>[2]    Barry’s GNU Mailman style guide <a href="http://barry.warsaw.us/software/STYLEGUIDE.txt" target="_blank" rel="external">http://barry.warsaw.us/software/STYLEGUIDE.txt</a></p>
-<p>[3]    Donald Knuth’s The TeXBook , pages 195 and 196.</p>
-<p>[4]    <a href="http://www.wikipedia.com/wiki/CamelCase" target="_blank" rel="external">http://www.wikipedia.com/wiki/CamelCase</a></p>
-<p>[5]    Typeshed repo <a href="https://github.com/python/typeshed" target="_blank" rel="external">https://github.com/python/typeshed</a></p>
-<p>[6]    Suggested syntax for Python 2.7 and straddling code</p>
-<p><a href="https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code" target="_blank" rel="external">https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code</a></p>
-<h2 id="Copyright"><a href="#Copyright" class="headerlink" title="Copyright"></a>Copyright</h2><p>This document has been placed in the public domain.</p>
-<p>Source: <a href="https://github.com/python/peps/blob/master/pep-0008.txt" target="_blank" rel="external">https://github.com/python/peps/blob/master/pep-0008.txt</a></p>
-</blockquote>
-</h4>
+
       
     </div>
     
@@ -481,11 +699,11 @@ return key_not_found(key)
 
 
   
-    <article id="post-PEP 8 -- Style Guide for Python Code (二)" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-PEP 8 -- Style Guide for Python Code (2)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/10/08/PEP 8 -- Style Guide for Python Code (二)/" class="article-date">
-      <time datetime="2017-10-08T09:36:16.748Z" itemprop="datePublished">2017-10-08</time>
+      <a href="/2017/11/07/PEP 8 -- Style Guide for Python Code (2)/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.556Z" itemprop="datePublished">2017-11-07</time>
 </a>
 
 
@@ -500,7 +718,7 @@ return key_not_found(key)
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/08/PEP 8 -- Style Guide for Python Code (二)/">PEP 8 -- Style Guide for Python Code (二)</a>
+      <a class="article-title" href="/2017/11/07/PEP 8 -- Style Guide for Python Code (2)/">PEP 8 -- Style Guide for Python Code (二)</a>
     </h1>
   
 
@@ -684,11 +902,11 @@ while t < 10: t = delay()Maximum Line LengthMaximum Line Length</code></pre>
 
 
   
-    <article id="post-数据库基础" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-PEP 8 -- Style Guide for Python Code (3)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/28/数据库基础/" class="article-date">
-      <time datetime="2017-08-28T14:37:45.406Z" itemprop="datePublished">2017-08-28</time>
+      <a href="/2017/11/07/PEP 8 -- Style Guide for Python Code (3)/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.541Z" itemprop="datePublished">2017-11-07</time>
 </a>
 
 
@@ -703,7 +921,7 @@ while t < 10: t = delay()Maximum Line LengthMaximum Line Length</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/28/数据库基础/">数据库基础</a>
+      <a class="article-title" href="/2017/11/07/PEP 8 -- Style Guide for Python Code (3)/">PEP 8 -- Style Guide for Python Code (三)</a>
     </h1>
   
 
@@ -713,67 +931,230 @@ while t < 10: t = delay()Maximum Line LengthMaximum Line Length</code></pre>
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="一、SQL-简介"><a href="#一、SQL-简介" class="headerlink" title="一、SQL 简介"></a>一、SQL 简介</h2><blockquote>
-<p>SQL是结构化查询语言的缩写，是使用关系模型的数据库应用语言。</p>
+        <blockquote>
+<p>Author:    Guido van Rossum <guido at="" python.org="">, Barry Warsaw <barry at="" python.org="">, Nick Coghlan <ncoghlan at="" gmail.com=""></ncoghlan></barry></guido></p>
 </blockquote>
-<h2 id="二、SQL的分类"><a href="#二、SQL的分类" class="headerlink" title="二、SQL的分类"></a>二、SQL的分类</h2><h3 id="1-数据定义语言（DDL）："><a href="#1-数据定义语言（DDL）：" class="headerlink" title="1.数据定义语言（DDL）："></a>1.数据定义语言（DDL）：</h3><blockquote>
-<p>这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。</p>
-</blockquote>
-<h3 id="2-数据操作语言（DML）："><a href="#2-数据操作语言（DML）：" class="headerlink" title="2.数据操作语言（DML）："></a>2.数据操作语言（DML）：</h3><blockquote>
-<p>用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 insert、delete、udpate 和select 等。</p>
-</blockquote>
-<h3 id="3-数据控制语言（DCL）："><a href="#3-数据控制语言（DCL）：" class="headerlink" title="3.数据控制语言（DCL）："></a>3.数据控制语言（DCL）：</h3><blockquote>
-<p>用于控制不同数据段直接的许可和访问级别的语句。这些语句定义了数据库、表、字段、用户的访问权限和安全级别。主要的语句关键字包括 grant、revoke 等。</p>
-</blockquote>
-<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><h2 id="三、DDL语句"><a href="#三、DDL语句" class="headerlink" title="三、DDL语句"></a>三、DDL语句</h2><h3 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h3><blockquote>
-<p>Create database [dbname];<br><br>例：</p>
-<pre><code>create database test1;</code></pre>
+<h2 id="When-to-use-trailing-commas"><a href="#When-to-use-trailing-commas" class="headerlink" title="When to use trailing commas"></a>When to use trailing commas</h2><blockquote>
+<p>&nbsp;&nbsp;Trailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the print statement). For clarity, it is recommended to surround the latter in (technically redundant) parentheses.<br>&nbsp;&nbsp;&nbsp;&nbsp;尾随逗号通常是可选的，除了在制作一个元素的元组时是必须的（在Python 2中它们具有打印语句的语义）。 为了清楚起见，建议用（技术上冗余的）括号括住后者。</p>
+<p>Yes:</p>
+<pre><code>    FILES = ('setup.cfg',)</code></pre>
+
+<p>OK, but confusing:</p>
+<pre><code>    FILES = 'setup.cfg',</code></pre>
+
+<p>&nbsp;&nbsp;When trailing commas are redundant, they are often helpful when a version control system is used, when a list of values, arguments or imported items is expected to be extended over time. The pattern is to put each value (etc.) on a line by itself, always adding a trailing comma, and add the close parenthesis/bracket/brace on the next line. However it does not make sense to have a trailing comma on the same line as the closing delimiter (except in the above case of singleton tuples).<br>&nbsp;&nbsp;&nbsp;&nbsp;当尾随逗号是多余的时候，当使用版本控制系统时，当值，参数或导入的项目列表预计会随时间扩展时，它们通常会很有帮助。 模式是将每个值（等）单独放在一行上，始终添加尾随逗号，并在下一行添加右括号/括号/大括号。 然而，在结束分隔符的同一行上有一个尾随逗号是没有意义的（除了上述单例元组的情况外）。</p>
+<p>Yes:</p>
+<pre><code>FILES = [
+    'setup.cfg',
+    'tox.ini',
+    ]
+initialize(FILES,
+           error=True,
+           )</code></pre>
+
+<p>No:</p>
+<pre><code>FILES = ['setup.cfg', 'tox.ini',]
+initialize(FILES, error=True,)</code></pre>
 
 
 </blockquote>
-<h3 id="2-浏览数据库"><a href="#2-浏览数据库" class="headerlink" title="2.浏览数据库"></a>2.浏览数据库</h3><pre><code>Show databases;</code></pre>
+<h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h2><blockquote>
+<p>&nbsp;&nbsp;Comments that contradict the code are worse than no comments. Always make a priority of keeping the comments up-to-date when the code changes!<br>&nbsp;&nbsp;&nbsp;&nbsp;与代码相矛盾的注释比没有注释更糟糕。 在代码更改时，始终优先保持注释的最新状态！</p>
+<p>&nbsp;&nbsp;Comments should be complete sentences. If a comment is a phrase or sentence, its first word should be capitalized, unless it is an identifier that begins with a lower case letter (never alter the case of identifiers!).<br>&nbsp;&nbsp;&nbsp;&nbsp;注释应该是完整的句子。 如果注释是一个短语或句子，那么它的第一个单词应该大写，除非它是一个以小写字母开头的标识符（不要改变标识符的大小写！）。</p>
+<p>&nbsp;&nbsp;If a comment is short, the period at the end can be omitted. Block comments generally consist of one or more paragraphs built out of complete sentences, and each sentence should end in a period.<br>&nbsp;&nbsp;&nbsp;&nbsp;如果注释很短，最后一段时间可以省略。 块注释通常由完整句子构成的一个或多个段落组成，每个句子应以一段时间结束。</p>
+<p>&nbsp;&nbsp;You should use two spaces after a sentence-ending period.<br>&nbsp;&nbsp;&nbsp;&nbsp;在句末结束后，您应该使用两个空格。</p>
+<p>&nbsp;&nbsp;When writing English, follow Strunk and White.<br>&nbsp;&nbsp;&nbsp;&nbsp;在写英文时，请遵循Strunk和White。</p>
+<p>&nbsp;&nbsp;Python coders from non-English speaking countries: please write your comments in English, unless you are 120% sure that the code will never be read by people who don’t speak your language.<br>&nbsp;&nbsp;&nbsp;&nbsp;来自非英语国家的Python编码人员：请用英文写下您的意见，除非您确信代码不会被不会说您的语言的人阅读。</p>
+</blockquote>
+<h3 id="Block-Comments"><a href="#Block-Comments" class="headerlink" title="Block Comments"></a>Block Comments</h3><blockquote>
+<p>&nbsp;&nbsp;Block comments generally apply to some (or all) code that follows them, and are indented to the same level as that code. Each line of a block comment starts with a # and a single space (unless it is indented text inside the comment).<br>&nbsp;&nbsp;&nbsp;&nbsp;块注释通常适用于跟随它们的一些（或全部）代码，并缩进到与该代码相同的级别。 块注释的每一行都以＃和单个空格开头（除非它在注释内缩进文本）。</p>
+<p>&nbsp;&nbsp;Paragraphs inside a block comment are separated by a line containing a single # .<br>&nbsp;&nbsp;&nbsp;&nbsp;块注释中的段落由包含单个＃的行分隔。</p>
+</blockquote>
+<h3 id="Inline-Comments"><a href="#Inline-Comments" class="headerlink" title="Inline Comments"></a>Inline Comments</h3><blockquote>
+<p>&nbsp;&nbsp;Use inline comments sparingly.<br>&nbsp;&nbsp;&nbsp;&nbsp;谨慎使用内嵌注释。</p>
+<p>&nbsp;&nbsp;An inline comment is a comment on the same line as a statement. Inline comments should be separated by at least two spaces from the statement. They should start with a # and a single space.<br>&nbsp;&nbsp;&nbsp;&nbsp;内联注释是对语句同一行的注释。 内联注释应该与语句中的至少两个空格分隔。 他们应该以＃和单个空间开始。</p>
+<p>&nbsp;&nbsp;Inline comments are unnecessary and in fact distracting if they state the obvious. Don’t do this:<br>&nbsp;&nbsp;&nbsp;&nbsp;内联注释是不必要的，事实上，如果他们陈述明显的话，就会分心。 不要这样做：</p>
+<pre><code>x = x + 1                 # Increment x</code></pre>
 
-<h4 id="基本数据库"><a href="#基本数据库" class="headerlink" title="基本数据库"></a>基本数据库</h4><blockquote>
-<p>information_schema：主要存储了系统中的一些数据库对象信息。比如用户表信息、列信息、权限信息、字符集信息、分区信息等。<br><br>cluster：存储了系统的集群信息。<br><br>mysql：存储了系统的用户权限信息。<br><br>test：系统自动创建的测试数据库，任何用户都可以使用。<br></p>
-</blockquote>
-<h3 id="3-选择要操作的数据库"><a href="#3-选择要操作的数据库" class="headerlink" title="3.选择要操作的数据库"></a>3.选择要操作的数据库</h3><blockquote>
-<p>Use [dbname];<br><br>例：</p>
-<pre><code>use test1；</code></pre>
+<p>But sometimes, this is useful:</p>
+<pre><code>x = x + 1                 # Compensate for border</code></pre>
 
 </blockquote>
-<h3 id="4-删除数据库"><a href="#4-删除数据库" class="headerlink" title="4.删除数据库"></a>4.删除数据库</h3><blockquote>
-<p>Drop database [dbname];<br><br>例：</p>
-<p><pre><code>drop database test1;</code></pre><br>注意：数据库删除后，下面的所有表数据都会全部删除，所以删除前一定要仔细检查并做好相应备份.</p>
+<h3 id="Documentation-Strings"><a href="#Documentation-Strings" class="headerlink" title="Documentation Strings"></a>Documentation Strings</h3><blockquote>
+<p>&nbsp;&nbsp;Conventions for writing good documentation strings (a.k.a. “docstrings”) are immortalized in PEP 257 .<br>&nbsp;&nbsp;&nbsp;&nbsp;编写良好文档字符串（又名“文档”）的惯例在PEP 257中是不朽的。</p>
+<p>&nbsp;&nbsp;Write docstrings for all public modules, functions, classes, and methods. Docstrings are not necessary for non-public methods, but you should have a comment that describes what the method does. This comment should appear after the def line.<br>&nbsp;&nbsp;&nbsp;&nbsp;为所有公共模块，函数，类和方法编写文档。 Docstrings对于非公开方法不是必需的，但您应该有一个注释来描述该方法的功能。 这条注释应该出现在def行之后。</p>
+<p>&nbsp;&nbsp;PEP 257 describes good docstring conventions. Note that most importantly, the “”” that ends a multiline docstring should be on a line by itself, e.g.:<br>&nbsp;&nbsp;&nbsp;&nbsp;PEP 257描述了良好的文档字符串约定。 请注意，最重要的是，结束多行文档字符串的”””应该自己排成一行，例如：</p>
+<p><pre><code>“””Return a foobang</code></pre></p>
 </blockquote>
-<h3 id="5-创建表"><a href="#5-创建表" class="headerlink" title="5.创建表"></a>5.创建表</h3><blockquote>
-<p>Create table <a href="br /&gt;
-       column_name_1    column_type_1    constraints&lt;br /&gt;
-       column_name_2     column_type_2  ,    constraints&lt;br /&gt;
-       ……&lt;br /&gt;
-       column_name_n    column_type_n    Constraints&lt;br /">tablename</a>;<br><br>    例：</p>
-<p><pre><code>create table emp(<br>      Ename    varchar(10),<br>        Hiredate    date,<br>        Sal    decimal(10,2),<br>        Deptno    int(2)<br>);</code></pre></p>
-<h3 id="6-查看表的定义"><a href="#6-查看表的定义" class="headerlink" title="6.查看表的定义"></a>6.查看表的定义</h3><p>Desc [tablename];<br><br>例：</p>
-<p><pre><code>desc emp;</code></pre><br>查看创建表的SQL语句<br><br>Show create table [tablename] \G;<br><br>例：</p>
-<p><pre><code>show create table emp \G;</code></pre></p>
-<h3 id="7-删除表"><a href="#7-删除表" class="headerlink" title="7.删除表"></a>7.删除表</h3><p>Drop table [tablename];<br><br>例：</p>
-<p><pre><code>drop table emp;</code></pre></p>
-<h3 id="8-修改表"><a href="#8-修改表" class="headerlink" title="8.修改表"></a>8.修改表</h3><p>Alter table [tablename] modify [column] column_definition [FIRST | AFTER column_name];<br><br>例：</p>
-<p><pre><code>alter table emp modify ename varchar(20);</code></pre></p>
-<h3 id="9-增加表字段"><a href="#9-增加表字段" class="headerlink" title="9.增加表字段"></a>9.增加表字段</h3><p>Alter table [tablename] add[column] column_definition [FIRST | AFTER column_name];<br><br>例：</p>
-<p><pre><code>alter table emp add column age int(3);</code></pre></p>
-<h3 id="10-删除表字段"><a href="#10-删除表字段" class="headerlink" title="10.删除表字段"></a>10.删除表字段</h3><p>Alter table [tablename] drop [column] [column_name];<br><br>例：</p>
-<p><pre><code>alter table emp drop column age;</code></pre></p>
-<h3 id="11-修改字段名称"><a href="#11-修改字段名称" class="headerlink" title="11.修改字段名称"></a>11.修改字段名称</h3><p>Alter table [tablename] change [column] old_column_name column_definition [FIRST|AFTER column_name];<br><br>例：</p>
-<p><pre><code>alter table emp change age age1 int(4) ;</code></pre><br>注意：change 和 modify都可以修改表的定义，不同的是 change 后面需要写两次列名，不方便。<br><br>但是 change 的优点是可以修改列名称，modify则不能。</p>
+<p>Optional plotz says to frobnicate the bizbaz first.<br>“””</p>
+<blockquote>
+<p>&nbsp;&nbsp;For one liner docstrings, please keep the closing “”” on the same line.<br>&nbsp;&nbsp;&nbsp;&nbsp;对于一个班轮文件，请将结尾”””保留在同一行。</p>
 </blockquote>
-<h3 id="12-修改字段排列顺序"><a href="#12-修改字段排列顺序" class="headerlink" title="12.修改字段排列顺序"></a>12.修改字段排列顺序</h3><blockquote>
-<p>前面介绍的的字段增加和修改语法（ADD/CNAHGE/MODIFY）中，都有一个可选项 first|after column_name，这个选项可以用来修改字段在表中的位置，默认 ADD 增加的新字段是加在表的最后位置，而 CHANGE/MODIFY 默认都不会改变字段的位置。<br><br>例：</p>
-<pre><code>alter table emp add birth date after ename;</code></pre>
-注意：CHANGE/FIRST|AFTER COLUMN 这些关键字都属于 MySQL 在标准 SQL 上的扩展，在其他数据库上不一定适用。
-### 13. 修改表名
-Alter table [tablename] rename [to] new_tablename;<br>
-例：
-<pre><code>alter table emp rename emp1;</code></pre>
+<h2 id="Naming-Conventions"><a href="#Naming-Conventions" class="headerlink" title="Naming Conventions"></a>Naming Conventions</h2><blockquote>
+<p>&nbsp;&nbsp;The naming conventions of Python’s library are a bit of a mess, so we’ll never get this completely consistent – nevertheless, here are the currently recommended naming standards. New modules and packages (including third party frameworks) should be written to these standards, but where an existing library has a different style, internal consistency is preferred.<br>&nbsp;&nbsp;&nbsp;&nbsp;Python库的命名约定有点乱，所以我们永远不会得到完全一致的结果 - 不过，这里是目前推荐的命名标准。 应该为这些标准编写新的模块和包（包括第三方框架），但是现有库具有不同风格时，内部一致性是首选。</p>
+</blockquote>
+<h3 id="Overriding-Principle"><a href="#Overriding-Principle" class="headerlink" title="Overriding Principle"></a>Overriding Principle</h3><blockquote>
+<p>&nbsp;&nbsp;Names that are visible to the user as public parts of the API should follow conventions that reflect usage rather than implementation.<br>&nbsp;&nbsp;&nbsp;&nbsp;作为API的公共部分对用户可见的名称应遵循反映使用情况而非实现情况的约定。</p>
+</blockquote>
+<h3 id="Descriptive-Naming-Styles"><a href="#Descriptive-Naming-Styles" class="headerlink" title="Descriptive: Naming Styles"></a>Descriptive: Naming Styles</h3><blockquote>
+<p>&nbsp;&nbsp;There are a lot of different naming styles. It helps to be able to recognize what naming style is being used, independently from what they are used for.<br>&nbsp;&nbsp;&nbsp;&nbsp;有很多不同的命名风格。 它有助于识别使用的命名风格，而不管它们的用途。</p>
+<p>&nbsp;&nbsp;The following naming styles are commonly distinguished:<br>&nbsp;&nbsp;&nbsp;&nbsp;以下命名风格通常是可区分的：</p>
+</blockquote>
+<ul>
+<li>b (single lowercase letter)</li>
+<li>B (single uppercase letter</li>
+<li>lowercase</li>
+<li>lower_case_with_underscores</li>
+<li>UPPERCASE</li>
+<li>UPPER_CASE_WITH_UNDERSCORES</li>
+<li>CapitalizedWords (or CapWords, or CamelCase – so named because of the bumpy look of its letters [4] ). This is also sometimes known as StudlyCaps.</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>&nbsp;&nbsp;Note: When using abbreviations in CapWords, capitalize all the letters of the abbreviation. Thus HTTPServerError is better than HttpServerError.<br>&nbsp;&nbsp;&nbsp;&nbsp;注意：在CapWords中使用缩写时，请将缩写的所有字母大写。 因此HTTPServerError比HttpServerError好。</p>
+</blockquote>
+</blockquote>
+<ul>
+<li><p>mixedCase (differs from CapitalizedWords by initial lowercase character!)</p>
+</li>
+<li><p>Capitalized_Words_With_Underscores (ugly!)</p>
+</li>
+</ul>
+<blockquote>
+<p>&nbsp;&nbsp;There’s also the style of using a short unique prefix to group related names together. This is not used much in Python, but it is mentioned for completeness. For example, the os.stat() function returns a tuple whose items traditionally have names like st_mode , st_size , st_mtime and so on. (This is done to emphasize the correspondence with the fields of the POSIX system call struct, which helps programmers familiar with that.)<br>&nbsp;&nbsp;&nbsp;&nbsp;还有使用简短的唯一前缀将相关名称组合在一起的风格。 这在Python中用处不大，但为了完整性而提到。 例如，os.stat（）函数返回一个元组，其元素传统上具有诸如st_mode，st_size，st_mtime等名称。 （这样做是为了强调与POSIX系统调用结构体的字段的对应关系，这有助于程序员熟悉这一点。）</p>
+<p>&nbsp;&nbsp;The X11 library uses a leading X for all its public functions. In Python, this style is generally deemed unnecessary because attribute and method names are prefixed with an object, and function names are prefixed with a module name.<br>&nbsp;&nbsp;&nbsp;&nbsp;X11库为其所有公共功能使用了领先的X. 在Python中，这种风格通常被认为是不必要的，因为属性和方法名称以一个对象为前缀，而函数名称以模块名称为前缀。</p>
+<p>&nbsp;&nbsp;In addition, the following special forms using leading or trailing underscores are recognized (these can generally be combined with any case convention):<br>&nbsp;&nbsp;&nbsp;&nbsp;此外，使用前导或尾随下划线的以下特殊形式被认可（这些通常可以与任何案例惯例相结合）：</p>
+</blockquote>
+<ul>
+<li><p>_single_leading_underscore : weak “internal use” indicator. E.g. from M import * does not import objects whose name starts with an underscore.</p>
+</li>
+<li><p>single_trailing<em>underscore</em> : used by convention to avoid conflicts with Python keyword, e.g.</p>
+</li>
+</ul>
+<pre><code>Tkinter.Toplevel(master, class_='ClassName')</code></pre>
+* __double_leading_underscore : when naming a class attribute, invokes name mangling (inside class FooBar, __boo becomes _FooBar__boo ; see below).
+
+* \_\_double_leading_and_trailing_underscore__ : "magic" objects or attributes that live in user-controlled namespaces. E.g. \_\_init__ , \_\_import__ or \_\_file__ . Never invent such names; only use them as documented.
+
+### Prescriptive: Naming Conventions
+#### Names to Avoid
+> &nbsp;&nbsp;Never use the characters 'l' (lowercase letter el), 'O' (uppercase letter oh), or 'I' (uppercase letter eye) as single character variable names.
+> &nbsp;&nbsp;&nbsp;&nbsp;切勿使用字符'l'（小写字母el），'O'（大写字母oh）或'I'（大写字母）作为单个字符变量名称。
+
+> &nbsp;&nbsp;In some fonts, these characters are indistinguishable from the numerals one and zero. When tempted to use 'l', use 'L' instead.
+> &nbsp;&nbsp;&nbsp;&nbsp;在某些字体中，这些字符与数字1和0无法区分。 当试图使用'l'时，请使用'L'。
+
+#### ASCII Compatibility
+> &nbsp;&nbsp;Identifiers used in the standard library must be ASCII compatible as described in the policy section of PEP 3131 .
+> &nbsp;&nbsp;&nbsp;&nbsp;标准库中使用的标识符必须是ASCII兼容的，如PEP 3131的策略部分所述。
+#### Package and Module Names
+> &nbsp;&nbsp;Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability. Python packages should also have short, all-lowercase names, although the use of underscores is discouraged.
+> &nbsp;&nbsp;&nbsp;&nbsp;模块应该有简短的全小写名称。 如果提高可读性，则可以在模块名称中使用下划线。 尽管不建议使用下划线，Python包也应该有简短的全小写名称。
+
+> &nbsp;&nbsp;When an extension module written in C or C++ has an accompanying Python module that provides a higher level (e.g. more object oriented) interface, the C/C++ module has a leading underscore (e.g. _socket ).
+> &nbsp;&nbsp;&nbsp;&nbsp;当用C或C ++编写的扩展模块具有提供更高级别（例如更多面向对象）接口的伴随Python模块时，C / C ++模块具有前导下划线（例如_socket）。
+
+#### Class Names
+> &nbsp;&nbsp;Class names should normally use the CapWords convention.
+> &nbsp;&nbsp;&nbsp;&nbsp;类名通常应该使用CapWords约定。
+
+> &nbsp;&nbsp;The naming convention for functions may be used instead in cases where the interface is documented and used primarily as a callable.
+> &nbsp;&nbsp;&nbsp;&nbsp;函数的命名约定可用于接口被记录并主要用作可调用函数的情况。
+
+> &nbsp;&nbsp;Note that there is a separate convention for builtin names: most builtin names are single words (or two words run together), with the CapWords convention used only for exception names and builtin constants.
+> &nbsp;&nbsp;&nbsp;&nbsp;请注意，内置名称有一个单独的约定：大多数内置名称是单个单词（或两个单词一起运行），CapWords约定仅用于异常名称和内置常量。
+
+#### Type variable names
+> &nbsp;&nbsp;Names of type variables introduced in PEP 484 should normally use CapWords preferring short names: T , AnyStr , Num . It is recommended to add suffixes _co or _contra to the variables used to declare covariant or contravariant behavior correspondingly. Examples:
+> &nbsp;&nbsp;&nbsp;&nbsp;在PEP 484中引入的类型变量的名称通常应该使用首选短名称的CapWords：T，AnyStr，Num。 建议将后缀_co或_contra添加到用于相应地声明协变或逆变行为的变量中。 例子：
+
+<pre><code>from typing import TypeVar
+
+VT_co = TypeVar('VT_co', covariant=True)
+KT_contra = TypeVar('KT_contra', contravariant=True)</code></pre>
+
+<h4 id="Exception-Names"><a href="#Exception-Names" class="headerlink" title="Exception Names"></a>Exception Names</h4><blockquote>
+<p>&nbsp;&nbsp;Because exceptions should be classes, the class naming convention applies here. However, you should use the suffix “Error” on your exception names (if the exception actually is an error).<br>&nbsp;&nbsp;&nbsp;&nbsp;因为异常应该是类，所以类命名约定在这里适用。 但是，您应该在异常名称上使用后缀“错误”（如果异常实际上是错误）。</p>
+</blockquote>
+<h4 id="Global-Variable-Names"><a href="#Global-Variable-Names" class="headerlink" title="Global Variable Names"></a>Global Variable Names</h4><blockquote>
+<p>&nbsp;&nbsp;(Let’s hope that these variables are meant for use inside one module only.) The conventions are about the same as those for functions.<br>&nbsp;&nbsp;&nbsp;&nbsp;（我们希望这些变量只能在一个模块中使用）。约定与函数约定相同。</p>
+<p>&nbsp;&nbsp;Modules that are designed for use via from M import <em> should use the __all__ mechanism to prevent exporting globals, or use the older convention of prefixing such globals with an underscore (which you might want to do to indicate these globals are “module non-public”).<br>&nbsp;&nbsp;&nbsp;&nbsp;设计用于通过M import </em>使用的模块应该使用<strong>all</strong>机制来防止导出全局变量，或者使用旧的约定为这些全局变量加下划线（为了表明这些全局变量是“模块非公开的“）。</p>
+</blockquote>
+<h4 id="Function-Names"><a href="#Function-Names" class="headerlink" title="Function Names"></a>Function Names</h4><blockquote>
+<p>&nbsp;&nbsp;Function names should be lowercase, with words separated by underscores as necessary to improve readability.<br>&nbsp;&nbsp;&nbsp;&nbsp;函数名称应该是小写字母，必要时用下划线分隔单词以提高可读性。</p>
+<p>&nbsp;&nbsp;mixedCase is allowed only in contexts where that’s already the prevailing style (e.g. threading.py), to retain backwards compatibility.<br>&nbsp;&nbsp;&nbsp;&nbsp;mixedCase只允许在已经是主流风格的上下文（例如threading.py）中使用，以保持向后兼容性。</p>
+</blockquote>
+<h4 id="Function-and-method-arguments"><a href="#Function-and-method-arguments" class="headerlink" title="Function and method arguments"></a>Function and method arguments</h4><blockquote>
+<p>&nbsp;&nbsp;Always use self for the first argument to instance methods.<br>&nbsp;&nbsp;&nbsp;&nbsp;总是使用self作为实例方法的第一个参数。</p>
+<p>&nbsp;&nbsp;Always use cls for the first argument to class methods.<br>&nbsp;&nbsp;&nbsp;&nbsp;总是使用cls作为类方法的第一个参数。</p>
+<p>&nbsp;&nbsp;If a function argument’s name clashes with a reserved keyword, it is generally better to append a single trailing underscore rather than use an abbreviation or spelling corruption. Thus class<em> is better than clss . (Perhaps better is to avoid such clashes by using a synonym.)<br>&nbsp;&nbsp;&nbsp;&nbsp;如果函数参数的名称与保留关键字冲突，通常最好追加一个尾部下划线而不是使用缩写或拼写损坏。 因此，class</em>比clss好。 （也许更好的是通过使用同义词来避免这种冲突。）</p>
+</blockquote>
+<h4 id="Method-Names-and-Instance-Variables"><a href="#Method-Names-and-Instance-Variables" class="headerlink" title="Method Names and Instance Variables"></a>Method Names and Instance Variables</h4><blockquote>
+<p>&nbsp;&nbsp;Use the function naming rules: lowercase with words separated by underscores as necessary to improve readability.<br>&nbsp;&nbsp;&nbsp;&nbsp;使用函数命名规则：必要时用小写字母分隔下划线，以提高可读性。</p>
+<p>&nbsp;&nbsp;Use one leading underscore only for non-public methods and instance variables.<br>&nbsp;&nbsp;&nbsp;&nbsp;仅对非公开方法和实例变量使用一个前导下划线。</p>
+<p>&nbsp;&nbsp;To avoid name clashes with subclasses, use two leading underscores to invoke Python’s name mangling rules.<br>&nbsp;&nbsp;&nbsp;&nbsp;为避免名称与子类发生冲突，请使用两个前导下划线来调用Python的名称修改规则。</p>
+<p>&nbsp;&nbsp;Python mangles these names with the class name: if class Foo has an attribute named <strong>a , it cannot be accessed by Foo.</strong>a . (An insistent user could still gain access by calling Foo._Foo<strong>a .) Generally, double leading underscores should be used only to avoid name conflicts with attributes in classes designed to be subclassed.<br>&nbsp;&nbsp;&nbsp;&nbsp;Python将这些名称与类名称相冲突：如果类Foo具有名为</strong>a的属性，则Foo .<strong> a将无法访问该属性。 （一个持久的用户仍然可以通过调用Foo._Foo</strong>a来获得访问权。）通常，双引号下划线应该仅用于避免名称与设计为子类的类中的属性冲突。</p>
+<p>&nbsp;&nbsp;Note: there is some controversy about the use of <strong>names (see below).<br>&nbsp;&nbsp;&nbsp;&nbsp;关于</strong>names的使用存在一些争议（见下文）。</p>
+</blockquote>
+<h4 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h4><blockquote>
+<p>&nbsp;&nbsp;Constants are usually defined on a module level and written in all capital letters with underscores separating words. Examples include MAX_OVERFLOW and TOTAL .<br>&nbsp;&nbsp;&nbsp;&nbsp;常量通常在模块级定义，并用大写字母和下划线分隔单词。 例子包括MAX_OVERFLOW和TOTAL。</p>
+</blockquote>
+<h4 id="Designing-for-inheritance"><a href="#Designing-for-inheritance" class="headerlink" title="Designing for inheritance"></a>Designing for inheritance</h4><blockquote>
+<p>&nbsp;&nbsp;Always decide whether a class’s methods and instance variables (collectively: “attributes”) should be public or non-public. If in doubt, choose non-public; it’s easier to make it public later than to make a public attribute non-public.<br>&nbsp;&nbsp;&nbsp;&nbsp;总是要决定一个类的方法和实例变量（统称为“属性”）是公开的还是非公开的。 如有疑问，请选择非公开; 将公开属性设置为非公开更容易。</p>
+<p>&nbsp;&nbsp;Public attributes are those that you expect unrelated clients of your class to use, with your commitment to avoid backward incompatible changes. Non-public attributes are those that are not intended to be used by third parties; you make no guarantees that non-public attributes won’t change or even be removed.<br>&nbsp;&nbsp;&nbsp;&nbsp;公共属性是指您希望班级中不相关的客户使用的属性，同时承诺避免向后不兼容的更改。 非公开属性是那些不打算供第三方使用的属性; 您不保证非公开属性不会更改，甚至不会被删除。</p>
+<p>&nbsp;&nbsp;We don’t use the term “private” here, since no attribute is really private in Python (without a generally unnecessary amount of work).<br>&nbsp;&nbsp;&nbsp;&nbsp;这里我们不使用术语“private”，因为在Python中没有任何属性是真正的私有的（没有通常不必要的工作量）。</p>
+<p>&nbsp;&nbsp;Another category of attributes are those that are part of the “subclass API” (often called “protected” in other languages). Some classes are designed to be inherited from, either to extend or modify aspects of the class’s behavior. When designing such a class, take care to make explicit decisions about which attributes are public, which are part of the subclass API, and which are truly only to be used by your base class.<br>&nbsp;&nbsp;&nbsp;&nbsp;另一类属性是属于“子类API”（通常在其他语言中称为“受保护”）的属性。 有些类被设计为从类继承，扩展或修改类的行为方面。 在设计这样的类时，注意明确地决定哪些属性是公开的，哪些属性是子类API的一部分，哪些只能由基类使用。</p>
+<p>&nbsp;&nbsp;With this in mind, here are the Pythonic guidelines:<br>&nbsp;&nbsp;&nbsp;&nbsp;考虑到这一点，以下是Pythonic指南：</p>
+</blockquote>
+<ul>
+<li><p>Public attributes should have no leading underscores.</p>
+</li>
+<li><p>If your public attribute name collides with a reserved keyword, append a single trailing underscore to your attribute name. This is preferable to an abbreviation or corrupted spelling. (However, notwithstanding this rule, ‘cls’ is the preferred spelling for any variable or argument which is known to be a class, especially the first argument to a class method.)</p>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>&nbsp;&nbsp;Note 1: See the argument name recommendation above for class methods.<br>&nbsp;&nbsp;&nbsp;&nbsp;注1：请参阅上面有关类方法的参数名称建议。</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>For simple public data attributes, it is best to expose just the attribute name, without complicated accessor/mutator methods. Keep in mind that Python provides an easy path to future enhancement, should you find that a simple data attribute needs to grow functional behavior. In that case, use properties to hide functional implementation behind simple data attribute access syntax.</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>&nbsp;&nbsp;Note 1: Properties only work on new-style classes.<br>&nbsp;&nbsp;&nbsp;&nbsp;注1：属性仅适用于新式类。</p>
+<p>&nbsp;&nbsp;Note 2: Try to keep the functional behavior side-effect free, although side-effects such as caching are generally fine.<br>&nbsp;&nbsp;&nbsp;&nbsp;注2：尝试保持功能行为的副作用免费，尽管缓存等副作用通常很好。</p>
+<p>&nbsp;&nbsp;Note 3: Avoid using properties for computationally expensive operations; the attribute notation makes the caller believe that access is (relatively) cheap.<br>&nbsp;&nbsp;&nbsp;&nbsp;注3：避免使用属性进行计算量大的操作; 该属性符号使得调用者相信访问是（相对）便宜的。</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>If your class is intended to be subclassed, and you have attributes that you do not want subclasses to use, consider naming them with double leading underscores and no trailing underscores. This invokes Python’s name mangling algorithm, where the name of the class is mangled into the attribute name. This helps avoid attribute name collisions should subclasses inadvertently contain attributes with the same name.</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>&nbsp;&nbsp;Note 1: Note that only the simple class name is used in the mangled name, so if a subclass chooses both the same class name and attribute name, you can still get name collisions.<br>&nbsp;&nbsp;&nbsp;&nbsp;注意1：请注意，只有简单的类名称用在mangled名称中，所以如果子类同时选择相同的类名称和属性名称，仍然可以获得名称冲突。</p>
+<p>&nbsp;&nbsp;Note 2: Name mangling can make certain uses, such as debugging and __getattr<strong>() , less convenient. However the name mangling algorithm is well documented and easy to perform manually.<br>&nbsp;&nbsp;&nbsp;&nbsp;注2：名称修改可以使某些用途，如调试和</strong>getattr__()，不太方便。 然而，名称修改算法有很好的文档记录，并且易于手动执行。</p>
+<p>&nbsp;&nbsp;Note 3: Not everyone likes name mangling. Try to balance the need to avoid accidental name clashes with potential use by advanced callers.<br>&nbsp;&nbsp;&nbsp;&nbsp;注3：不是每个人都喜欢名字混搭。 尝试平衡避免意外名称冲突与高级呼叫者潜在使用的需求。</p>
+</blockquote>
+</blockquote>
+<h3 id="Public-and-internal-interfaces"><a href="#Public-and-internal-interfaces" class="headerlink" title="Public and internal interfaces"></a>Public and internal interfaces</h3><blockquote>
+<p>&nbsp;&nbsp;Any backwards compatibility guarantees apply only to public interfaces. Accordingly, it is important that users be able to clearly distinguish between public and internal interfaces.<br>&nbsp;&nbsp;&nbsp;&nbsp;任何向后兼容性保证仅适用于公共接口。 因此，用户必须能够清楚地区分公共和内部接口。</p>
+<p>&nbsp;&nbsp;Documented interfaces are considered public, unless the documentation explicitly declares them to be provisional or internal interfaces exempt from the usual backwards compatibility guarantees. All undocumented interfaces should be assumed to be internal.<br>&nbsp;&nbsp;&nbsp;&nbsp;文档化的接口被认为是公共的，除非文档明确声明它们是临时的或内部接口免于通常的向后兼容性保证。 所有未公开的接口应该被假定为内部的。</p>
+<p>&nbsp;&nbsp;To better support introspection, modules should explicitly declare the names in their public API using the __all<strong> attribute. Setting __all</strong> to an empty list indicates that the module has no public API.<br>&nbsp;&nbsp;&nbsp;&nbsp;为了更好地支持自省，模块应该使用<strong>all</strong>属性在其公共API中显式声明名称。 将<strong>all</strong>设置为空列表表示该模块没有公共API。</p>
+<p>&nbsp;&nbsp;Even with __all<strong> set appropriately, internal interfaces (packages, modules, classes, functions, attributes or other names) should still be prefixed with a single leading underscore.<br>&nbsp;&nbsp;&nbsp;&nbsp;即使正确设置</strong>all__，内部接口（包，模块，类，函数，属性或其他名称）仍应以前导下划线作为前缀。</p>
+<p>&nbsp;&nbsp;An interface is also considered internal if any containing namespace (package, module or class) is considered internal.<br>&nbsp;&nbsp;&nbsp;&nbsp;如果任何包含名称空间（包，模块或类）被认为是内部的，则接口也被认为是内部接口。</p>
+<p>&nbsp;&nbsp;Imported names should always be considered an implementation detail. Other modules must not rely on indirect access to such imported names unless they are an explicitly documented part of the containing module’s API, such as os.path or a package’s __init<strong> module that exposes functionality from submodules.<br>&nbsp;&nbsp;&nbsp;&nbsp;应始终将导入的名称视为实现细节。 其他模块不能依赖间接访问这些导入的名称，除非它们是包含模块的API的明确记录的部分，例如os.path或从子模块公开功能的包的</strong>init__模块。</p>
+</blockquote>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote>
+<p>[1]    PEP 7 , Style Guide for C Code, van Rossum</p>
+<p>[2]    Barry’s GNU Mailman style guide <a href="http://barry.warsaw.us/software/STYLEGUIDE.txt" target="_blank" rel="external">http://barry.warsaw.us/software/STYLEGUIDE.txt</a></p>
+<p>[3]    Donald Knuth’s The TeXBook , pages 195 and 196.</p>
+<p>[4]    <a href="http://www.wikipedia.com/wiki/CamelCase" target="_blank" rel="external">http://www.wikipedia.com/wiki/CamelCase</a></p>
+<p>[5]    Typeshed repo <a href="https://github.com/python/typeshed" target="_blank" rel="external">https://github.com/python/typeshed</a></p>
+<p>[6]    Suggested syntax for Python 2.7 and straddling code</p>
+<p><a href="https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code" target="_blank" rel="external">https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code</a></p>
+<h2 id="Copyright"><a href="#Copyright" class="headerlink" title="Copyright"></a>Copyright</h2><p>This document has been placed in the public domain.</p>
+<p>Source: <a href="https://github.com/python/peps/blob/master/pep-0008.txt" target="_blank" rel="external">https://github.com/python/peps/blob/master/pep-0008.txt</a></p>
 </blockquote>
 
       
@@ -801,11 +1182,11 @@ Alter table [tablename] rename [to] new_tablename;<br>
 
 
   
-    <article id="post-PEP 8 -- Style Guide for Python Code (一)" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-PEP 8 -- Style Guide for Python Code (1)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/26/PEP 8 -- Style Guide for Python Code (一)/" class="article-date">
-      <time datetime="2017-08-26T07:50:41.207Z" itemprop="datePublished">2017-08-26</time>
+      <a href="/2017/11/07/PEP 8 -- Style Guide for Python Code (1)/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.525Z" itemprop="datePublished">2017-11-07</time>
 </a>
 
 
@@ -820,7 +1201,7 @@ Alter table [tablename] rename [to] new_tablename;<br>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/PEP 8 -- Style Guide for Python Code (一)/">PEP 8 -- Style Guide for Python Code (一)</a>
+      <a class="article-title" href="/2017/11/07/PEP 8 -- Style Guide for Python Code (1)/">PEP 8 -- Style Guide for Python Code (一)</a>
     </h1>
   
 
@@ -1076,138 +1457,11 @@ import sys</code></pre>
 
 
   
-    <article id="post-Single responsibility principle" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/25/Single responsibility principle/" class="article-date">
-      <time datetime="2017-08-25T01:57:11.258Z" itemprop="datePublished">2017-08-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/25/Single responsibility principle/">Single responsibility principle</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2>1.RBAC模型：</h2><br><p>基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离</p><br><h2>2.There should never be more than one reason for class to change.</h2><br><h2>3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。</h2><br><h2>4.耦合性：是对模块间关联程度的度量</h2><br><p>（1）耦合的强弱取决于模块之间接口的复杂性、调用模块的方式以及通过界面传送数据的多少。</p><br><p>（2）模块间的耦合度是指模块之间的依赖关系，包括控制关系、调用关系、数据传递关系。</p><br><p>（3）模块间联系越多，其耦合性越强，同时表明其独立性越差。</p><br><h3>高内聚低耦合</h3><br><h2>5.模块之间构成耦合性的七种类型（独立性由强到弱）：</h2><br><p>（1）非直接耦合：没有直接关系，之间联系完全通过主模块的控制和调用来实现</p><br><p>（2）数据耦合：彼此之间是通过数据参数（不是控制参数、公共数据结构或外部变量）来交换输入、输出信息的</p><br><p>（3）印记耦合：一组通过参数传递记录（某一数据结构的子结构，而不是简单的变量）信息的模块间关系</p><br><p>（4）控制耦合：在单一接口上选择多功能模块中的某项功能</p><br><p>（5）外部耦合一组模块都访问同一全局简单变量而不是同一全局数据结构，而且不是通过参数表传递该全局变量的信息</p><br><p>（6）公共耦合：一组模块都访问同一个公共数据环境</p><br><p>（7）内容耦合：一个模块直接访问另外一个模块的内部数据；一个模块不通过正常入口转到另一模块内部；两个模块有一部分程序代码重叠（只可能出现在汇编语言中）；一个模块有多个入口</p><br><h2>6.单一原则的好处：</h2><br><p>（1）类的复杂性降低，实现什么职责都有清晰明确的定义</p><br><p>（2）可读性提高，复杂性降低</p><br><p>（3）可维护性提高，可读性提高</p><br><p>    （4）变更引起的风险降低，变更是必不可少的，变更对其他接口几无影响，对系统的拓展性、维护性都有非常大的帮助</p><br><h2>7.This is sometimes hard to see</h2>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Python编码规范" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/25/Python编码规范/" class="article-date">
-      <time datetime="2017-08-25T01:57:11.243Z" itemprop="datePublished">2017-08-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/25/Python编码规范/">PEP8 Python 编码规范</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p></p><h2>一、代码编排</h2><p></p>
-<p>1.缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tab，更不能混合使用Tab和空格。<br></p><br><p>2.每行最大长度79，换行可以使用反斜杠，最好使用圆括号。换行点要在操作符的后边敲回车。</p><br><p>3.类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。</p>
-
-<p></p><h2>二、文档编排</h2><p></p>
-<p>1.模块内容的顺序：模块说明和docstring—import—globals&amp;constants—其他定义。其中import部分，又按标准、三方和自己编写顺序依次排放，之间空一行。</p><br><p>2.不要在一句import中多个库，比如import os, sys不推荐。</p><br><p>3.如果采用from XX import XX引用库，可以省略’module.’，都是可能出现命名冲突，这时就要采用import XX。</p>
-
-<p></p><h2>三、空格的使用</h2><br>        总体原则，避免不必要的空格。<p></p>
-<p>1.各种右括号前不要加空格。</p><br><p>2.逗号、冒号、分号前不要加空格。</p><br><p>3.函数的左括号前不要加空格。如Func(1)。</p><br><p>4.序列的左括号前不要加空格。如list[2]。</p><br><p>5.操作符左右各加一个空格，不要为了对齐增加空格。</p><br><p>6.函数默认参数使用的赋值符左右省略空格。</p><br><p>7.不要将多句语句写在同一行，尽管使用’;’允许。</p><br><p>8.if/for/while语句中，即使执行语句只有一句，也必须另起一行。</p>
-
-<p></p><h2>四、注释</h2><br>        总体原则，错误的注释不如没有注释。所以当一段代码发生变化时，第一件事就是要修改注释！<br>       注释必须使用英文，最好是完整的句子，首字母大写，句后要有结束符，结束符后跟两个空格，开始下一句。如果是短语，可以省略结束符。<p></p>
-<p>1.块注释，在一段代码前增加的注释。在‘#’后加一空格。段落之间以只有‘#’的行间隔。比如：<br># Description : Module config.<br>#<br># Input : None<br>#<br># Output : None<br></p><br><p>2.行注释，在一句代码后加注释。比如：<br>x = x + 1            # Increment x<br>但是这种方式尽量少使用。</p><br><p>3.避免无谓的注释。</p>
-
-<p></p><h2>五、文档描述</h2><p></p>
-<p>1.为所有的共有模块、函数、类、方法写docstrings；非共有的没有必要，但是可以写注释（在def的下一行）。</p><br><p>2.如果docstring要换行，参考如下例子,详见PEP 257<br>“””Return a foobang<br><br>Optional plotz says to frobnicate the bizbaz first.<br><br>“””<br></p><br><h2>六、命名规范</h2><br>        总体原则，新编代码必须按下面命名风格进行，现有库的编码尽量保持风格。<br><p>1.尽量单独使用小写字母‘l’，大写字母‘O’等容易混淆的字母。</p><br><p>2.模块命名尽量短小，使用全部小写的方式，可以使用下划线。</p><br><p>3.包命名尽量短小，使用全部小写的方式，不可以使用下划线。</p><br><p>4.类的命名使用CapWords的方式，模块内部使用的类采用_CapWords的方式。</p><br><p>5.异常命名使用CapWords+Error后缀的方式。</p><br><p>6.全局变量尽量只在模块内有效，类似C语言中的static。实现方法有两种，一是<strong>all</strong>机制;二是前缀一个下划线。</p><br><p>7.函数命名使用全部小写的方式，可以使用下划线。</p><br><p>8.常量命名使用全部大写的方式，可以使用下划线。</p><br><p>9.类的属性（方法和变量）命名使用全部小写的方式，可以使用下划线。</p><br><p>10.类的属性有3种作用域public、non-public和subclass API，可以理解成C++中的public、private、protected，non-public属性前，前缀一条下划线。</p><br><p>11.类的属性若与关键字名字冲突，后缀一下划线，尽量不要使用缩略等其他方式。</p><br><p>12.为避免与子类属性命名冲突，在类的一些属性前，前缀两条下划线。比如：类Foo中声明<strong>a,访问时，只能通过Foo._Foo</strong>a，避免歧义。如果子类也叫Foo，那就无能为力了。</p><br><p>13.类的方法第一个参数必须是self，而静态方法第一个参数必须是cls。</p>
-
-<p></p><h2>七、编码建议</h2><p></p>
-<p>1.编码中考虑到其他python实现的效率等问题，比如运算符‘+’在CPython（Python）中效率很高，都是Jython中却非常低，所以应该采用.join()的方式。</p><br><p>2.尽可能使用‘is’‘is not’取代‘==’，比如if x is not None 要优于if x。</p><br><p>3.使用基于类的异常，每个模块或包都有自己的异常类，此异常类继承自Exception。</p><br><p>4.异常中不要使用裸露的except，except后跟具体的exceptions。</p><br><p>5.异常中try的代码尽可能少。比如：<br>try:<br>value = collection[key]<br>except KeyError:<br>return key_not_found(key)<br>else:<br>return handle_value(value)<br>要优于<br>try:<br># Too broad!<br>return handle_value(collection[key])<br>except KeyError:<br># Will also catch KeyError raised by handle_value()<br>return key_not_found(key)<br></p><br><p>6.使用startswith() and endswith()代替切片进行序列前缀或后缀的检查。比如：<br>Yes:  if foo.startswith(‘bar’):优于<br>No:  if foo[:3] == ‘bar’:<br></p><br><p>7.使用isinstance()比较对象的类型。比如<br>Yes:  if isinstance(obj, int): 优于<br>No:  if type(obj) is type(1):<br></p><br><p>8.判断序列空或不空，有如下规则<br>Yes:  if not seq:<br>if seq:<br>优于<br>No:  if len(seq)<br>if not len(seq)<br></p><br><p>9.字符串不要以空格收尾。</p><br><p>10.二进制数据判断使用 if boolvalue的方式。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/25/hello-world/" class="article-date">
-      <time datetime="2017-08-25T01:57:11.221Z" itemprop="datePublished">2017-08-25</time>
+      <a href="/2017/11/07/hello-world/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.512Z" itemprop="datePublished">2017-11-07</time>
 </a>
 
 
@@ -1222,7 +1476,7 @@ import sys</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/25/hello-world/">Hello World</a>
+      <a class="article-title" href="/2017/11/07/hello-world/">Hello World</a>
     </h1>
   
 
@@ -1267,6 +1521,101 @@ import sys</code></pre>
 
 
   
+    <article id="post-C++ dynamic memory allocation and pointer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/07/C++ dynamic memory allocation and pointer/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.491Z" itemprop="datePublished">2017-11-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/C++ dynamic memory allocation and pointer/">C++的动态内存分配和指针</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>“The word static refers to things that happen at compile time and link time when the program is constructed—as opposed to load time or run time when the program is actually started.”</p>
+<p>“The term dynamic refers to things that take place when a program is loaded and executed. ”</p>
+</blockquote>
+<h2 id="静态与动态"><a href="#静态与动态" class="headerlink" title="静态与动态"></a>静态与动态</h2><h3 id="静态分配"><a href="#静态分配" class="headerlink" title="静态分配"></a>静态分配</h3><blockquote>
+<p>编译器在处理程序源代码时(即程序编译和链接)所分配的栈空间内存。</p>
+</blockquote>
+<h3 id="动态分配"><a href="#动态分配" class="headerlink" title="动态分配"></a>动态分配</h3><blockquote>
+<p>程序在执行的过程中动态地分配或者回收存储空间的分配内存。不过栈的动态分配和堆不同，它的动态分配由编译器进行释放。</p>
+</blockquote>
+<h3 id="静态与动态内存分配的两个主要区别"><a href="#静态与动态内存分配的两个主要区别" class="headerlink" title="静态与动态内存分配的两个主要区别"></a>静态与动态内存分配的两个主要区别</h3><blockquote>
+<p>静态的对象是有名字的变量，我们直接对其进行操作。而动态对象是没有名字的变量，我们通过指针间接地对它进行操作。</p>
+<p>静态的对象额分配和释放由编译器自动处理。而动态对象的分配与释放，必须由程序员显式的管理。</p>
+</blockquote>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><blockquote>
+<p>编程语言中的一个对象，利用地址，它的值直接指向存在电脑存储器中另一个地方的值。由于通过地址能找到所需的变量单元，可以说，地址指向该变量单元。</p>
+<p>有两种含义，一是作为数据类型，二是作为实体。</p>
+<h3 id="指针作为实体"><a href="#指针作为实体" class="headerlink" title="指针作为实体"></a>指针作为实体</h3><p>一个用来保存一个内存地址的计算机语言中的变量。指针一般出现在比较底层的程序设计语言中，如C++语言。高层的语言如Java一般避免用指针，而是引用。</p>
+</blockquote>
+<h3 id="指针作为数据结构"><a href="#指针作为数据结构" class="headerlink" title="指针作为数据结构"></a>指针作为数据结构</h3><blockquote>
+<p>从一个函数类型、一个对象类型或者一个不完备类型中导出。从中导出的数据类型称之为被引用类型（referenced type）。指针类型描述了一种对象，其值为对被引用类型的实体的引用。</p>
+</blockquote>
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><h3 id="动态分配（囧）"><a href="#动态分配（囧）" class="headerlink" title="动态分配（囧）"></a>动态分配（囧）</h3><blockquote>
+<p>在动态分配数组时，返回值只是一个指针，与分配单一动态对象的返回类型相同。</p>
+<p><pre><code>int * Number = new int();<br></code></pre></p>
+<p><pre><code>int * Numbers = new int[10];<br></code></pre><br>Numbers代表10元元素数组的第一个元素的地址，而Number仅代表包含单一对象的地址。</p>
+</blockquote>
+<h3 id="内存的释放"><a href="#内存的释放" class="headerlink" title="内存的释放"></a>内存的释放</h3><blockquote>
+<p>堆一般由程序员分配释放，若不释放，程序结束时可能由OS回收。注意这里说是可能，并非一定。再强调一次，记得要释放！</p>
+</blockquote>
+<h3 id="内存溢出"><a href="#内存溢出" class="headerlink" title="内存溢出"></a>内存溢出</h3><blockquote>
+<p>通俗理解就是内存不够了。在对其数据缓冲区操作时，超过了其缓冲区的边界；尤其是对缓冲区写操作时，缓冲区的溢出很可能导致程序的异常。</p>
+</blockquote>
+<h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><blockquote>
+<p>程序中已动态分配的堆内存由于某种原因未释放或者无法释放，造成系统内存的浪费，导致应用程序运行速度减慢甚至系统崩溃等严重后果。<br>以产生的方式来分类，内存泄漏可以分为四类：</p>
+<h4 id="常发性内存泄漏"><a href="#常发性内存泄漏" class="headerlink" title="常发性内存泄漏"></a>常发性内存泄漏</h4><p>发生内存泄漏的代码会被多次执行到，每次被执行时都会导致一块内存泄漏。</p>
+<h4 id="偶发性内存泄漏"><a href="#偶发性内存泄漏" class="headerlink" title="偶发性内存泄漏"></a>偶发性内存泄漏</h4><p>发生内存泄漏的代码只有在某些特定环境或操作过程下才会发生。常发性和偶发性是相对的。对于特定的环境，偶发性的也许就变成了常发性的。所以测试环境和测试方法对检测内存泄漏至关重要。</p>
+<h4 id="一次性内存泄漏"><a href="#一次性内存泄漏" class="headerlink" title="一次性内存泄漏"></a>一次性内存泄漏</h4><p>发生内存泄漏的代码只会被执行一次，或者由于算法上的缺陷，导致总会有一块且仅有一块内存发生泄漏。</p>
+<h4 id="隐式内存泄漏"><a href="#隐式内存泄漏" class="headerlink" title="隐式内存泄漏"></a>隐式内存泄漏</h4><p>程序在运行过程中不停的分配内存，但是直到结束的时候才释放内存。严格的说这里并没有发生内存泄漏，因为最终程序释放了所有申请的内存。</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
   
 </div>
       <footer id="footer">
@@ -1274,7 +1623,7 @@ import sys</code></pre>
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2017 LearnSlag
+                2016-2018 LearnSlag
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
