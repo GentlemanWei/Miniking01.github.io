@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="“The word static refers to things that happen at compile time and link time when the program is constructed—as opposed to load time or run time when the program is actually started.” “The term dynami">
+<meta name="description" content="一、代码编排 1.缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tab，更不能混合使用Tab和空格。2.每行最大长度79，换行可以使用反斜杠，最好使用圆括号。换行点要在操作符的后边敲回车。3.类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。  二、文档编排 1.模块内容的顺序：模块说明和docstring—impor">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++的动态内存分配和指针">
-<meta property="og:url" content="http://yoursite.com/2017/11/07/C++ dynamic memory allocation and pointer/index.html">
+<meta property="og:title" content="PEP8 Python 编码规范">
+<meta property="og:url" content="http://yoursite.com/2017/11/07/Python encoding specification/index.html">
 <meta property="og:site_name" content="Blog-Github">
-<meta property="og:description" content="“The word static refers to things that happen at compile time and link time when the program is constructed—as opposed to load time or run time when the program is actually started.” “The term dynami">
-<meta property="og:updated_time" content="2017-11-01T11:34:32.985Z">
+<meta property="og:description" content="一、代码编排 1.缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tab，更不能混合使用Tab和空格。2.每行最大长度79，换行可以使用反斜杠，最好使用圆括号。换行点要在操作符的后边敲回车。3.类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。  二、文档编排 1.模块内容的顺序：模块说明和docstring—impor">
+<meta property="og:updated_time" content="2017-06-30T16:44:32.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++的动态内存分配和指针">
-<meta name="twitter:description" content="“The word static refers to things that happen at compile time and link time when the program is constructed—as opposed to load time or run time when the program is actually started.” “The term dynami">
+<meta name="twitter:title" content="PEP8 Python 编码规范">
+<meta name="twitter:description" content="一、代码编排 1.缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tab，更不能混合使用Tab和空格。2.每行最大长度79，换行可以使用反斜杠，最好使用圆括号。换行点要在操作符的后边敲回车。3.类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。  二、文档编排 1.模块内容的顺序：模块说明和docstring—impor">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>C++的动态内存分配和指针 | Blog-Github</title>
+<title>PEP8 Python 编码规范 | Blog-Github</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -242,11 +242,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-C++ dynamic memory allocation and pointer" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Python encoding specification" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/11/07/C++ dynamic memory allocation and pointer/" class="article-date">
-      <time datetime="2017-11-07T08:49:30.491Z" itemprop="datePublished">2017-11-07</time>
+      <a href="/2017/11/07/Python encoding specification/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.585Z" itemprop="datePublished">2017-11-07</time>
 </a>
 
 
@@ -261,7 +261,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      C++的动态内存分配和指针
+      PEP8 Python 编码规范
     </h1>
   
 
@@ -278,47 +278,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <blockquote>
-<p>“The word static refers to things that happen at compile time and link time when the program is constructed—as opposed to load time or run time when the program is actually started.”</p>
-<p>“The term dynamic refers to things that take place when a program is loaded and executed. ”</p>
-</blockquote>
-<h2 id="静态与动态"><a href="#静态与动态" class="headerlink" title="静态与动态"></a>静态与动态</h2><h3 id="静态分配"><a href="#静态分配" class="headerlink" title="静态分配"></a>静态分配</h3><blockquote>
-<p>编译器在处理程序源代码时(即程序编译和链接)所分配的栈空间内存。</p>
-</blockquote>
-<h3 id="动态分配"><a href="#动态分配" class="headerlink" title="动态分配"></a>动态分配</h3><blockquote>
-<p>程序在执行的过程中动态地分配或者回收存储空间的分配内存。不过栈的动态分配和堆不同，它的动态分配由编译器进行释放。</p>
-</blockquote>
-<h3 id="静态与动态内存分配的两个主要区别"><a href="#静态与动态内存分配的两个主要区别" class="headerlink" title="静态与动态内存分配的两个主要区别"></a>静态与动态内存分配的两个主要区别</h3><blockquote>
-<p>静态的对象是有名字的变量，我们直接对其进行操作。而动态对象是没有名字的变量，我们通过指针间接地对它进行操作。</p>
-<p>静态的对象额分配和释放由编译器自动处理。而动态对象的分配与释放，必须由程序员显式的管理。</p>
-</blockquote>
-<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><blockquote>
-<p>编程语言中的一个对象，利用地址，它的值直接指向存在电脑存储器中另一个地方的值。由于通过地址能找到所需的变量单元，可以说，地址指向该变量单元。</p>
-<p>有两种含义，一是作为数据类型，二是作为实体。</p>
-<h3 id="指针作为实体"><a href="#指针作为实体" class="headerlink" title="指针作为实体"></a>指针作为实体</h3><p>一个用来保存一个内存地址的计算机语言中的变量。指针一般出现在比较底层的程序设计语言中，如C++语言。高层的语言如Java一般避免用指针，而是引用。</p>
-</blockquote>
-<h3 id="指针作为数据结构"><a href="#指针作为数据结构" class="headerlink" title="指针作为数据结构"></a>指针作为数据结构</h3><blockquote>
-<p>从一个函数类型、一个对象类型或者一个不完备类型中导出。从中导出的数据类型称之为被引用类型（referenced type）。指针类型描述了一种对象，其值为对被引用类型的实体的引用。</p>
-</blockquote>
-<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><h3 id="动态分配（囧）"><a href="#动态分配（囧）" class="headerlink" title="动态分配（囧）"></a>动态分配（囧）</h3><blockquote>
-<p>在动态分配数组时，返回值只是一个指针，与分配单一动态对象的返回类型相同。</p>
-<p><pre><code>int * Number = new int();<br></code></pre></p>
-<p><pre><code>int * Numbers = new int[10];<br></code></pre><br>Numbers代表10元元素数组的第一个元素的地址，而Number仅代表包含单一对象的地址。</p>
-</blockquote>
-<h3 id="内存的释放"><a href="#内存的释放" class="headerlink" title="内存的释放"></a>内存的释放</h3><blockquote>
-<p>堆一般由程序员分配释放，若不释放，程序结束时可能由OS回收。注意这里说是可能，并非一定。再强调一次，记得要释放！</p>
-</blockquote>
-<h3 id="内存溢出"><a href="#内存溢出" class="headerlink" title="内存溢出"></a>内存溢出</h3><blockquote>
-<p>通俗理解就是内存不够了。在对其数据缓冲区操作时，超过了其缓冲区的边界；尤其是对缓冲区写操作时，缓冲区的溢出很可能导致程序的异常。</p>
-</blockquote>
-<h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><blockquote>
-<p>程序中已动态分配的堆内存由于某种原因未释放或者无法释放，造成系统内存的浪费，导致应用程序运行速度减慢甚至系统崩溃等严重后果。<br>以产生的方式来分类，内存泄漏可以分为四类：</p>
-<h4 id="常发性内存泄漏"><a href="#常发性内存泄漏" class="headerlink" title="常发性内存泄漏"></a>常发性内存泄漏</h4><p>发生内存泄漏的代码会被多次执行到，每次被执行时都会导致一块内存泄漏。</p>
-<h4 id="偶发性内存泄漏"><a href="#偶发性内存泄漏" class="headerlink" title="偶发性内存泄漏"></a>偶发性内存泄漏</h4><p>发生内存泄漏的代码只有在某些特定环境或操作过程下才会发生。常发性和偶发性是相对的。对于特定的环境，偶发性的也许就变成了常发性的。所以测试环境和测试方法对检测内存泄漏至关重要。</p>
-<h4 id="一次性内存泄漏"><a href="#一次性内存泄漏" class="headerlink" title="一次性内存泄漏"></a>一次性内存泄漏</h4><p>发生内存泄漏的代码只会被执行一次，或者由于算法上的缺陷，导致总会有一块且仅有一块内存发生泄漏。</p>
-<h4 id="隐式内存泄漏"><a href="#隐式内存泄漏" class="headerlink" title="隐式内存泄漏"></a>隐式内存泄漏</h4><p>程序在运行过程中不停的分配内存，但是直到结束的时候才释放内存。严格的说这里并没有发生内存泄漏，因为最终程序释放了所有申请的内存。</p>
-</blockquote>
+        <p></p><h2>一、代码编排</h2><p></p>
+<p>1.缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tab，更不能混合使用Tab和空格。<br></p><br><p>2.每行最大长度79，换行可以使用反斜杠，最好使用圆括号。换行点要在操作符的后边敲回车。</p><br><p>3.类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。</p>
 
+<p></p><h2>二、文档编排</h2><p></p>
+<p>1.模块内容的顺序：模块说明和docstring—import—globals&amp;constants—其他定义。其中import部分，又按标准、三方和自己编写顺序依次排放，之间空一行。</p><br><p>2.不要在一句import中多个库，比如import os, sys不推荐。</p><br><p>3.如果采用from XX import XX引用库，可以省略’module.’，都是可能出现命名冲突，这时就要采用import XX。</p>
+
+<p></p><h2>三、空格的使用</h2><br>        总体原则，避免不必要的空格。<p></p>
+<p>1.各种右括号前不要加空格。</p><br><p>2.逗号、冒号、分号前不要加空格。</p><br><p>3.函数的左括号前不要加空格。如Func(1)。</p><br><p>4.序列的左括号前不要加空格。如list[2]。</p><br><p>5.操作符左右各加一个空格，不要为了对齐增加空格。</p><br><p>6.函数默认参数使用的赋值符左右省略空格。</p><br><p>7.不要将多句语句写在同一行，尽管使用’;’允许。</p><br><p>8.if/for/while语句中，即使执行语句只有一句，也必须另起一行。</p>
+
+<p></p><h2>四、注释</h2><br>        总体原则，错误的注释不如没有注释。所以当一段代码发生变化时，第一件事就是要修改注释！<br>       注释必须使用英文，最好是完整的句子，首字母大写，句后要有结束符，结束符后跟两个空格，开始下一句。如果是短语，可以省略结束符。<p></p>
+<p>1.块注释，在一段代码前增加的注释。在‘#’后加一空格。段落之间以只有‘#’的行间隔。比如：<br># Description : Module config.<br>#<br># Input : None<br>#<br># Output : None<br></p><br><p>2.行注释，在一句代码后加注释。比如：<br>x = x + 1            # Increment x<br>但是这种方式尽量少使用。</p><br><p>3.避免无谓的注释。</p>
+
+<p></p><h2>五、文档描述</h2><p></p>
+<p>1.为所有的共有模块、函数、类、方法写docstrings；非共有的没有必要，但是可以写注释（在def的下一行）。</p><br><p>2.如果docstring要换行，参考如下例子,详见PEP 257<br>“””Return a foobang<br><br>Optional plotz says to frobnicate the bizbaz first.<br><br>“””<br></p><br><h2>六、命名规范</h2><br>        总体原则，新编代码必须按下面命名风格进行，现有库的编码尽量保持风格。<br><p>1.尽量单独使用小写字母‘l’，大写字母‘O’等容易混淆的字母。</p><br><p>2.模块命名尽量短小，使用全部小写的方式，可以使用下划线。</p><br><p>3.包命名尽量短小，使用全部小写的方式，不可以使用下划线。</p><br><p>4.类的命名使用CapWords的方式，模块内部使用的类采用_CapWords的方式。</p><br><p>5.异常命名使用CapWords+Error后缀的方式。</p><br><p>6.全局变量尽量只在模块内有效，类似C语言中的static。实现方法有两种，一是<strong>all</strong>机制;二是前缀一个下划线。</p><br><p>7.函数命名使用全部小写的方式，可以使用下划线。</p><br><p>8.常量命名使用全部大写的方式，可以使用下划线。</p><br><p>9.类的属性（方法和变量）命名使用全部小写的方式，可以使用下划线。</p><br><p>10.类的属性有3种作用域public、non-public和subclass API，可以理解成C++中的public、private、protected，non-public属性前，前缀一条下划线。</p><br><p>11.类的属性若与关键字名字冲突，后缀一下划线，尽量不要使用缩略等其他方式。</p><br><p>12.为避免与子类属性命名冲突，在类的一些属性前，前缀两条下划线。比如：类Foo中声明<strong>a,访问时，只能通过Foo._Foo</strong>a，避免歧义。如果子类也叫Foo，那就无能为力了。</p><br><p>13.类的方法第一个参数必须是self，而静态方法第一个参数必须是cls。</p>
+
+<p></p><h2>七、编码建议</h2><p></p>
+<p>1.编码中考虑到其他python实现的效率等问题，比如运算符‘+’在CPython（Python）中效率很高，都是Jython中却非常低，所以应该采用.join()的方式。</p><br><p>2.尽可能使用‘is’‘is not’取代‘==’，比如if x is not None 要优于if x。</p><br><p>3.使用基于类的异常，每个模块或包都有自己的异常类，此异常类继承自Exception。</p><br><p>4.异常中不要使用裸露的except，except后跟具体的exceptions。</p><br><p>5.异常中try的代码尽可能少。比如：<br>try:<br>value = collection[key]<br>except KeyError:<br>return key_not_found(key)<br>else:<br>return handle_value(value)<br>要优于<br>try:<br># Too broad!<br>return handle_value(collection[key])<br>except KeyError:<br># Will also catch KeyError raised by handle_value()<br>return key_not_found(key)<br></p><br><p>6.使用startswith() and endswith()代替切片进行序列前缀或后缀的检查。比如：<br>Yes:  if foo.startswith(‘bar’):优于<br>No:  if foo[:3] == ‘bar’:<br></p><br><p>7.使用isinstance()比较对象的类型。比如<br>Yes:  if isinstance(obj, int): 优于<br>No:  if type(obj) is type(1):<br></p><br><p>8.判断序列空或不空，有如下规则<br>Yes:  if not seq:<br>if seq:<br>优于<br>No:  if len(seq)<br>if not len(seq)<br></p><br><p>9.字符串不要以空格收尾。</p><br><p>10.二进制数据判断使用 if boolvalue的方式。</p>
       
     </div>
     
@@ -326,13 +302,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/11/07/C++ dynamic memory allocation and pointer/">C++的动态内存分配和指针</a></p>
+        <p><span>本文标题:</span><a href="/2017/11/07/Python encoding specification/">PEP8 Python 编码规范</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">LearnSlag</a></p>
         <p><span>发布时间:</span>2017-11-07, 16:49:30</p>
-        <p><span>最后更新:</span>2017-11-01, 19:34:32</p>
+        <p><span>最后更新:</span>2017-07-01, 00:44:32</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/11/07/C++ dynamic memory allocation and pointer/" title="C++的动态内存分配和指针">http://yoursite.com/2017/11/07/C++ dynamic memory allocation and pointer/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/11/07/C++ dynamic memory allocation and pointer/　　作者: LearnSlag" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/07/Python encoding specification/" title="PEP8 Python 编码规范">http://yoursite.com/2017/11/07/Python encoding specification/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/11/07/Python encoding specification/　　作者: LearnSlag" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,11 +321,17 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/11/07/Single responsibility principle/">
+                    Single responsibility principle
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
                 <a href="/2017/11/07/hello-world/">
                     Hello World
                 </a>
             </div>
-        
         
     </nav>
 
@@ -359,7 +341,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态与动态"><span class="toc-number">1.</span> <span class="toc-text">静态与动态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态分配"><span class="toc-number">1.1.</span> <span class="toc-text">静态分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态分配"><span class="toc-number">1.2.</span> <span class="toc-text">动态分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态与动态内存分配的两个主要区别"><span class="toc-number">1.3.</span> <span class="toc-text">静态与动态内存分配的两个主要区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指针"><span class="toc-number">2.</span> <span class="toc-text">指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#指针作为实体"><span class="toc-number">2.1.</span> <span class="toc-text">指针作为实体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指针作为数据结构"><span class="toc-number">2.2.</span> <span class="toc-text">指针作为数据结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存"><span class="toc-number">3.</span> <span class="toc-text">内存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#动态分配（囧）"><span class="toc-number">3.1.</span> <span class="toc-text">动态分配（囧）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存的释放"><span class="toc-number">3.2.</span> <span class="toc-text">内存的释放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存溢出"><span class="toc-number">3.3.</span> <span class="toc-text">内存溢出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存泄漏"><span class="toc-number">3.4.</span> <span class="toc-text">内存泄漏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常发性内存泄漏"><span class="toc-number">3.4.1.</span> <span class="toc-text">常发性内存泄漏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#偶发性内存泄漏"><span class="toc-number">3.4.2.</span> <span class="toc-text">偶发性内存泄漏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一次性内存泄漏"><span class="toc-number">3.4.3.</span> <span class="toc-text">一次性内存泄漏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#隐式内存泄漏"><span class="toc-number">3.4.4.</span> <span class="toc-text">隐式内存泄漏</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">一、代码编排</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">二、文档编排</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">三、空格的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">四、注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">五、文档描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">六、命名规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">七、编码建议</span></a></li></ol>
         
     </div>
     <style>
@@ -395,7 +377,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"C++的动态内存分配和指针　| Blog-Github　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"PEP8 Python 编码规范　| Blog-Github　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -415,7 +397,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/11/07/hello-world/" title="上一篇: Hello World">
+            <a href="/2017/11/07/Single responsibility principle/" title="上一篇: Single responsibility principle">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -423,7 +405,9 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/11/07/hello-world/" title="下一篇: Hello World">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 

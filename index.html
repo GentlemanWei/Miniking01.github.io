@@ -245,6 +245,396 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Preprocessor" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/07/Preprocessor/" class="article-date">
+      <time datetime="2017-11-07T08:52:57.901Z" itemprop="datePublished">2017-11-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/Preprocessor/">预处理器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>了解预处理器首先要知道编译器对C++源文件的处理。</p>
+</blockquote>
+<h2 id="翻译阶段"><a href="#翻译阶段" class="headerlink" title="翻译阶段"></a>翻译阶段</h2><h3 id="第一阶段-字符的映射"><a href="#第一阶段-字符的映射" class="headerlink" title="第一阶段  字符的映射"></a>第一阶段  字符的映射</h3><blockquote>
+<p>源文件中的每一个字节被（以一种由实现定义的方式）映射到基本源字符集中的字符。</p>
+<p>源文件中不能被映射到基本字符集的字符，被替换为通用字符名（转义字符），或某种进行等价处理的由实现定义的形式。</p>
+<p>三联符被替换为其对应的单字符表示。</p>
+<h3 id="第二阶段-逻辑行的确定"><a href="#第二阶段-逻辑行的确定" class="headerlink" title="第二阶段  逻辑行的确定"></a>第二阶段  逻辑行的确定</h3><p>当一个反斜杠出现在一行的末尾（紧挨着换行符之前），反斜杠与换行符连接删除，使两个物理行合并为一个逻辑行。</p>
+<p>C++11 起，在一个非空源文件的结束时，不以一个换行符结束则添加一个末尾的换行符。</p>
+<h3 id="第三阶段-代码分解"><a href="#第三阶段-代码分解" class="headerlink" title="第三阶段  代码分解"></a>第三阶段  代码分解</h3><p>源文件中的源代码被分解成注释、空白符（空格、水平制表符、垂直制表符、换行符及换页符）序列及预处理记号。</p>
+<p>注释被空白符替代。</p>
+<p>换行符被保留，而非换行符的空白符序列是否缩减成单格空格符是实现定义的。</p>
+<h3 id="第四阶段-预处理"><a href="#第四阶段-预处理" class="headerlink" title="第四阶段  预处理"></a>第四阶段  预处理</h3><p>执行预处理器。</p>
+<p>每个#include语句执行引入头文件，递归进行一至四阶段。</p>
+<p>所有预处理指令移除。</p>
+<h3 id="第五阶段-字符集转换"><a href="#第五阶段-字符集转换" class="headerlink" title="第五阶段  字符集转换"></a>第五阶段  字符集转换</h3><p>字符常量和字符串字面量中的所有字符和转义序列从源字符转换到执行字符集。</p>
+<h3 id="第六阶段-字符串合并"><a href="#第六阶段-字符串合并" class="headerlink" title="第六阶段  字符串合并"></a>第六阶段  字符串合并</h3><p>相邻的字符串常量被合并。</p>
+<h3 id="第七阶段-编译阶段"><a href="#第七阶段-编译阶段" class="headerlink" title="第七阶段  编译阶段"></a>第七阶段  编译阶段</h3><p>把预处理完的文件进行一系列的词法分析，语法分析，语义分析及优化后生成相应的汇编代码。</p>
+<h4 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h4><p>对由字符组成的单词进行处理，从左至右逐个字符地对源程序进行扫描，产生一个个的单词符号，把作为字符串的源程序改造成为单词符号串的中间程序。</p>
+<h4 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h4><p>把单词符号串分解成各类语法单位（语法范畴），如“短语”、“句子”、“程序段”和“程序”等。通过语法分析，确定整个输入串是否构成语法上正确的“程序”。</p>
+<h4 id="词义分析"><a href="#词义分析" class="headerlink" title="词义分析"></a>词义分析</h4><p>对语法分析所识别出的各类语法范畴，分析其含义，并进行初步翻译（产生中间代码）。</p>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>对中间代码进行加工变换，以期在最后阶段能产生出更为高效（省时间和空间）的目标代码。</p>
+<h4 id="生成目标代码"><a href="#生成目标代码" class="headerlink" title="生成目标代码"></a>生成目标代码</h4><p>把中间代码（或经优化处理之后）变换成特定机器上的低级语言代码。</p>
+<h3 id="第八阶段"><a href="#第八阶段" class="headerlink" title="第八阶段"></a>第八阶段</h3></blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Database foundation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/07/Database foundation/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.608Z" itemprop="datePublished">2017-11-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/Database foundation/">数据库基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="一、SQL-简介"><a href="#一、SQL-简介" class="headerlink" title="一、SQL 简介"></a>一、SQL 简介</h2><blockquote>
+<p>SQL是结构化查询语言的缩写，是使用关系模型的数据库应用语言。</p>
+</blockquote>
+<h2 id="二、SQL的分类"><a href="#二、SQL的分类" class="headerlink" title="二、SQL的分类"></a>二、SQL的分类</h2><h3 id="1-数据定义语言（DDL）："><a href="#1-数据定义语言（DDL）：" class="headerlink" title="1.数据定义语言（DDL）："></a>1.数据定义语言（DDL）：</h3><blockquote>
+<p>这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。</p>
+</blockquote>
+<h3 id="2-数据操作语言（DML）："><a href="#2-数据操作语言（DML）：" class="headerlink" title="2.数据操作语言（DML）："></a>2.数据操作语言（DML）：</h3><blockquote>
+<p>用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 insert、delete、udpate 和select 等。</p>
+</blockquote>
+<h3 id="3-数据控制语言（DCL）："><a href="#3-数据控制语言（DCL）：" class="headerlink" title="3.数据控制语言（DCL）："></a>3.数据控制语言（DCL）：</h3><blockquote>
+<p>用于控制不同数据段直接的许可和访问级别的语句。这些语句定义了数据库、表、字段、用户的访问权限和安全级别。主要的语句关键字包括 grant、revoke 等。</p>
+</blockquote>
+<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><h2 id="三、DDL语句"><a href="#三、DDL语句" class="headerlink" title="三、DDL语句"></a>三、DDL语句</h2><h3 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h3><blockquote>
+<p>Create database [dbname];<br><br>例：</p>
+<pre><code>create database test1;</code></pre>
+
+
+</blockquote>
+<h3 id="2-浏览数据库"><a href="#2-浏览数据库" class="headerlink" title="2.浏览数据库"></a>2.浏览数据库</h3><pre><code>Show databases;</code></pre>
+
+<h4 id="基本数据库"><a href="#基本数据库" class="headerlink" title="基本数据库"></a>基本数据库</h4><blockquote>
+<p>information_schema：主要存储了系统中的一些数据库对象信息。比如用户表信息、列信息、权限信息、字符集信息、分区信息等。<br><br>cluster：存储了系统的集群信息。<br><br>mysql：存储了系统的用户权限信息。<br><br>test：系统自动创建的测试数据库，任何用户都可以使用。<br></p>
+</blockquote>
+<h3 id="3-选择要操作的数据库"><a href="#3-选择要操作的数据库" class="headerlink" title="3.选择要操作的数据库"></a>3.选择要操作的数据库</h3><blockquote>
+<p>Use [dbname];<br><br>例：</p>
+<pre><code>use test1；</code></pre>
+
+</blockquote>
+<h3 id="4-删除数据库"><a href="#4-删除数据库" class="headerlink" title="4.删除数据库"></a>4.删除数据库</h3><blockquote>
+<p>Drop database [dbname];<br><br>例：</p>
+<p><pre><code>drop database test1;</code></pre><br>注意：数据库删除后，下面的所有表数据都会全部删除，所以删除前一定要仔细检查并做好相应备份.</p>
+</blockquote>
+<h3 id="5-创建表"><a href="#5-创建表" class="headerlink" title="5.创建表"></a>5.创建表</h3><blockquote>
+<p>Create table <a href="br /&gt;
+       column_name_1    column_type_1    constraints&lt;br /&gt;
+       column_name_2     column_type_2  ,    constraints&lt;br /&gt;
+       ……&lt;br /&gt;
+       column_name_n    column_type_n    Constraints&lt;br /">tablename</a>;<br><br>    例：</p>
+<p><pre><code>create table emp(<br>      Ename    varchar(10),<br>        Hiredate    date,<br>        Sal    decimal(10,2),<br>        Deptno    int(2)<br>);</code></pre></p>
+<h3 id="6-查看表的定义"><a href="#6-查看表的定义" class="headerlink" title="6.查看表的定义"></a>6.查看表的定义</h3><p>Desc [tablename];<br><br>例：</p>
+<p><pre><code>desc emp;</code></pre><br>查看创建表的SQL语句<br><br>Show create table [tablename] \G;<br><br>例：</p>
+<p><pre><code>show create table emp \G;</code></pre></p>
+<h3 id="7-删除表"><a href="#7-删除表" class="headerlink" title="7.删除表"></a>7.删除表</h3><p>Drop table [tablename];<br><br>例：</p>
+<p><pre><code>drop table emp;</code></pre></p>
+<h3 id="8-修改表"><a href="#8-修改表" class="headerlink" title="8.修改表"></a>8.修改表</h3><p>Alter table [tablename] modify [column] column_definition [FIRST | AFTER column_name];<br><br>例：</p>
+<p><pre><code>alter table emp modify ename varchar(20);</code></pre></p>
+<h3 id="9-增加表字段"><a href="#9-增加表字段" class="headerlink" title="9.增加表字段"></a>9.增加表字段</h3><p>Alter table [tablename] add[column] column_definition [FIRST | AFTER column_name];<br><br>例：</p>
+<p><pre><code>alter table emp add column age int(3);</code></pre></p>
+<h3 id="10-删除表字段"><a href="#10-删除表字段" class="headerlink" title="10.删除表字段"></a>10.删除表字段</h3><p>Alter table [tablename] drop [column] [column_name];<br><br>例：</p>
+<p><pre><code>alter table emp drop column age;</code></pre></p>
+<h3 id="11-修改字段名称"><a href="#11-修改字段名称" class="headerlink" title="11.修改字段名称"></a>11.修改字段名称</h3><p>Alter table [tablename] change [column] old_column_name column_definition [FIRST|AFTER column_name];<br><br>例：</p>
+<p><pre><code>alter table emp change age age1 int(4) ;</code></pre><br>注意：change 和 modify都可以修改表的定义，不同的是 change 后面需要写两次列名，不方便。<br><br>但是 change 的优点是可以修改列名称，modify则不能。</p>
+</blockquote>
+<h3 id="12-修改字段排列顺序"><a href="#12-修改字段排列顺序" class="headerlink" title="12.修改字段排列顺序"></a>12.修改字段排列顺序</h3><blockquote>
+<p>前面介绍的的字段增加和修改语法（ADD/CNAHGE/MODIFY）中，都有一个可选项 first|after column_name，这个选项可以用来修改字段在表中的位置，默认 ADD 增加的新字段是加在表的最后位置，而 CHANGE/MODIFY 默认都不会改变字段的位置。<br><br>例：</p>
+<pre><code>alter table emp add birth date after ename;</code></pre>
+注意：CHANGE/FIRST|AFTER COLUMN 这些关键字都属于 MySQL 在标准 SQL 上的扩展，在其他数据库上不一定适用。
+### 13. 修改表名
+Alter table [tablename] rename [to] new_tablename;<br>
+例：
+<pre><code>alter table emp rename emp1;</code></pre>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Single responsibility principle" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/07/Single responsibility principle/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.596Z" itemprop="datePublished">2017-11-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/Single responsibility principle/">Single responsibility principle</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="1-RBAC模型："><a href="#1-RBAC模型：" class="headerlink" title="1.RBAC模型："></a>1.RBAC模型：</h2><p>基于角色的访问控制，通过分配和取消角色来完成用户权限的收于和取消，使动作主体（用户）与资源的行为（权限）分离</p>
+<h2 id="2-There-should-never-be-more-than-one-reason-for-class-to-change"><a href="#2-There-should-never-be-more-than-one-reason-for-class-to-change" class="headerlink" title="2.There should never be more than one reason for class to change."></a>2.There should never be more than one reason for class to change.</h2><h2 id="3-单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。"><a href="#3-单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。" class="headerlink" title="3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。"></a>3.单一职责原则要求一个接口或者类只有一个原因引起变化，也就是一个接口或者类只有一个职责，它就负责一件事情。</h2><h2 id="4-耦合性：是对模块间关联程度的度量"><a href="#4-耦合性：是对模块间关联程度的度量" class="headerlink" title="4.耦合性：是对模块间关联程度的度量"></a>4.耦合性：是对模块间关联程度的度量</h2><p>（1）耦合的强弱取决于模块之间接口的复杂性、调用模块的方式以及通过界面传送数据的多少。<br>（2）模块间的耦合度是指模块之间的依赖关系，包括控制关系、调用关系、数据传递关系。<br>（3）模块间联系越多，其耦合性越强，同时表明其独立性越差。</p>
+<h3 id="高内聚低耦合"><a href="#高内聚低耦合" class="headerlink" title="高内聚低耦合"></a>高内聚低耦合</h3><h2 id="5-模块之间构成耦合性的七种类型（独立性由强到弱）："><a href="#5-模块之间构成耦合性的七种类型（独立性由强到弱）：" class="headerlink" title="5.模块之间构成耦合性的七种类型（独立性由强到弱）："></a>5.模块之间构成耦合性的七种类型（独立性由强到弱）：</h2><p>（1）非直接耦合：没有直接关系，之间联系完全通过主模块的控制和调用来实现<br>（2）数据耦合：彼此之间是通过数据参数（不是控制参数、公共数据结构或外部变量）来交换输入、输出信息的<br>（3）印记耦合：一组通过参数传递记录（某一数据结构的子结构，而不是简单的变量）信息的模块间关系<br>（4）控制耦合：在单一接口上选择多功能模块中的某项功能<br>（5）外部耦合一组模块都访问同一全局简单变量而不是同一全局数据结构，而且不是通过参数表传递该全局变量的信息<br>（6）公共耦合：一组模块都访问同一个公共数据环境<br>（7）内容耦合：一个模块直接访问另外一个模块的内部数据；一个模块不通过正常入口转到另一模块内部；两个模块有一部分程序代码重叠（只可能出现在汇编语言中）；一个模块有多个入口</p>
+<h2 id="6-单一原则的好处："><a href="#6-单一原则的好处：" class="headerlink" title="6.单一原则的好处："></a>6.单一原则的好处：</h2><p>（1）类的复杂性降低，实现什么职责都有清晰明确的定义<br>（2）可读性提高，复杂性降低<br>（3）可维护性提高，可读性提高<br>（4）变更引起的风险降低，变更是必不可少的，变更对其他接口几无影响，对系统的拓展性、维护性都有非常大的帮助</p>
+<h2 id="7-This-is-sometimes-hard-to-see"><a href="#7-This-is-sometimes-hard-to-see" class="headerlink" title="7.This is sometimes hard to see"></a>7.This is sometimes hard to see</h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Python encoding specification" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/07/Python encoding specification/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.585Z" itemprop="datePublished">2017-11-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/Python encoding specification/">PEP8 Python 编码规范</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p></p><h2>一、代码编排</h2><p></p>
+<p>1.缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tab，更不能混合使用Tab和空格。<br></p><br><p>2.每行最大长度79，换行可以使用反斜杠，最好使用圆括号。换行点要在操作符的后边敲回车。</p><br><p>3.类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。</p>
+
+<p></p><h2>二、文档编排</h2><p></p>
+<p>1.模块内容的顺序：模块说明和docstring—import—globals&amp;constants—其他定义。其中import部分，又按标准、三方和自己编写顺序依次排放，之间空一行。</p><br><p>2.不要在一句import中多个库，比如import os, sys不推荐。</p><br><p>3.如果采用from XX import XX引用库，可以省略’module.’，都是可能出现命名冲突，这时就要采用import XX。</p>
+
+<p></p><h2>三、空格的使用</h2><br>        总体原则，避免不必要的空格。<p></p>
+<p>1.各种右括号前不要加空格。</p><br><p>2.逗号、冒号、分号前不要加空格。</p><br><p>3.函数的左括号前不要加空格。如Func(1)。</p><br><p>4.序列的左括号前不要加空格。如list[2]。</p><br><p>5.操作符左右各加一个空格，不要为了对齐增加空格。</p><br><p>6.函数默认参数使用的赋值符左右省略空格。</p><br><p>7.不要将多句语句写在同一行，尽管使用’;’允许。</p><br><p>8.if/for/while语句中，即使执行语句只有一句，也必须另起一行。</p>
+
+<p></p><h2>四、注释</h2><br>        总体原则，错误的注释不如没有注释。所以当一段代码发生变化时，第一件事就是要修改注释！<br>       注释必须使用英文，最好是完整的句子，首字母大写，句后要有结束符，结束符后跟两个空格，开始下一句。如果是短语，可以省略结束符。<p></p>
+<p>1.块注释，在一段代码前增加的注释。在‘#’后加一空格。段落之间以只有‘#’的行间隔。比如：<br># Description : Module config.<br>#<br># Input : None<br>#<br># Output : None<br></p><br><p>2.行注释，在一句代码后加注释。比如：<br>x = x + 1            # Increment x<br>但是这种方式尽量少使用。</p><br><p>3.避免无谓的注释。</p>
+
+<p></p><h2>五、文档描述</h2><p></p>
+<p>1.为所有的共有模块、函数、类、方法写docstrings；非共有的没有必要，但是可以写注释（在def的下一行）。</p><br><p>2.如果docstring要换行，参考如下例子,详见PEP 257<br>“””Return a foobang<br><br>Optional plotz says to frobnicate the bizbaz first.<br><br>“””<br></p><br><h2>六、命名规范</h2><br>        总体原则，新编代码必须按下面命名风格进行，现有库的编码尽量保持风格。<br><p>1.尽量单独使用小写字母‘l’，大写字母‘O’等容易混淆的字母。</p><br><p>2.模块命名尽量短小，使用全部小写的方式，可以使用下划线。</p><br><p>3.包命名尽量短小，使用全部小写的方式，不可以使用下划线。</p><br><p>4.类的命名使用CapWords的方式，模块内部使用的类采用_CapWords的方式。</p><br><p>5.异常命名使用CapWords+Error后缀的方式。</p><br><p>6.全局变量尽量只在模块内有效，类似C语言中的static。实现方法有两种，一是<strong>all</strong>机制;二是前缀一个下划线。</p><br><p>7.函数命名使用全部小写的方式，可以使用下划线。</p><br><p>8.常量命名使用全部大写的方式，可以使用下划线。</p><br><p>9.类的属性（方法和变量）命名使用全部小写的方式，可以使用下划线。</p><br><p>10.类的属性有3种作用域public、non-public和subclass API，可以理解成C++中的public、private、protected，non-public属性前，前缀一条下划线。</p><br><p>11.类的属性若与关键字名字冲突，后缀一下划线，尽量不要使用缩略等其他方式。</p><br><p>12.为避免与子类属性命名冲突，在类的一些属性前，前缀两条下划线。比如：类Foo中声明<strong>a,访问时，只能通过Foo._Foo</strong>a，避免歧义。如果子类也叫Foo，那就无能为力了。</p><br><p>13.类的方法第一个参数必须是self，而静态方法第一个参数必须是cls。</p>
+
+<p></p><h2>七、编码建议</h2><p></p>
+<p>1.编码中考虑到其他python实现的效率等问题，比如运算符‘+’在CPython（Python）中效率很高，都是Jython中却非常低，所以应该采用.join()的方式。</p><br><p>2.尽可能使用‘is’‘is not’取代‘==’，比如if x is not None 要优于if x。</p><br><p>3.使用基于类的异常，每个模块或包都有自己的异常类，此异常类继承自Exception。</p><br><p>4.异常中不要使用裸露的except，except后跟具体的exceptions。</p><br><p>5.异常中try的代码尽可能少。比如：<br>try:<br>value = collection[key]<br>except KeyError:<br>return key_not_found(key)<br>else:<br>return handle_value(value)<br>要优于<br>try:<br># Too broad!<br>return handle_value(collection[key])<br>except KeyError:<br># Will also catch KeyError raised by handle_value()<br>return key_not_found(key)<br></p><br><p>6.使用startswith() and endswith()代替切片进行序列前缀或后缀的检查。比如：<br>Yes:  if foo.startswith(‘bar’):优于<br>No:  if foo[:3] == ‘bar’:<br></p><br><p>7.使用isinstance()比较对象的类型。比如<br>Yes:  if isinstance(obj, int): 优于<br>No:  if type(obj) is type(1):<br></p><br><p>8.判断序列空或不空，有如下规则<br>Yes:  if not seq:<br>if seq:<br>优于<br>No:  if len(seq)<br>if not len(seq)<br></p><br><p>9.字符串不要以空格收尾。</p><br><p>10.二进制数据判断使用 if boolvalue的方式。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/07/hello-world/" class="article-date">
+      <time datetime="2017-11-07T08:49:30.512Z" itemprop="datePublished">2017-11-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-C++ dynamic memory allocation and pointer" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
